@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 return [
     'navigation' => [
         'label' => 'Ore di Lavoro',
@@ -9,14 +7,12 @@ return [
         'icon' => 'heroicon-o-clock',
         'sort' => 50,
     ],
-
     'resource' => [
         'label' => 'Voce Oraria',
         'plural_label' => 'Voci Orarie',
         'navigation_label' => 'Ore di Lavoro',
         'description' => 'Gestione completa delle registrazioni orarie dei dipendenti',
     ],
-
     'fields' => [
         'employee_id' => [
             'label' => 'Dipendente',
@@ -125,8 +121,10 @@ return [
             'tooltip' => 'Timestamp ultimo aggiornamento',
             'description' => 'Data e ora dell\'ultimo aggiornamento',
         ],
+        'toggleColumns' => [
+            'label' => 'toggleColumns',
+        ],
     ],
-
     'actions' => [
         'create' => [
             'label' => 'Crea Voce Oraria',
@@ -194,7 +192,6 @@ return [
             'tooltip' => 'Rifiuta tutte le voci selezionate',
         ],
     ],
-
     'sections' => [
         'time_entry_details' => [
             'heading' => 'Dettagli Voce Oraria',
@@ -225,7 +222,6 @@ return [
             'collapsed' => true,
         ],
     ],
-
     'filters' => [
         'employee' => [
             'label' => 'Dipendente',
@@ -257,7 +253,6 @@ return [
             'help' => 'Mostra solo voci in attesa di approvazione',
         ],
     ],
-
     'tabs' => [
         'all' => [
             'label' => 'Tutte le Voci',
@@ -290,7 +285,6 @@ return [
             'icon' => 'heroicon-o-x-circle',
         ],
     ],
-
     'pages' => [
         'timeclock' => [
             'title' => 'Timbratura Dipendenti',
@@ -329,7 +323,6 @@ return [
             'description' => 'Informazioni complete sulla registrazione',
         ],
     ],
-
     'widgets' => [
         'stats' => [
             'title' => 'Statistiche Ore di Lavoro',
@@ -392,7 +385,6 @@ return [
             ],
         ],
     ],
-
     'status' => [
         'not_clocked_in' => [
             'label' => 'Non Timbrato',
@@ -437,7 +429,6 @@ return [
             'icon' => 'heroicon-o-x-circle',
         ],
     ],
-
     'messages' => [
         'validation' => [
             'invalid_sequence' => 'Sequenza voci non valida. Ultima voce: :last_entry',
@@ -489,7 +480,6 @@ return [
             'bulk_reject' => 'Confermi il rifiuto di :count voci orarie?',
         ],
     ],
-
     'summary' => [
         'total_hours_worked' => [
             'label' => 'Ore Totali Lavorate',
@@ -537,7 +527,6 @@ return [
             'tooltip' => 'Calcolo ore straordinarie',
         ],
     ],
-
     'quick_actions' => [
         'title' => 'Azioni Rapide',
         'description' => 'Accesso veloce alle funzioni principali',

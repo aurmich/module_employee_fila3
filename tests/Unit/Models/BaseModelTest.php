@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Tests\Unit\Models;
 
-use Modules\Employee\Models\BaseModel;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Model;
-use Tests\TestCase;
-
-uses(TestCase::class, RefreshDatabase::class);
+use Modules\Employee\Models\BaseModel;
 
 beforeEach(function () {
-    $this->baseModel = new class extends BaseModel {
+    $this->baseModel = new class extends BaseModel
+    {
         protected $table = 'test_employee_table';
     };
 });

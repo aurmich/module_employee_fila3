@@ -24,7 +24,13 @@ This is the fundamental rule of Laraxot philosophy that must be followed without
 
 ### Filament Widgets
 - ❌ NEVER: `extends Filament\Widgets\Widget`
+- ❌ NEVER: `extends Filament\Widgets\StatsOverviewWidget`
+- ❌ NEVER: `extends Filament\Widgets\ChartWidget`
+- ❌ NEVER: `extends Filament\Widgets\TableWidget`
 - ✅ ALWAYS: `extends Modules\Xot\Filament\Widgets\XotBaseWidget`
+- ✅ ALWAYS: `extends Modules\Xot\Filament\Widgets\XotBaseStatsOverviewWidget`
+- ✅ ALWAYS: `extends Modules\Xot\Filament\Widgets\XotBaseChartWidget`
+- ✅ ALWAYS: `extends Modules\Xot\Filament\Widgets\XotBaseTableWidget`
 
 ### Filament Pages
 - ❌ NEVER: `extends Filament\Pages\Page`

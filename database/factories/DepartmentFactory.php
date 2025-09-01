@@ -40,8 +40,6 @@ class DepartmentFactory extends Factory
 
     /**
      * Indicate that the department is active.
-     *
-     * @return static
      */
     public function active(): static
     {
@@ -52,8 +50,6 @@ class DepartmentFactory extends Factory
 
     /**
      * Indicate that the department is inactive.
-     *
-     * @return static
      */
     public function inactive(): static
     {
@@ -64,9 +60,6 @@ class DepartmentFactory extends Factory
 
     /**
      * Set a specific department name.
-     *
-     * @param string $name
-     * @return static
      */
     public function withName(string $name): static
     {
@@ -77,9 +70,6 @@ class DepartmentFactory extends Factory
 
     /**
      * Set a specific description.
-     *
-     * @param string $description
-     * @return static
      */
     public function withDescription(string $description): static
     {

@@ -28,7 +28,7 @@ class EmployeeFactory extends Factory
     {
         return [
             'user_id' => null, // Will be set when needed
-            'employee_code' => 'EMP' . $this->faker->unique()->numberBetween(1000, 9999),
+            'employee_code' => 'EMP'.$this->faker->unique()->numberBetween(1000, 9999),
             'personal_data' => [
                 'first_name' => $this->faker->firstName(),
                 'last_name' => $this->faker->lastName(),
@@ -79,8 +79,6 @@ class EmployeeFactory extends Factory
 
     /**
      * Indicate that the employee is active.
-     *
-     * @return static
      */
     public function active(): static
     {
@@ -91,8 +89,6 @@ class EmployeeFactory extends Factory
 
     /**
      * Indicate that the employee is inactive.
-     *
-     * @return static
      */
     public function inactive(): static
     {
@@ -103,9 +99,6 @@ class EmployeeFactory extends Factory
 
     /**
      * Set a specific employee code.
-     *
-     * @param string $code
-     * @return static
      */
     public function withCode(string $code): static
     {
@@ -116,9 +109,6 @@ class EmployeeFactory extends Factory
 
     /**
      * Set specific personal data.
-     *
-     * @param array $personalData
-     * @return static
      */
     public function withPersonalData(array $personalData): static
     {
@@ -129,9 +119,6 @@ class EmployeeFactory extends Factory
 
     /**
      * Set specific contact data.
-     *
-     * @param array $contactData
-     * @return static
      */
     public function withContactData(array $contactData): static
     {
@@ -142,9 +129,6 @@ class EmployeeFactory extends Factory
 
     /**
      * Set a specific status.
-     *
-     * @param string $status
-     * @return static
      */
     public function withStatus(string $status): static
     {
