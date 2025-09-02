@@ -4,17 +4,28 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Filament\Pages;
 
+<<<<<<< HEAD
 use Modules\Employee\Filament\Widgets;
+=======
+>>>>>>> fda50b5 (.)
 use Modules\Xot\Filament\Pages\XotBaseDashboard;
 
 /**
  * Dashboard per il modulo Employee.
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> fda50b5 (.)
  * Estende XotBaseDashboard che gestisce automaticamente:
  * - Navigazione (icon, title, label, sort)
  * - Filtri del dashboard
  * - Struttura base del dashboard
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> fda50b5 (.)
  * REGOLA CRITICA: NON ridefinire proprietà di navigazione
  * che sono già gestite centralmente da XotBaseDashboard.
  */
@@ -25,6 +36,7 @@ class Dashboard extends XotBaseDashboard
     // protected static ?string $title
     // protected static ?string $navigationLabel
     // protected static ?int $navigationSort
+<<<<<<< HEAD
 
     // ✅ XotBaseDashboard auto-configura tutto basandosi sul modulo
 
@@ -66,4 +78,10 @@ class Dashboard extends XotBaseDashboard
     {
         return [];
     }
+=======
+    
+    // ✅ XotBaseDashboard auto-configura tutto basandosi sul modulo
+    
+    // protected static string $view = 'employee::filament.pages.dashboard';
+>>>>>>> fda50b5 (.)
 }

@@ -8,10 +8,17 @@ use Modules\Xot\Providers\XotBaseServiceProvider;
 
 /**
  * Service Provider per il modulo Employee.
+<<<<<<< HEAD
  *
  * Questo provider gestisce la registrazione e configurazione
  * del modulo Employee nell'applicazione Laravel.
  *
+=======
+ * 
+ * Questo provider gestisce la registrazione e configurazione
+ * del modulo Employee nell'applicazione Laravel.
+ * 
+>>>>>>> fda50b5 (.)
  * Estende XotBaseServiceProvider per garantire:
  * - Configurazione automatica del modulo
  * - Registrazione viste e traduzioni
