@@ -1,6 +1,5 @@
 <?php
 
-<<<<<<< HEAD
 declare(strict_types=1);
 
 return [
@@ -260,8 +259,4 @@ return [
             'sync_interval' => env('EMPLOYEE_HR_SYNC_INTERVAL', 3600), // seconds
         ],
     ],
-=======
-return [
-    'name' => 'Employee',
->>>>>>> fda50b5 (.)
 ];

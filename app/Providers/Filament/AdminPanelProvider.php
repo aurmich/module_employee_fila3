@@ -17,7 +17,6 @@ class AdminPanelProvider extends XotBasePanelProvider
         $panel = parent::panel($panel);
 
         // Configurazioni specifiche del modulo Employee
-<<<<<<< HEAD
         $panel
             ->login()
             ->pages([
@@ -26,11 +25,6 @@ class AdminPanelProvider extends XotBasePanelProvider
             ->resources([
                 \Modules\Employee\Filament\Resources\WorkHourResource::class,
             ]);
-=======
-        $panel->pages([
-            \Modules\Employee\Filament\Pages\Dashboard::class,
-        ]);
->>>>>>> fda50b5 (.)
 
         // Menu items specifici
         $panel->userMenuItems([

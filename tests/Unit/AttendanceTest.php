@@ -2,22 +2,6 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
-use Carbon\Carbon;
-use Modules\Employee\Models\Attendance;
-use Modules\User\Models\User;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-
-uses(DatabaseTransactions::class);
-
-describe('Attendance Model', function () {
-    
-    beforeEach(function () {
-        $this->user = User::factory()->create();
-    });
-
-    test('can create attendance record', function () {
-=======
 namespace Modules\Employee\Tests\Unit;
 
 use Carbon\Carbon;
@@ -41,7 +25,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_create_attendance_record()
     {
->>>>>>> fda50b5 (.)
         $attendance = Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => now(),
@@ -51,17 +34,6 @@ class AttendanceTest extends TestCase
             'is_manual' => false,
         ]);
 
-<<<<<<< HEAD
-        expect($attendance)->toBeInstanceOf(Attendance::class);
-        expect($attendance->user_id)->toBe($this->user->id);
-        expect($attendance->type)->toBe('entry');
-        expect($attendance->method)->toBe('badge');
-        expect($attendance->status)->toBe('valid');
-        expect($attendance->is_manual)->toBeFalse();
-    });
-
-    test('has user relationship', function () {
-=======
         $this->assertInstanceOf(Attendance::class, $attendance);
         $this->assertEquals($this->user->id, $attendance->user_id);
         $this->assertEquals('entry', $attendance->type);
@@ -73,7 +45,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_has_user_relationship()
     {
->>>>>>> fda50b5 (.)
         $attendance = Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => now(),
@@ -82,13 +53,6 @@ class AttendanceTest extends TestCase
             'status' => 'valid',
         ]);
 
-<<<<<<< HEAD
-        expect($attendance->user)->toBeInstanceOf(User::class);
-        expect($attendance->user->id)->toBe($this->user->id);
-    });
-
-    test('can check if entry', function () {
-=======
         $this->assertInstanceOf(User::class, $attendance->user);
         $this->assertEquals($this->user->id, $attendance->user->id);
     }
@@ -96,7 +60,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_check_if_entry()
     {
->>>>>>> fda50b5 (.)
         $entry = Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => now(),
@@ -113,13 +76,6 @@ class AttendanceTest extends TestCase
             'status' => 'valid',
         ]);
 
-<<<<<<< HEAD
-        expect($entry->isEntry())->toBeTrue();
-        expect($exit->isEntry())->toBeFalse();
-    });
-
-    test('can check if exit', function () {
-=======
         $this->assertTrue($entry->isEntry());
         $this->assertFalse($exit->isEntry());
     }
@@ -127,7 +83,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_check_if_exit()
     {
->>>>>>> fda50b5 (.)
         $entry = Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => now(),
@@ -144,13 +99,6 @@ class AttendanceTest extends TestCase
             'status' => 'valid',
         ]);
 
-<<<<<<< HEAD
-        expect($entry->isExit())->toBeFalse();
-        expect($exit->isExit())->toBeTrue();
-    });
-
-    test('can check if manual', function () {
-=======
         $this->assertFalse($entry->isExit());
         $this->assertTrue($exit->isExit());
     }
@@ -158,7 +106,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_check_if_manual()
     {
->>>>>>> fda50b5 (.)
         $manual = Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => now(),
@@ -177,13 +124,6 @@ class AttendanceTest extends TestCase
             'is_manual' => false,
         ]);
 
-<<<<<<< HEAD
-        expect($manual->isManual())->toBeTrue();
-        expect($automatic->isManual())->toBeFalse();
-    });
-
-    test('can check if has location', function () {
-=======
         $this->assertTrue($manual->isManual());
         $this->assertFalse($automatic->isManual());
     }
@@ -191,7 +131,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_check_if_has_location()
     {
->>>>>>> fda50b5 (.)
         $withLocation = Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => now(),
@@ -210,15 +149,6 @@ class AttendanceTest extends TestCase
             'status' => 'valid',
         ]);
 
-<<<<<<< HEAD
-        expect($withLocation->hasLocation())->toBeTrue();
-        expect($withoutLocation->hasLocation())->toBeFalse();
-    });
-
-    test('can format timestamp', function () {
-        $timestamp = Carbon::parse('2024-01-15 09:30:00');
-
-=======
         $this->assertTrue($withLocation->hasLocation());
         $this->assertFalse($withoutLocation->hasLocation());
     }
@@ -228,7 +158,6 @@ class AttendanceTest extends TestCase
     {
         $timestamp = Carbon::parse('2024-01-15 09:30:00');
         
->>>>>>> fda50b5 (.)
         $attendance = Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => $timestamp,
@@ -237,14 +166,6 @@ class AttendanceTest extends TestCase
             'status' => 'valid',
         ]);
 
-<<<<<<< HEAD
-        expect($attendance->formatted_timestamp)->toBe('15/01/2024 09:30:00');
-        expect($attendance->formatted_time)->toBe('09:30:00');
-        expect($attendance->formatted_date)->toBe('15/01/2024');
-    });
-
-    test('can scope by user', function () {
-=======
         $this->assertEquals('15/01/2024 09:30:00', $attendance->formatted_timestamp);
         $this->assertEquals('09:30:00', $attendance->formatted_time);
         $this->assertEquals('15/01/2024', $attendance->formatted_date);
@@ -253,7 +174,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_scope_by_user()
     {
->>>>>>> fda50b5 (.)
         $otherUser = User::factory()->create();
 
         Attendance::create([
@@ -275,15 +195,6 @@ class AttendanceTest extends TestCase
         $userAttendances = Attendance::forUser($this->user->id)->get();
         $otherUserAttendances = Attendance::forUser($otherUser->id)->get();
 
-<<<<<<< HEAD
-        expect($userAttendances)->toHaveCount(1);
-        expect($otherUserAttendances)->toHaveCount(1);
-        expect($userAttendances->first()->user_id)->toBe($this->user->id);
-        expect($otherUserAttendances->first()->user_id)->toBe($otherUser->id);
-    });
-
-    test('can scope by type', function () {
-=======
         $this->assertEquals(1, $userAttendances->count());
         $this->assertEquals(1, $otherUserAttendances->count());
         $this->assertEquals($this->user->id, $userAttendances->first()->user_id);
@@ -293,7 +204,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_scope_by_type()
     {
->>>>>>> fda50b5 (.)
         Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => now(),
@@ -313,15 +223,6 @@ class AttendanceTest extends TestCase
         $entries = Attendance::ofType('entry')->get();
         $exits = Attendance::ofType('exit')->get();
 
-<<<<<<< HEAD
-        expect($entries)->toHaveCount(1);
-        expect($exits)->toHaveCount(1);
-        expect($entries->first()->type)->toBe('entry');
-        expect($exits->first()->type)->toBe('exit');
-    });
-
-    test('can scope by date', function () {
-=======
         $this->assertEquals(1, $entries->count());
         $this->assertEquals(1, $exits->count());
         $this->assertEquals('entry', $entries->first()->type);
@@ -331,7 +232,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_scope_by_date()
     {
->>>>>>> fda50b5 (.)
         $today = now();
         $yesterday = now()->subDay();
 
@@ -354,13 +254,6 @@ class AttendanceTest extends TestCase
         $todayAttendances = Attendance::forDate($today)->get();
         $yesterdayAttendances = Attendance::forDate($yesterday)->get();
 
-<<<<<<< HEAD
-        expect($todayAttendances)->toHaveCount(1);
-        expect($yesterdayAttendances)->toHaveCount(1);
-    });
-
-    test('can scope valid records', function () {
-=======
         $this->assertEquals(1, $todayAttendances->count());
         $this->assertEquals(1, $yesterdayAttendances->count());
     }
@@ -368,7 +261,6 @@ class AttendanceTest extends TestCase
     /** @test */
     public function it_can_scope_valid_records()
     {
->>>>>>> fda50b5 (.)
         Attendance::create([
             'user_id' => $this->user->id,
             'timestamp' => now(),
@@ -387,14 +279,7 @@ class AttendanceTest extends TestCase
 
         $validAttendances = Attendance::valid()->get();
 
-<<<<<<< HEAD
-        expect($validAttendances)->toHaveCount(1);
-        expect($validAttendances->first()->status)->toBe('valid');
-    });
-});
-=======
         $this->assertEquals(1, $validAttendances->count());
         $this->assertEquals('valid', $validAttendances->first()->status);
     }
 } 
->>>>>>> fda50b5 (.)
