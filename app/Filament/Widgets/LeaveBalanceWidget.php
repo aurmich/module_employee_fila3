@@ -24,10 +24,7 @@ class LeaveBalanceWidget extends XotBaseWidget
 
     protected static ?string $maxHeight = '400px';
 
-    protected int|string|array $columnSpan = [
-        'md' => 2,
-        'xl' => 1,
-    ];
+    protected int|string|array $columnSpan = 1;
 
     /**
      * Get the form schema for the widget.
@@ -52,8 +49,8 @@ class LeaveBalanceWidget extends XotBaseWidget
                                         ->content(function () use ($employee): \Illuminate\Contracts\View\View {
                                             // @phpstan-ignore-next-line argument.type
                                             return view('employee::widgets.leave-balance.balance-display', [
-                                            'balances' => $this->getMonthlyBalances($employee),
-                                            'type' => 'monthly',
+                                                'balances' => $this->getMonthlyBalances($employee),
+                                                'type' => 'monthly',
                                             ]);
                                         }),
                                 ]),
@@ -65,8 +62,8 @@ class LeaveBalanceWidget extends XotBaseWidget
                                         ->content(function () use ($employee): \Illuminate\Contracts\View\View {
                                             // @phpstan-ignore-next-line argument.type
                                             return view('employee::widgets.leave-balance.balance-display', [
-                                            'balances' => $this->getAnnualBalances($employee),
-                                            'type' => 'annual',
+                                                'balances' => $this->getAnnualBalances($employee),
+                                                'type' => 'annual',
                                             ]);
                                         }),
                                 ]),

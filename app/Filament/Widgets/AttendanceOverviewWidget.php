@@ -12,7 +12,6 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Tabs\Tab;
-use Modules\Employee\Models\Employee;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
 
 /**
@@ -27,10 +26,7 @@ class AttendanceOverviewWidget extends XotBaseWidget
 
     protected static ?string $maxHeight = '500px';
 
-    protected int|string|array $columnSpan = [
-        'md' => 3,
-        'xl' => 2,
-    ];
+    protected int|string|array $columnSpan = 1;
 
     public ?string $selectedDepartment = 'SVILUPPO';
 
@@ -65,8 +61,8 @@ class AttendanceOverviewWidget extends XotBaseWidget
                                         ->content(function (): \Illuminate\Contracts\View\View {
                                             // @phpstan-ignore-next-line argument.type
                                             return view('employee::widgets.attendance-overview.attendance-list', [
-                                            'items' => $this->getAbsences(),
-                                            'type' => 'absences',
+                                                'items' => $this->getAbsences(),
+                                                'type' => 'absences',
                                             ]);
                                         }),
                                 ]),
@@ -79,8 +75,8 @@ class AttendanceOverviewWidget extends XotBaseWidget
                                         ->content(function (): \Illuminate\Contracts\View\View {
                                             // @phpstan-ignore-next-line argument.type
                                             return view('employee::widgets.attendance-overview.attendance-list', [
-                                            'items' => $this->getSmartWorking(),
-                                            'type' => 'smart_working',
+                                                'items' => $this->getSmartWorking(),
+                                                'type' => 'smart_working',
                                             ]);
                                         }),
                                 ]),
@@ -93,8 +89,8 @@ class AttendanceOverviewWidget extends XotBaseWidget
                                         ->content(function (): \Illuminate\Contracts\View\View {
                                             // @phpstan-ignore-next-line argument.type
                                             return view('employee::widgets.attendance-overview.attendance-list', [
-                                            'items' => $this->getTransfers(),
-                                            'type' => 'transfers',
+                                                'items' => $this->getTransfers(),
+                                                'type' => 'transfers',
                                             ]);
                                         }),
                                 ]),
@@ -200,7 +196,7 @@ class AttendanceOverviewWidget extends XotBaseWidget
         // Mock implementation since 'smart_working' type doesn't exist in WorkHour schema
         $result = [];
 
-        // Return mock data if no real smart working found  
+        // Return mock data if no real smart working found
         if (count($result) === 0) {
             $user = \Modules\User\Models\User::whereNotNull('first_name')
                 ->whereNotNull('last_name')

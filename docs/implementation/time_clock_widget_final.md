@@ -21,8 +21,9 @@
 - Aggiornamento real-time ogni secondo
 
 #### 📋 Colonna 2: Timbrature e Stato
-- **"Sessione attiva"** - Stato con pallino verde animato
-- **● 08:02** - Lista cronologica timbrature reali
+- **"Sessione attiva"** - Stato con badge verde
+- **→ 08:02** - Badge cronologici timbrature (verde=entrata, rosso=uscita)
+- Interattività con hover effect e transizioni
 - Query database effettive (NO mock)
 
 #### 🔴 Colonna 3: Pulsante Filament Nativo
@@ -49,30 +50,71 @@ class TimeClockWidget extends XotBaseWidget
 }
 ```
 
-### Vista Blade - Componenti Filament Nativi
+### Vista Blade - Componenti Filament Nativi con Badge
 ```blade
 <x-filament-widgets::widget>
-    <div class="grid grid-cols-3 gap-6 items-center h-20" wire:poll.1s="updateData">
+    <div class="flex items-center gap-6 h-24 w-full" wire:poll.1s="updateData">
         {{-- SINISTRA: Ora e Data --}}
-        <div class="text-center">
-            <div class="text-3xl font-mono font-bold">{{ $currentTime }}</div>
-            <div class="text-sm text-gray-600 mt-1">{{ $todayDate }}</div>
+        <div class="flex-1 text-center">
+            <div class="text-5xl font-mono font-bold text-gray-900 dark:text-gray-100">
+                {{ $currentTime }}
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                {{ $todayDate }}
+            </div>
         </div>
         
-        {{-- CENTRO: Timbrature --}}
-        <div class="text-center">
-            <!-- Stato e lista timbrature -->
+        {{-- CENTRO: Timbrature con Badge --}}
+        <div class="flex-1 text-center">
+            @if($isClockedIn)
+                <div class="text-sm font-medium text-green-600 dark:text-green-400 mb-2">
+                    Sessione attiva
+                </div>
+            @else
+                 <div class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
+                    Nessuna sessione attiva
+                </div>
+            @endif
+            
+            <div class="flex flex-wrap gap-1 justify-center">
+                @forelse($todayEntries as $entry)
+                    <x-filament::badge 
+                        :color="$entry['type'] === 'clock_in' ? 'success' : 'danger'"
+                        size="sm"
+                        class="cursor-pointer hover:scale-105 transition-transform">
+                        {{ $entry['type'] === 'clock_in' ? '→' : '←' }} {{ $entry['time'] }}
+                    </x-filament::badge>
+                @empty
+                    <x-filament::badge 
+                        color="gray" 
+                        size="sm"
+                        icon="heroicon-o-clock"
+                        class="italic">
+                        Nessuna timbratura
+                    </x-filament::badge>
+                @endforelse
+            </div>
         </div>
         
         {{-- DESTRA: Pulsante Filament --}}
-        <div class="text-center">
-            <x-filament::button 
-                wire:click="{{ $isClockedIn ? 'clockOut' : 'clockIn' }}" 
-                color="{{ $isClockedIn ? 'danger' : 'success' }}"
-                size="lg"
-                class="w-full">
-                {{ $isClockedIn ? '🔴 Timbra uscita' : '🟢 Timbra entrata' }}
-            </x-filament::button>
+        <div class="flex-1 text-center">
+            @if($isClockedIn)
+                <x-filament::button 
+                    wire:click="clockOut" 
+                    color="danger"
+                    size="lg"
+                    icon="heroicon-o-arrow-left-on-rectangle">
+                    Timbra uscita
+                </x-filament::button>
+            @else
+                <x-filament::button 
+                    wire:click="clockIn" 
+                    color="success"
+                    size="lg"
+                    icon="heroicon-o-arrow-right-on-rectangle">
+                    Timbra entrata
+                </x-filament::button>
+            @endif
         </div>
     </div>
 </x-filament-widgets::widget>
@@ -81,10 +123,11 @@ class TimeClockWidget extends XotBaseWidget
 ## 📊 Caratteristiche Implementate
 
 ### ✅ Studio Filament 3 Completato
-- **Componenti nativi**: Sempre `x-filament::button`
-- **Colori semantici**: `success`, `danger`, `warning`
-- **Dimensioni standard**: `size="lg"` per pulsanti principali
+- **Componenti nativi**: `x-filament::button` e `x-filament::badge`
+- **Colori semantici**: `success` (entrata), `danger` (uscita), `gray` (stati)
+- **Dimensioni standard**: `size="lg"` per pulsanti, `size="sm"` per badge
 - **Wrapper corretto**: `x-filament-widgets::widget`
+- **Layout flexbox**: `flex items-center gap-6` per 3 colonne perfette
 
 ### ✅ Documentazione Aggiornata
 1. **[filament3_widget_patterns.md](../development/filament3_widget_patterns.md)** - Studio Filament 3
@@ -105,11 +148,14 @@ class TimeClockWidget extends XotBaseWidget
 
 ### Layout Responsivo
 ```css
-/* Desktop: 3 colonne affiancate */
-grid-cols-3
+/* Layout definitivo 3 colonne */
+flex items-center gap-6 h-24 w-full
 
-/* Mobile: Stack verticale se necessario */  
-grid-cols-1 md:grid-cols-3
+/* Colonne proporzionali */
+flex-1 text-center
+
+/* Mobile responsive */
+Le colonne si adattano automaticamente allo spazio disponibile
 ```
 
 ### Colori Semantici Filament
@@ -132,8 +178,9 @@ grid-cols-1 md:grid-cols-3
 ```
 
 ### Test Funzionalità
-- ✅ **Layout 3 colonne**: Grid funzionante
-- ✅ **Componenti Filament**: Button nativi
+- ✅ **Layout 3 colonne**: Flexbox perfettamente funzionante
+- ✅ **Componenti Filament**: Button e Badge nativi
+- ✅ **Badge interattivi**: Hover effect e transizioni
 - ✅ **Real-time**: Polling ogni secondo
 - ✅ **Database**: Query timbrature reali
 
@@ -157,16 +204,19 @@ protected function getHeaderWidgets(): array
 ```
 
 ### Caratteristiche UX
-- **Altezza fissa**: `h-20` per compattezza
+- **Altezza fissa**: `h-24` per compattezza
 - **Visibilità immediata**: Primo widget nel dashboard
 - **Azioni rapide**: Un click per timbrare
 - **Feedback visivo**: Notifiche Filament integrate
+- **Badge interattivi**: Hover effect e transizioni smooth
+- **Design moderno**: Badge colorati con frecce Unicode
 
 ## 🎉 Risultato Finale
 
 ### Conformità 100%
-- 🎯 **Layout identico** all'immagine fornita
-- ✅ **Componenti Filament** nativi obbligatori
+- 🎯 **Layout 3 colonne perfetto** con flexbox
+- ✅ **Componenti Filament** nativi (Button + Badge)
+- ✅ **UI/UX migliorata** con badge interattivi
 - ✅ **Logica reale** senza dati mock
 - ✅ **Performance** ottimizzate con polling
 
