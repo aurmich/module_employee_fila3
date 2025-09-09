@@ -16,15 +16,20 @@ use Modules\Employee\Models\WorkHour;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Models\Employee;
 use Modules\Employee\Models\WorkHour;
+<<<<<<< HEAD
 use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Enums\WorkHourStatusEnum;
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
 
 class TimeClock extends Component
 {
     public ?Employee $employee = null;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     public string $currentTime = '';
@@ -43,15 +48,28 @@ class TimeClock extends Component
     public float $workedHours = 0.0;
 
 =======
+=======
+
+>>>>>>> 6229c57 (.)
     public string $currentTime = '';
+
     public string $currentDate = '';
+
     public string $nextAction = '';
+
     public string $currentStatus = '';
+
     public ?WorkHour $lastEntry = null;
+
     /** @var array<int, array{time:string,type:string}> */
     public array $todayEntries = [];
+
     public float $workedHours = 0.0;
+<<<<<<< HEAD
 >>>>>>> 95b3a4c (.)
+=======
+
+>>>>>>> 6229c57 (.)
     public string $notes = '';
 
     /** @var array<string, string> */

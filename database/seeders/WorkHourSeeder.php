@@ -7,9 +7,13 @@ namespace Modules\Employee\Database\Seeders;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Support\Collection;
 =======
 >>>>>>> 95b3a4c (.)
+=======
+use Illuminate\Support\Collection;
+>>>>>>> 6229c57 (.)
 use Modules\Employee\Models\WorkHour;
 use Modules\User\Models\User;
 
@@ -52,7 +56,11 @@ class WorkHourSeeder extends Seeder
             while ($currentDate->lte($endDate)) {
                 if ($currentDate->isWeekend()) {
                     $currentDate->addDay();
+<<<<<<< HEAD
 >>>>>>> 95b3a4c (.)
+=======
+
+>>>>>>> 6229c57 (.)
                     continue;
                 }
 
@@ -153,8 +161,12 @@ class WorkHourSeeder extends Seeder
     /**
      * @param \Illuminate\Database\Eloquent\Collection<int, \Modules\Employee\Models\Employee> $users
      */
+<<<<<<< HEAD
     private function createIncompleteWorkDays($users): void
 >>>>>>> 95b3a4c (.)
+=======
+    private function createIncompleteWorkDays(Collection $users): void
+>>>>>>> 6229c57 (.)
     {
         foreach ($users as $user) {
             $today = Carbon::today();

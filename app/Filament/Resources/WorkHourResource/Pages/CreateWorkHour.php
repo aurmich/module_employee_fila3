@@ -5,15 +5,21 @@ declare(strict_types=1);
 namespace Modules\Employee\Filament\Resources\WorkHourResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6229c57 (.)
 use Carbon\Carbon;
 use Filament\Notifications\Notification;
 use Modules\Employee\Enums\WorkHourStatusEnum;
 use Modules\Employee\Enums\WorkHourTypeEnum;
+<<<<<<< HEAD
 use Modules\Employee\Filament\Resources\WorkHourResource;
 use Modules\Employee\Models\WorkHour;
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 =======
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
+=======
+>>>>>>> 6229c57 (.)
 use Modules\Employee\Filament\Resources\WorkHourResource;
 use Modules\Employee\Models\WorkHour;
 use Modules\Employee\Enums\WorkHourTypeEnum;
@@ -50,6 +56,7 @@ class CreateWorkHour extends XotBaseCreateRecord
     {
         $data = $this->form->getState();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         // Validate if this entry is allowed based on the last entry
         $timestampValue = $data['timestamp'] ?? null;
@@ -82,6 +89,9 @@ class CreateWorkHour extends XotBaseCreateRecord
                 WorkHourTypeEnum::BREAK_END => 'Break End',
 =======
         
+=======
+
+>>>>>>> 6229c57 (.)
         // Validate if this entry is allowed based on the last entry
         $timestamp = Carbon::parse((string) ($data['timestamp'] ?? ''));
         $employeeId = (int) ($data['employee_id'] ?? 0);
@@ -117,12 +127,18 @@ class CreateWorkHour extends XotBaseCreateRecord
 
         // Check for duplicate entries within the same minute
 <<<<<<< HEAD
+<<<<<<< HEAD
         /** @var WorkHour|null $existingEntry */
         $existingEntry = WorkHour::query()
             ->where('employee_id', $employeeId)
 =======
         $existingEntry = WorkHour::where('employee_id', $data['employee_id'])
 >>>>>>> 95b3a4c (.)
+=======
+        /** @var WorkHour|null $existingEntry */
+        $existingEntry = WorkHour::query()
+            ->where('employee_id', $employeeId)
+>>>>>>> 6229c57 (.)
             ->where('timestamp', $timestamp)
             ->where('type', $data['type'])
             ->first();

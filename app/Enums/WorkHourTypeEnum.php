@@ -55,6 +55,7 @@ enum WorkHourTypeEnum: string
         };
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     /**
      * Get Italian translation for the type.
@@ -96,3 +97,6 @@ enum WorkHourTypeEnum: string
 =======
 }
 >>>>>>> 95b3a4c (.)
+=======
+}
+>>>>>>> 6229c57 (.)

@@ -47,10 +47,13 @@ class PositionFactory extends Factory
     /**
      * Indicate that the position is active.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @return static
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function active(): static
     {
@@ -66,10 +69,13 @@ class PositionFactory extends Factory
     /**
      * Indicate that the position is inactive.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @return static
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function inactive(): static
     {
@@ -85,11 +91,14 @@ class PositionFactory extends Factory
     /**
      * Set a specific position title.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @param string $title
      * @return static
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function withTitle(string $title): static
     {
@@ -119,11 +128,14 @@ class PositionFactory extends Factory
     /**
      * Set a specific description.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @param string $description
      * @return static
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function withDescription(string $description): static
     {

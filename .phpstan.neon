@@ -11,6 +11,7 @@ parameters:
     excludePaths:
         - database/migrations
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     # Ignora solo errori di migrazione
     ignoreErrors:
@@ -19,8 +20,10 @@ parameters:
         - '#Call to an undefined method.*dropIndex#' 
 =======
     checkMissingIterableValueType: false
+=======
+>>>>>>> 6229c57 (.)
     
-    # Ignora errori specifici se necessario
+    # Ignora solo errori di migrazione
     ignoreErrors:
         # Ignora errori temporanei durante la migrazione
         - '#Call to an undefined method.*renameColumn#'

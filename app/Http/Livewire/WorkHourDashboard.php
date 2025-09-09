@@ -6,6 +6,7 @@ namespace Modules\Employee\Http\Livewire;
 
 use Carbon\Carbon;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 use Modules\Employee\Enums\WorkHourStatusEnum;
@@ -13,16 +14,25 @@ use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Models\Employee;
 use Modules\Employee\Models\WorkHour;
 =======
+=======
+use Illuminate\Contracts\View\View;
+>>>>>>> 6229c57 (.)
 use Livewire\Component;
-use Modules\Employee\Models\WorkHour;
+use Modules\Employee\Enums\WorkHourStatusEnum;
+use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Models\Employee;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\Contracts\View\View;
 >>>>>>> 95b3a4c (.)
+=======
+use Modules\Employee\Models\WorkHour;
+>>>>>>> 6229c57 (.)
 
 class WorkHourDashboard extends Component
 {
     public ?Employee $employee = null;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     /** @var array<int, array{date: string, day: string, hours: float, formatted_hours: string}> */
@@ -41,18 +51,34 @@ class WorkHourDashboard extends Component
     public array $recentEntries = [];
 
 =======
+=======
+
+    /** @var array<int, array{date: string, day: string, hours: float, formatted_hours: string}> */
+>>>>>>> 6229c57 (.)
     public array $weeklyStats = [];
+
+    /** @var array<int, array{week: int, start_date: string, end_date: string, hours: float, formatted_hours: string}> */
     public array $monthlyStats = [];
+
     public float $todayHours = 0.0;
+
     public float $weekHours = 0.0;
+
     public float $monthHours = 0.0;
+
+    /** @var array<int, array{id: int, date: string, time: string, type: WorkHourTypeEnum, type_label: string, type_color: string, notes: string|null, status: WorkHourStatusEnum, status_color: string}> */
     public array $recentEntries = [];
+<<<<<<< HEAD
 >>>>>>> 95b3a4c (.)
+=======
+
+>>>>>>> 6229c57 (.)
     public string $selectedPeriod = 'week';
 
     /** @var array<string, string> */
     protected $listeners = [
         'workHourRecorded' => 'refreshStats',
+<<<<<<< HEAD
 <<<<<<< HEAD
         'refreshDashboard' => 'refreshStats',
     ];
@@ -259,6 +285,9 @@ class WorkHourDashboard extends Component
     }
 =======
         'refreshDashboard' => 'refreshStats'
+=======
+        'refreshDashboard' => 'refreshStats',
+>>>>>>> 6229c57 (.)
     ];
     public function mount(?int $employeeId = null): void
     {
@@ -268,8 +297,11 @@ class WorkHourDashboard extends Component
         $this->refreshStats();
     }
 
+<<<<<<< HEAD
 >>>>>>> 95b3a4c (.)
 
+=======
+>>>>>>> 6229c57 (.)
     public function getProgressPercentage(): int
     {
         // Assuming 40 hours per week as target

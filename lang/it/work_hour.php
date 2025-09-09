@@ -126,11 +126,17 @@ return [
             'description' => 'Data e ora dell\'ultimo aggiornamento',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
         'toggleColumns' => [
             'label' => 'toggleColumns',
         ],
 =======
 >>>>>>> 95b3a4c (.)
+=======
+        'toggleColumns' => [
+            'label' => 'toggleColumns',
+        ],
+>>>>>>> 6229c57 (.)
     ],
     'actions' => [
         'create' => [

@@ -7,6 +7,7 @@ namespace Modules\Employee\Models;
 use Parental\HasParent;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Employee Module Admin Model
  *
@@ -31,16 +32,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
+=======
+>>>>>>> 6229c57 (.)
 /**
- * Class Admin
- * 
- * NOTA: Il trait HasFactory è stato rimosso perché già incluso nella catena di ereditarietà (BaseUser -> User -> Admin).
- * Dichiararlo qui è ridondante e può causare warning o confusione.
- * Vedi docs/DRY-model-traits.md
+ * Employee Module Admin Model
  *
- * @property string $id
- * @property string $user_id
- * @property string|null $date_of_birth
+ * Admin user type using Single Table Inheritance with Parental package.
+ * Child class of User model for administrative users.
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $type
+ * @property string|null $first_name
+ * @property string|null $last_name
+ * @property \Carbon\Carbon|null $date_of_birth
  * @property string|null $gender
  * @property string|null $address
  * @property string|null $phone
@@ -226,6 +233,7 @@ class Admin extends User
     {
         return array_merge(parent::casts(), [
 <<<<<<< HEAD
+<<<<<<< HEAD
             // 'certifications' => 'array',
             // 'availability' => 'array',
         ]);
@@ -238,3 +246,10 @@ class Admin extends User
     }
 }
 >>>>>>> 95b3a4c (.)
+=======
+            // 'certifications' => 'array',
+            // 'availability' => 'array',
+        ]);
+    }
+}
+>>>>>>> 6229c57 (.)

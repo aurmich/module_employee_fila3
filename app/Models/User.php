@@ -25,9 +25,13 @@ use Spatie\ModelStates\HasStates;
 use Spatie\Activitylog\LogOptions;
 use Modules\Gdpr\Models\Traits\HasGdpr;
 use Modules\SaluteOra\Enums\UserTypeEnum;
-use Spatie\ModelStates\HasStatesContract;
+use Modules\User\Models\BaseUser;
+use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\ModelStates\HasStates;
+use Spatie\ModelStates\HasStatesContract;
 
 /**
  * Employee Module User Model
@@ -54,6 +58,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property bool $is_otp
  * @property \Carbon\Carbon|null $password_expires_at
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @property \Carbon\Carbon|null $email_verified_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -67,6 +72,8 @@ class User extends BaseUser implements HasMedia, HasStatesContract
 =======
  * @property int|null $studio_id
  * @property string|null $continuation_token
+=======
+>>>>>>> 6229c57 (.)
  * @property \Carbon\Carbon|null $email_verified_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -153,11 +160,14 @@ class User extends BaseUser implements HasMedia, HasStatesContract
  */
 class User extends BaseUser implements HasMedia, HasStatesContract 
 {
-    use LogsActivity;
-    use HasStates;
     use HasGdpr;
+    use HasStates;
     use InteractsWithMedia;
+<<<<<<< HEAD
 >>>>>>> 95b3a4c (.)
+=======
+    use LogsActivity;
+>>>>>>> 6229c57 (.)
 
     /** @var string */
     protected $connection = 'employee';
@@ -246,10 +256,13 @@ class User extends BaseUser implements HasMedia, HasStatesContract
     /**
      * Configurazione per il logging delle attività.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @return LogOptions
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function getActivitylogOptions(): LogOptions
     {
@@ -259,8 +272,11 @@ class User extends BaseUser implements HasMedia, HasStatesContract
             ->logOnlyDirty();
     }
 }
+<<<<<<< HEAD
 =======
             ->logOnlyDirty();
     }
 }
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)

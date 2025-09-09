@@ -35,11 +35,15 @@ class WorkHourStatsWidget extends XotBaseStatsOverviewWidget
             ->where('type', WorkHourTypeEnum::CLOCK_OUT->value)
 =======
         $todayTotal = WorkHour::whereDate('timestamp', $today)->count();
-        $todayClockIns = WorkHour::where('type', WorkHour::TYPE_CLOCK_IN)
+        $todayClockIns = WorkHour::where('type', WorkHourTypeEnum::CLOCK_IN->value)
             ->whereDate('timestamp', $today)
             ->count();
+<<<<<<< HEAD
         $todayClockOuts = WorkHour::where('type', WorkHour::TYPE_CLOCK_OUT)
 >>>>>>> 95b3a4c (.)
+=======
+        $todayClockOuts = WorkHour::where('type', WorkHourTypeEnum::CLOCK_OUT->value)
+>>>>>>> 6229c57 (.)
             ->whereDate('timestamp', $today)
             ->count();
 
@@ -53,8 +57,12 @@ class WorkHourStatsWidget extends XotBaseStatsOverviewWidget
         $weekTotal = WorkHour::whereBetween('timestamp', [$thisWeekStart, $thisWeekEnd])->count();
 
         // Get pending approvals count
+<<<<<<< HEAD
         $pendingApprovals = WorkHour::where('status', WorkHour::STATUS_PENDING)->count();
 >>>>>>> 95b3a4c (.)
+=======
+        $pendingApprovals = WorkHour::where('status', WorkHourStatusEnum::PENDING->value)->count();
+>>>>>>> 6229c57 (.)
 
         return [
             Stat::make('Today\'s Entries', $todayTotal)

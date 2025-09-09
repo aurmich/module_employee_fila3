@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Employee\Filament\Resources\WorkHourResource\Pages;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Carbon\Carbon;
 use Filament\Actions;
 use Filament\Notifications\Notification;
@@ -12,13 +13,20 @@ use Modules\Employee\Filament\Resources\WorkHourResource;
 use Modules\Employee\Models\WorkHour;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 =======
+=======
+use Carbon\Carbon;
+>>>>>>> 6229c57 (.)
 use Filament\Actions;
-use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
+use Filament\Notifications\Notification;
 use Modules\Employee\Filament\Resources\WorkHourResource;
 use Modules\Employee\Models\WorkHour;
+<<<<<<< HEAD
 use Filament\Notifications\Notification;
 use Carbon\Carbon;
 >>>>>>> 95b3a4c (.)
+=======
+use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
+>>>>>>> 6229c57 (.)
 
 class EditWorkHour extends XotBaseEditRecord
 {
@@ -32,6 +40,7 @@ class EditWorkHour extends XotBaseEditRecord
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected function getRedirectUrl(): ?string
     {
         /** @var string */
@@ -39,6 +48,11 @@ class EditWorkHour extends XotBaseEditRecord
     protected function getRedirectUrl(): string
     {
 >>>>>>> 95b3a4c (.)
+=======
+    protected function getRedirectUrl(): ?string
+    {
+        /** @var string */
+>>>>>>> 6229c57 (.)
         return $this->getResource()::getUrl('index');
     }
 
@@ -47,8 +61,31 @@ class EditWorkHour extends XotBaseEditRecord
         $data = $this->form->getState();
         $currentRecord = $this->record;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
+=======
+
+        // Ensure we have a WorkHour record
+        if (! ($currentRecord instanceof WorkHour)) {
+            throw new \InvalidArgumentException('Expected WorkHour record');
+        }
+
+        // Validate and cast form data
+        $timestampValue = $data['timestamp'] ?? null;
+        if (! is_string($timestampValue) && ! ($timestampValue instanceof \DateTimeInterface)) {
+            throw new \InvalidArgumentException('Invalid timestamp format');
+        }
+
+        $employeeIdValue = $data['employee_id'] ?? null;
+        if (! is_numeric($employeeIdValue)) {
+            throw new \InvalidArgumentException('Invalid employee ID');
+        }
+        $employeeId = (int) $employeeIdValue;
+
+        $newTimestamp = Carbon::parse($timestampValue);
+
+>>>>>>> 6229c57 (.)
         // Skip validation if no changes to critical fields
         if (
             $currentRecord instanceof WorkHour &&

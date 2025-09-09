@@ -7,12 +7,17 @@ namespace Modules\Employee\Database\Factories;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Employee\Enums\WorkHourStatusEnum;
 use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Models\Employee;
 use Modules\Employee\Models\WorkHour;
 =======
 use Modules\Employee\Models\WorkHour;
+=======
+use Modules\Employee\Enums\WorkHourStatusEnum;
+use Modules\Employee\Enums\WorkHourTypeEnum;
+>>>>>>> 6229c57 (.)
 use Modules\Employee\Models\Employee;
 use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Enums\WorkHourStatusEnum;

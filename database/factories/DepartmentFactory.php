@@ -34,11 +34,15 @@ class DepartmentFactory extends Factory
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
             'name' => $this->faker->unique()->word().' Department',
             'description' => $this->faker->optional()->sentence(),
             'status' => $this->faker->randomElement(['attivo', 'inattivo']),
 =======
             'name' => $this->faker->unique()->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
+=======
+            'name' => $this->faker->unique()->word().' Department',
+>>>>>>> 6229c57 (.)
             'description' => $this->faker->optional()->sentence(),
             'is_active' => $this->faker->boolean(80), // 80% chance of being active
 >>>>>>> 95b3a4c (.)
@@ -49,10 +53,13 @@ class DepartmentFactory extends Factory
     /**
      * Indicate that the department is active.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @return static
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function active(): static
     {
@@ -68,10 +75,13 @@ class DepartmentFactory extends Factory
     /**
      * Indicate that the department is inactive.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @return static
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function inactive(): static
     {
@@ -87,11 +97,14 @@ class DepartmentFactory extends Factory
     /**
      * Set a specific department name.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @param string $name
      * @return static
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function withName(string $name): static
     {
@@ -103,11 +116,14 @@ class DepartmentFactory extends Factory
     /**
      * Set a specific description.
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
      *
      * @param string $description
      * @return static
 >>>>>>> 95b3a4c (.)
+=======
+>>>>>>> 6229c57 (.)
      */
     public function withDescription(string $description): static
     {
