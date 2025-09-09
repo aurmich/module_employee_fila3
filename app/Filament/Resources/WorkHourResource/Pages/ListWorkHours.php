@@ -4,7 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Filament\Resources\WorkHourResource\Pages;
 
+<<<<<<< HEAD
 use Modules\Employee\Filament\Resources\WorkHourResource;
+=======
+use Filament\Tables\Columns\BadgeColumn;
+use Filament\Tables\Columns\TextColumn;
+use Modules\Employee\Filament\Resources\WorkHourResource;
+use Modules\Employee\Models\WorkHour;
+>>>>>>> 95b3a4c (.)
 use Modules\Xot\Filament\Resources\Pages\XotBaseListRecords;
 
 class ListWorkHours extends XotBaseListRecords

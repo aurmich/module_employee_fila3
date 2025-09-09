@@ -5,6 +5,10 @@ declare(strict_types=1);
 namespace Modules\Employee\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
+<<<<<<< HEAD
+=======
+use Modules\Employee\Models\BaseModel;
+>>>>>>> 95b3a4c (.)
 
 /**
  * Class Position.
@@ -12,11 +16,21 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $id
  * @property string $title
  * @property string|null $description
+<<<<<<< HEAD
  * @property string $level
  * @property string $status
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Employee\Models\Employee> $employees
+=======
+ * @property string|null $department
+ * @property int|null $level
+ * @property bool $is_active
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Employee\Models\Employee> $employees
+ * @property-read int|null $employees_count
+>>>>>>> 95b3a4c (.)
  */
 class Position extends BaseModel
 {
@@ -28,8 +42,14 @@ class Position extends BaseModel
     protected $fillable = [
         'title',
         'description',
+<<<<<<< HEAD
         'level',
         'status',
+=======
+        'department',
+        'level',
+        'is_active',
+>>>>>>> 95b3a4c (.)
     ];
 
     /**
@@ -40,20 +60,32 @@ class Position extends BaseModel
     protected function casts(): array
     {
         return [
+<<<<<<< HEAD
+=======
+            'level' => 'integer',
+            'is_active' => 'boolean',
+>>>>>>> 95b3a4c (.)
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
     }
 
     /**
+<<<<<<< HEAD
      * Get the employees for this position.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany<\Modules\Employee\Models\Employee>
+=======
+     * Get the employees for the position.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+>>>>>>> 95b3a4c (.)
      */
     public function employees(): HasMany
     {
         return $this->hasMany(Employee::class);
     }
+<<<<<<< HEAD
 
     /**
      * Scope a query to only include active positions.
@@ -90,4 +122,6 @@ class Position extends BaseModel
             default => ucfirst($this->level),
         };
     }
+=======
+>>>>>>> 95b3a4c (.)
 }

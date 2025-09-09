@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Models;
 
+<<<<<<< HEAD
 use Modules\Gdpr\Models\Traits\HasGdpr;
 use Modules\SaluteOra\Enums\UserTypeEnum;
 use Modules\User\Models\BaseUser;
@@ -17,6 +18,21 @@ use Spatie\ModelStates\HasStatesContract;
 /**
  * Employee Module User Model
  *
+=======
+use Modules\User\Models\BaseUser;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\ModelStates\HasStates;
+use Spatie\Activitylog\LogOptions;
+use Modules\Gdpr\Models\Traits\HasGdpr;
+use Modules\SaluteOra\Enums\UserTypeEnum;
+use Spatie\ModelStates\HasStatesContract;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\InteractsWithMedia;
+
+/**
+ * Employee Module User Model
+ * 
+>>>>>>> 95b3a4c (.)
  * Extends BaseUser with Single Table Inheritance for Employee module.
  * Parent class for Admin and Employee models using Parental STI.
  *
@@ -37,6 +53,7 @@ use Spatie\ModelStates\HasStatesContract;
  * @property bool $is_active
  * @property bool $is_otp
  * @property \Carbon\Carbon|null $password_expires_at
+<<<<<<< HEAD
  * @property \Carbon\Carbon|null $email_verified_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -47,6 +64,100 @@ class User extends BaseUser implements HasMedia, HasStatesContract
     use HasStates;
     use InteractsWithMedia;
     use LogsActivity;
+=======
+ * @property int|null $studio_id
+ * @property string|null $continuation_token
+ * @property \Carbon\Carbon|null $email_verified_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ * @property string|null $remember_token
+ * @property string|null $profile_photo_path
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property string|null $updated_by
+ * @property string|null $created_by
+ * @property string|null $deleted_by
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Gdpr\Models\Consent> $activeConsents
+ * @property-read int|null $active_consents_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Activity\Models\Activity> $activities
+ * @property-read int|null $activities_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\AuthenticationLog> $authentications
+ * @property-read int|null $authentications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\Client> $clients
+ * @property-read int|null $clients_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Gdpr\Models\Consent> $consents
+ * @property-read int|null $consents_count
+ * @property-read \Modules\User\Models\Team|null $currentTeam
+ * @property-read \Modules\User\Models\TenantUser|\Modules\User\Models\Membership|\Modules\User\Models\DeviceUser|null $pivot
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Device> $devices
+ * @property-read int|null $devices_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $all_team_users
+ * @property-read string|null $full_name
+ * @property-read \Modules\User\Models\AuthenticationLog|null $latestAuthentication
+ * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
+ * @property-read int|null $media_count
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection<int, \Modules\User\Models\Notification> $notifications
+ * @property-read int|null $notifications_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Team> $ownedTeams
+ * @property-read int|null $owned_teams_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Permission> $permissions
+ * @property-read int|null $permissions_count
+ * @property-read \Modules\TechPlanner\Models\Profile|null $profile
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Role> $roles
+ * @property-read int|null $roles_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\SocialiteUser> $socialiteUsers
+ * @property-read int|null $socialite_users_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Membership> $teamUsers
+ * @property-read int|null $team_users_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Team> $teams
+ * @property-read int|null $teams_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Tenant> $tenants
+ * @property-read int|null $tenants_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\Token> $tokens
+ * @property-read int|null $tokens_count
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Gdpr\Models\Treatment> $treatments
+ * @property-read int|null $treatments_count
+ * @method static \Modules\Employee\Database\Factories\UserFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User orWhereNotState(string $column, $states)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User orWhereState(string $column, $states)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User permission($permissions, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User role($roles, $guard = null, $without = false)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereCurrentTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereDeletedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereEmailVerifiedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereIsActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereIsOtp($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLang($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereNotState(string $column, $states)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User wherePasswordExpiresAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereProfilePhotoPath($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereRememberToken($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereState(string $column, $states)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User whereUpdatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutPermission($permissions)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|User withoutRole($roles, $guard = null)
+ * @mixin \Eloquent
+ */
+class User extends BaseUser implements HasMedia, HasStatesContract 
+{
+    use LogsActivity;
+    use HasStates;
+    use HasGdpr;
+    use InteractsWithMedia;
+>>>>>>> 95b3a4c (.)
 
     /** @var string */
     protected $connection = 'employee';
@@ -57,13 +168,20 @@ class User extends BaseUser implements HasMedia, HasStatesContract
      */
     protected $childTypes = [
         'admin' => Admin::class,
+<<<<<<< HEAD
         'employee' => Employee::class,
+=======
+        'Employee' => Employee::class,
+>>>>>>> 95b3a4c (.)
     ];
 
     /** @var array<string, mixed> */
     protected $attributes = [
+<<<<<<< HEAD
         // 'state' => Pending::class,
         // 'state' => 'pending',
+=======
+>>>>>>> 95b3a4c (.)
         'is_otp' => false,
         'is_active' => true,
         'type' => 'patient',  // Valore di default secondo la best practice dell'enum
@@ -85,12 +203,17 @@ class User extends BaseUser implements HasMedia, HasStatesContract
         'phone',
         'lang',
         'current_team_id',
+<<<<<<< HEAD
         // 'is_active',
         'is_otp',
         'password_expires_at',
         // 'studio_id',
         // 'continuation_token',
         // 'certifications'
+=======
+        'is_otp',
+        'password_expires_at',
+>>>>>>> 95b3a4c (.)
     ];
 
     /**
@@ -107,6 +230,7 @@ class User extends BaseUser implements HasMedia, HasStatesContract
         return array_merge(parent::casts(), [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+<<<<<<< HEAD
             // 'type' => UserTypeEnum::class, // Sintassi corretta per Laravel 12
             // 'state' => UserState::class,
             // 'certifications' => 'array',
@@ -114,15 +238,29 @@ class User extends BaseUser implements HasMedia, HasStatesContract
             // 'moderation_data' => 'array',
         ]);
 
+=======
+        ]);
+>>>>>>> 95b3a4c (.)
     }
 
     /**
      * Configurazione per il logging delle attività.
+<<<<<<< HEAD
+=======
+     *
+     * @return LogOptions
+>>>>>>> 95b3a4c (.)
      */
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
+<<<<<<< HEAD
             // ->logOnly(['name', 'email', 'type', 'state'])
             ->logOnlyDirty();
     }
 }
+=======
+            ->logOnlyDirty();
+    }
+}
+>>>>>>> 95b3a4c (.)

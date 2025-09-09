@@ -17,7 +17,11 @@ class PositionFactory extends Factory
      *
      * @var class-string<\Modules\Employee\Models\Position>
      */
+<<<<<<< HEAD
     protected $model = Position::class;
+=======
+    protected $model = \Modules\Employee\Models\Position::class;
+>>>>>>> 95b3a4c (.)
 
     /**
      * Define the model's default state.
@@ -29,33 +33,63 @@ class PositionFactory extends Factory
         return [
             'title' => $this->faker->unique()->jobTitle(),
             'description' => $this->faker->optional()->sentence(),
+<<<<<<< HEAD
             'level' => $this->faker->randomElement(['entry', 'junior', 'senior', 'lead', 'manager', 'director', 'executive']),
             'status' => $this->faker->randomElement(['attivo', 'inattivo']),
+=======
+            'department' => $this->faker->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
+            'level' => $this->faker->numberBetween(1, 10),
+            'is_active' => $this->faker->boolean(80), // 80% chance of being active
+>>>>>>> 95b3a4c (.)
         ];
     }
 
     /**
      * Indicate that the position is active.
+<<<<<<< HEAD
+=======
+     *
+     * @return static
+>>>>>>> 95b3a4c (.)
      */
     public function active(): static
     {
         return $this->state(fn (array $attributes) => [
+<<<<<<< HEAD
             'status' => 'attivo',
+=======
+            'is_active' => true,
+>>>>>>> 95b3a4c (.)
         ]);
     }
 
     /**
      * Indicate that the position is inactive.
+<<<<<<< HEAD
+=======
+     *
+     * @return static
+>>>>>>> 95b3a4c (.)
      */
     public function inactive(): static
     {
         return $this->state(fn (array $attributes) => [
+<<<<<<< HEAD
             'status' => 'inattivo',
+=======
+            'is_active' => false,
+>>>>>>> 95b3a4c (.)
         ]);
     }
 
     /**
      * Set a specific position title.
+<<<<<<< HEAD
+=======
+     *
+     * @param string $title
+     * @return static
+>>>>>>> 95b3a4c (.)
      */
     public function withTitle(string $title): static
     {
@@ -66,8 +100,16 @@ class PositionFactory extends Factory
 
     /**
      * Set a specific level.
+<<<<<<< HEAD
      */
     public function withLevel(string $level): static
+=======
+     *
+     * @param int $level
+     * @return static
+     */
+    public function withLevel(int $level): static
+>>>>>>> 95b3a4c (.)
     {
         return $this->state(fn (array $attributes) => [
             'level' => $level,
@@ -76,6 +118,12 @@ class PositionFactory extends Factory
 
     /**
      * Set a specific description.
+<<<<<<< HEAD
+=======
+     *
+     * @param string $description
+     * @return static
+>>>>>>> 95b3a4c (.)
      */
     public function withDescription(string $description): static
     {

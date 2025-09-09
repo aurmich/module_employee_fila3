@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\User\Models\User;
 
 /**
- * Class Attendance.
+ * Class TimeRecord.
  *
  * @property int $id
  * @property int $user_id
@@ -29,8 +29,21 @@ use Modules\User\Models\User;
  * @property-read User $user
  * @property-read User|null $createdBy
  * @property-read User|null $updatedBy
+ * @property-read \Modules\TechPlanner\Models\Profile|null $creator
+ * @property-read string $formatted_date
+ * @property-read string $formatted_time
+ * @property-read string $formatted_timestamp
+ * @property-read \Modules\TechPlanner\Models\Profile|null $updater
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TimeRecord forDate(\Carbon\Carbon $date)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TimeRecord forUser(int $userId)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TimeRecord newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TimeRecord newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TimeRecord ofType(string $type)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TimeRecord query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|TimeRecord valid()
+ * @mixin \Eloquent
  */
-class Attendance extends BaseModel
+class TimeRecord extends BaseModel
 {
     /**
      * The attributes that are mass assignable.
@@ -68,9 +81,9 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Get the user that owns the attendance record.
+     * Get the user that owns the timbratura.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\Modules\User\Models\User, \Modules\Employee\Models\Attendance>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user(): BelongsTo
     {
@@ -78,9 +91,9 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Get the user that created the attendance record.
+     * Get the user that created the timbratura.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\Modules\User\Models\User, \Modules\Employee\Models\Attendance>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function createdBy(): BelongsTo
     {
@@ -88,9 +101,9 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Get the user that updated the attendance record.
+     * Get the user that updated the timbratura.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\Modules\User\Models\User, \Modules\Employee\Models\Attendance>
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function updatedBy(): BelongsTo
     {
@@ -98,14 +111,10 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Scope a query to only include attendance records for a specific user.
+     * Scope a query to only include time records for a specific user.
      *
-<<<<<<< HEAD
-     * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
-=======
      * @param \Illuminate\Database\Eloquent\Builder<static> $query
      * @param int $userId
->>>>>>> 95b3a4c (.)
      * @return \Illuminate\Database\Eloquent\Builder<static>
      */
     public function scopeForUser($query, int $userId)
@@ -114,14 +123,10 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Scope a query to only include attendance records of a specific type.
+     * Scope a query to only include time records of a specific type.
      *
-<<<<<<< HEAD
-     * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
-=======
      * @param \Illuminate\Database\Eloquent\Builder<static> $query
      * @param string $type
->>>>>>> 95b3a4c (.)
      * @return \Illuminate\Database\Eloquent\Builder<static>
      */
     public function scopeOfType($query, string $type)
@@ -130,14 +135,10 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Scope a query to only include attendance records for a specific date.
+     * Scope a query to only include time records for a specific date.
      *
-<<<<<<< HEAD
-     * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
-=======
      * @param \Illuminate\Database\Eloquent\Builder<static> $query
      * @param Carbon $date
->>>>>>> 95b3a4c (.)
      * @return \Illuminate\Database\Eloquent\Builder<static>
      */
     public function scopeForDate($query, Carbon $date)
@@ -146,13 +147,9 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Scope a query to only include valid attendance records.
+     * Scope a query to only include valid time records.
      *
-<<<<<<< HEAD
-     * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
-=======
      * @param \Illuminate\Database\Eloquent\Builder<static> $query
->>>>>>> 95b3a4c (.)
      * @return \Illuminate\Database\Eloquent\Builder<static>
      */
     public function scopeValid($query)
@@ -162,11 +159,8 @@ class Attendance extends BaseModel
 
     /**
      * Get the formatted timestamp.
-<<<<<<< HEAD
-=======
      *
      * @return string
->>>>>>> 95b3a4c (.)
      */
     public function getFormattedTimestampAttribute(): string
     {
@@ -175,11 +169,8 @@ class Attendance extends BaseModel
 
     /**
      * Get the formatted time only.
-<<<<<<< HEAD
-=======
      *
      * @return string
->>>>>>> 95b3a4c (.)
      */
     public function getFormattedTimeAttribute(): string
     {
@@ -188,11 +179,8 @@ class Attendance extends BaseModel
 
     /**
      * Get the formatted date only.
-<<<<<<< HEAD
-=======
      *
      * @return string
->>>>>>> 95b3a4c (.)
      */
     public function getFormattedDateAttribute(): string
     {
@@ -200,12 +188,9 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Check if the attendance record is an entry.
-<<<<<<< HEAD
-=======
+     * Check if the time record is an entry.
      *
      * @return bool
->>>>>>> 95b3a4c (.)
      */
     public function isEntry(): bool
     {
@@ -213,12 +198,9 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Check if the attendance record is an exit.
-<<<<<<< HEAD
-=======
+     * Check if the time record is an exit.
      *
      * @return bool
->>>>>>> 95b3a4c (.)
      */
     public function isExit(): bool
     {
@@ -226,12 +208,9 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Check if the attendance record is manual.
-<<<<<<< HEAD
-=======
+     * Check if the time record is manual.
      *
      * @return bool
->>>>>>> 95b3a4c (.)
      */
     public function isManual(): bool
     {
@@ -239,19 +218,12 @@ class Attendance extends BaseModel
     }
 
     /**
-     * Check if the attendance record has location data.
-<<<<<<< HEAD
-     */
-    public function hasLocation(): bool
-    {
-        return ! empty($this->latitude) && ! empty($this->longitude);
-=======
+     * Check if the time record has location data.
      *
      * @return bool
      */
     public function hasLocation(): bool
     {
         return !empty($this->latitude) && !empty($this->longitude);
->>>>>>> 95b3a4c (.)
     }
-}
+} 

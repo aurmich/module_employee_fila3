@@ -227,9 +227,15 @@ class Employee extends XotBaseModel
         return $this->belongsTo(User::class);
     }
     
+<<<<<<< HEAD
     public function workHours(): HasMany
     {
         return $this->hasMany(WorkHour::class);
+=======
+    public function timeEntries(): HasMany
+    {
+        return $this->hasMany(TimeEntry::class);
+>>>>>>> 95b3a4c (.)
     }
     
     // ... altre relazioni
@@ -245,7 +251,11 @@ enum EmployeeStatus: string
     case TERMINATED = 'terminated';
 }
 
+<<<<<<< HEAD
 enum WorkHourType: string
+=======
+enum TimeEntryType: string
+>>>>>>> 95b3a4c (.)
 {
     case CLOCK_IN = 'clock_in';
     case CLOCK_OUT = 'clock_out';

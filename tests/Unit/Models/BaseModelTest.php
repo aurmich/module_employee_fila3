@@ -4,12 +4,30 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Tests\Unit\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Modules\Employee\Models\BaseModel;
+=======
+use Modules\Employee\Models\BaseModel;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Model;
+use Tests\TestCase;
+
+uses(TestCase::class, RefreshDatabase::class);
+
+beforeEach(function () {
+    $this->baseModel = new class extends BaseModel {
+
+uses(TestCase::class, RefreshDatabase::class);
+>>>>>>> 95b3a4c (.)
 
 beforeEach(function () {
     $this->baseModel = new class() extends BaseModel
     {
+<<<<<<< HEAD
+=======
+    $this->baseModel = new class extends BaseModel {
+>>>>>>> 95b3a4c (.)
         protected $table = 'test_employee_table';
     };
 });

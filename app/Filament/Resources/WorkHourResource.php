@@ -4,7 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Filament\Resources;
 
+<<<<<<< HEAD
 use Filament\Forms;
+=======
+use Carbon\Carbon;
+use Filament\Forms;
+use Filament\Forms\Form;
+use Filament\Tables;
+use Filament\Tables\Table;
+use Modules\Employee\Models\Employee;
+>>>>>>> 95b3a4c (.)
 use Modules\Employee\Models\WorkHour;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
@@ -20,7 +29,21 @@ class WorkHourResource extends XotBaseResource
         return [
             Forms\Components\Section::make('Time Entry Details')
                 ->schema([
+<<<<<<< HEAD
 
+=======
+                    Forms\Components\Select::make('employee_id')
+                        ->relationship('employee', 'name')
+                        ->required(),
+                    
+                    Forms\Components\DateTimePicker::make('clock_in')
+                        ->required(),
+                    
+                    Forms\Components\DateTimePicker::make('clock_out'),
+                    
+                    Forms\Components\Textarea::make('notes')
+                        ->maxLength(65535),
+>>>>>>> 95b3a4c (.)
                 ])
                 ->columns(2),
         ];
@@ -33,4 +56,8 @@ class WorkHourResource extends XotBaseResource
     {
         return [];
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 95b3a4c (.)

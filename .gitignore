@@ -23,6 +23,10 @@ cache/
 # Backup files
 *.old
 *.old1
+<<<<<<< HEAD
+=======
+*.old2
+>>>>>>> 95b3a4c (.)
 *.backup
 *.bak
 
@@ -31,7 +35,10 @@ docs/phpstan/
 
 # Other
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 95b3a4c (.)
 # Standard ignores (auto)
 *.bakcup
 *.backup.*

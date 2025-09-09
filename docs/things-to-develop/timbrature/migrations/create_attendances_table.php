@@ -7,11 +7,19 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
  * Class CreateAttendancesTable.
+<<<<<<< HEAD
  *
  * Migrazione per la creazione della tabella attendances.
  * Gestisce presenze, timbrature, calcolo ore e geolocalizzazione.
  */
 return new class() extends XotBaseMigration
+=======
+ * 
+ * Migrazione per la creazione della tabella attendances.
+ * Gestisce presenze, timbrature, calcolo ore e geolocalizzazione.
+ */
+return new class extends XotBaseMigration
+>>>>>>> 95b3a4c (.)
 {
     /**
      * The name of the table.
@@ -28,21 +36,37 @@ return new class() extends XotBaseMigration
             static function (Blueprint $table): void {
                 $table->id();
                 $table->uuid('uuid')->unique();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 95b3a4c (.)
                 // Relazioni
                 $table->foreignId('employee_id')->constrained()->onDelete('cascade');
                 $table->foreignId('work_schedule_id')->nullable()->constrained('work_schedules');
                 $table->foreignId('approved_by')->nullable()->constrained('employees');
+<<<<<<< HEAD
 
+=======
+                
+
+                
+>>>>>>> 95b3a4c (.)
                 // Dati temporali
                 $table->date('date');
                 $table->time('time_in')->nullable();
                 $table->time('time_out')->nullable();
+<<<<<<< HEAD
 
+=======
+                
+
+                
+>>>>>>> 95b3a4c (.)
                 // Calcoli ore
                 $table->decimal('total_hours', 5, 2)->default(0);
                 $table->decimal('overtime_hours', 5, 2)->default(0);
                 $table->decimal('break_hours', 5, 2)->default(0);
+<<<<<<< HEAD
 
                 // Tipo e stato
                 $table->enum('type', [
@@ -79,13 +103,95 @@ return new class() extends XotBaseMigration
                 // Timestamps standard
                 $table->timestamps();
 
+=======
+                
+                // Tipo e stato
+                $table->enum('type', [
+                    'normale',
+                    'straordinario', 
+                    'permesso',
+                    'malattia',
+                    'smart_working'
+                ])->default('normale');
+                
+                $table->enum('status', [
+                    'registrata',
+                    'approvata',
+                    'rifiutata'
+                ])->default('registrata');
+                
+                // Geolocalizzazione
+                $table->json('location')->nullable();              // Lat, lng, address
+                $table->boolean('location_validated')->default(false);
+                
+                // Informazioni dispositivo
+                $table->json('device_info')->nullable();           // Browser, IP, user agent
+                
+                // Note e motivi
+                $table->text('notes')->nullable();
+                $table->text('rejection_reason')->nullable();
+                
+                // Timestamp approvazione
+                $table->timestamp('approved_at')->nullable();
+                
+                // Flag lavoro remoto
+                $table->boolean('is_remote')->default(false);
+                
+                // Timestamps standard
+                $table->timestamps();
+                
+
+                
+                // Tipo e stato
+                $table->enum('type', [
+                    'normale',
+                    'straordinario', 
+                    'permesso',
+                    'malattia',
+                    'smart_working'
+                ])->default('normale');
+                
+                $table->enum('status', [
+                    'registrata',
+                    'approvata',
+                    'rifiutata'
+                ])->default('registrata');
+                
+                // Geolocalizzazione
+                $table->json('location')->nullable();              // Lat, lng, address
+                $table->boolean('location_validated')->default(false);
+                
+                // Informazioni dispositivo
+                $table->json('device_info')->nullable();           // Browser, IP, user agent
+                
+                // Note e motivi
+                $table->text('notes')->nullable();
+                $table->text('rejection_reason')->nullable();
+                
+                // Timestamp approvazione
+                $table->timestamp('approved_at')->nullable();
+                
+                // Flag lavoro remoto
+                $table->boolean('is_remote')->default(false);
+                
+                // Timestamps standard
+                $table->timestamps();
+
+                
+>>>>>>> 95b3a4c (.)
                 // Indici per performance
                 $table->index(['employee_id', 'date']);
                 $table->index(['date', 'status']);
                 $table->index(['employee_id', 'status']);
                 $table->index(['type', 'status']);
                 $table->index(['is_remote']);
+<<<<<<< HEAD
 
+=======
+                
+
+                
+>>>>>>> 95b3a4c (.)
                 // Indice univoco per evitare duplicati
                 $table->unique(['employee_id', 'date'], 'unique_employee_date');
             }
@@ -95,6 +201,7 @@ return new class() extends XotBaseMigration
         $this->tableUpdate(
             function (Blueprint $table): void {
                 // Aggiungi colonne se non esistono
+<<<<<<< HEAD
                 if (! $this->hasColumn('uuid')) {
                     $table->uuid('uuid')->unique()->after('id');
                 }
@@ -108,10 +215,47 @@ return new class() extends XotBaseMigration
                 }
 
                 if (! $this->hasColumn('break_hours')) {
+=======
+                if (!$this->hasColumn('uuid')) {
+                    $table->uuid('uuid')->unique()->after('id');
+                }
+
+                if (!$this->hasColumn('work_schedule_id')) {
+                    $table->foreignId('work_schedule_id')->nullable()->constrained('work_schedules')->after('employee_id');
+                }
+
+                if (!$this->hasColumn('approved_by')) {
+                    $table->foreignId('approved_by')->nullable()->constrained('employees')->after('work_schedule_id');
+                }
+
+                if (!$this->hasColumn('break_hours')) {
+                    $table->decimal('break_hours', 5, 2)->default(0)->after('overtime_hours');
+                }
+
+                if (!$this->hasColumn('smart_working')) {
+                if (! $this->hasColumn('uuid')) {
+                if (!$this->hasColumn('uuid')) {
+                    $table->uuid('uuid')->unique()->after('id');
+                }
+
+                if (!$this->hasColumn('work_schedule_id')) {
+                    $table->foreignId('work_schedule_id')->nullable()->constrained('work_schedules')->after('employee_id');
+                }
+
+                if (!$this->hasColumn('approved_by')) {
+                    $table->foreignId('approved_by')->nullable()->constrained('employees')->after('work_schedule_id');
+                }
+
+                if (!$this->hasColumn('break_hours')) {
+>>>>>>> 95b3a4c (.)
                     $table->decimal('break_hours', 5, 2)->default(0)->after('overtime_hours');
                 }
 
                 if (! $this->hasColumn('smart_working')) {
+<<<<<<< HEAD
+=======
+                if (!$this->hasColumn('smart_working')) {
+>>>>>>> 95b3a4c (.)
                     // Aggiorna enum type se necessario
                     if ($this->hasColumn('type')) {
                         // Nota: MySQL non permette di modificare enum facilmente
@@ -119,6 +263,7 @@ return new class() extends XotBaseMigration
                     }
                 }
 
+<<<<<<< HEAD
                 if (! $this->hasColumn('location_validated')) {
                     $table->boolean('location_validated')->default(false)->after('location');
                 }
@@ -128,14 +273,44 @@ return new class() extends XotBaseMigration
                 }
 
                 if (! $this->hasColumn('rejection_reason')) {
+=======
+                if (!$this->hasColumn('location_validated')) {
+                    $table->boolean('location_validated')->default(false)->after('location');
+                }
+
+                if (!$this->hasColumn('is_remote')) {
+                    $table->boolean('is_remote')->default(false)->after('approved_at');
+                }
+
+                if (!$this->hasColumn('rejection_reason')) {
+                    $table->text('rejection_reason')->nullable()->after('notes');
+                }
+
+                if (!$this->hasColumn('approved_at')) {
+                if (! $this->hasColumn('location_validated')) {
+                if (!$this->hasColumn('location_validated')) {
+                    $table->boolean('location_validated')->default(false)->after('location');
+                }
+
+                if (!$this->hasColumn('is_remote')) {
+                    $table->boolean('is_remote')->default(false)->after('approved_at');
+                }
+
+                if (!$this->hasColumn('rejection_reason')) {
+>>>>>>> 95b3a4c (.)
                     $table->text('rejection_reason')->nullable()->after('notes');
                 }
 
                 if (! $this->hasColumn('approved_at')) {
+<<<<<<< HEAD
+=======
+                if (!$this->hasColumn('approved_at')) {
+>>>>>>> 95b3a4c (.)
                     $table->timestamp('approved_at')->nullable()->after('rejection_reason');
                 }
 
                 // Aggiorna indici se non esistono
+<<<<<<< HEAD
                 if (! $this->hasIndex('employee_id')) {
                     $table->index(['employee_id', 'date'], 'idx_employee_date');
                 }
@@ -149,15 +324,58 @@ return new class() extends XotBaseMigration
                 }
 
                 if (! $this->hasIndex('type_status')) {
+=======
+                if (!$this->hasIndex('employee_id')) {
+                    $table->index(['employee_id', 'date'], 'idx_employee_date');
+                }
+
+                if (!$this->hasIndex('date_status')) {
+                    $table->index(['date', 'status'], 'idx_date_status');
+                }
+
+                if (!$this->hasIndex('employee_status')) {
+                    $table->index(['employee_id', 'status'], 'idx_employee_status');
+                }
+
+                if (!$this->hasIndex('type_status')) {
+                    $table->index(['type', 'status'], 'idx_type_status');
+                }
+
+                if (!$this->hasIndex('is_remote')) {
+                if (! $this->hasIndex('employee_id')) {
+                if (!$this->hasIndex('employee_id')) {
+                    $table->index(['employee_id', 'date'], 'idx_employee_date');
+                }
+
+                if (!$this->hasIndex('date_status')) {
+                    $table->index(['date', 'status'], 'idx_date_status');
+                }
+
+                if (!$this->hasIndex('employee_status')) {
+                    $table->index(['employee_id', 'status'], 'idx_employee_status');
+                }
+
+                if (!$this->hasIndex('type_status')) {
+>>>>>>> 95b3a4c (.)
                     $table->index(['type', 'status'], 'idx_type_status');
                 }
 
                 if (! $this->hasIndex('is_remote')) {
+<<<<<<< HEAD
+=======
+                if (!$this->hasIndex('is_remote')) {
+>>>>>>> 95b3a4c (.)
                     $table->index(['is_remote'], 'idx_is_remote');
                 }
 
                 // Aggiorna unique constraint se non esiste
+<<<<<<< HEAD
                 if (! $this->hasIndex('unique_employee_date')) {
+=======
+                if (!$this->hasIndex('unique_employee_date')) {
+                if (! $this->hasIndex('unique_employee_date')) {
+                if (!$this->hasIndex('unique_employee_date')) {
+>>>>>>> 95b3a4c (.)
                     $table->unique(['employee_id', 'date'], 'unique_employee_date');
                 }
 
@@ -188,4 +406,10 @@ return new class() extends XotBaseMigration
         // Rimuovi tabella
         $this->dropTableIfExists($this->table);
     }
+<<<<<<< HEAD
 };
+=======
+}; 
+};
+}; 
+>>>>>>> 95b3a4c (.)

@@ -4,17 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Enums;
 
+<<<<<<< HEAD
 /**
  * Work Hour Status Enum
  *
  * Defines the approval status states for time tracking entries.
  * Replaces constants from WorkHour model for better type safety.
  */
+=======
+>>>>>>> 95b3a4c (.)
 enum WorkHourStatusEnum: string
 {
     case PENDING = 'pending';
     case APPROVED = 'approved';
     case REJECTED = 'rejected';
+<<<<<<< HEAD
 
     /**
      * Get all available statuses as array.
@@ -22,12 +26,26 @@ enum WorkHourStatusEnum: string
      * @return array<string>
      */
     public static function toArray(): array
+=======
+    case CANCELLED = 'cancelled';
+
+    /**
+     * Get all enum values as array.
+     *
+     * @return array<string>
+     */
+    public static function values(): array
+>>>>>>> 95b3a4c (.)
     {
         return array_column(self::cases(), 'value');
     }
 
     /**
+<<<<<<< HEAD
      * Get human-readable label for the status.
+=======
+     * Get enum label for display.
+>>>>>>> 95b3a4c (.)
      */
     public function getLabel(): string
     {
@@ -35,6 +53,7 @@ enum WorkHourStatusEnum: string
             self::PENDING => 'Pending',
             self::APPROVED => 'Approved',
             self::REJECTED => 'Rejected',
+<<<<<<< HEAD
         };
     }
 
@@ -98,3 +117,9 @@ enum WorkHourStatusEnum: string
         };
     }
 }
+=======
+            self::CANCELLED => 'Cancelled',
+        };
+    }
+}
+>>>>>>> 95b3a4c (.)
