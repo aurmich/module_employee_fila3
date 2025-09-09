@@ -6,22 +6,28 @@ namespace Modules\Employee\Http\Livewire;
 
 use Carbon\Carbon;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Livewire\Component;
 use Modules\Employee\Models\WorkHour;
 use Modules\Employee\Models\Employee;
 use Illuminate\Support\Facades\Auth;
 =======
 use Illuminate\Contracts\View\View;
+=======
+>>>>>>> da93016 (.)
 use Livewire\Component;
-use Modules\Employee\Enums\WorkHourStatusEnum;
-use Modules\Employee\Enums\WorkHourTypeEnum;
-use Modules\Employee\Models\Employee;
 use Modules\Employee\Models\WorkHour;
+<<<<<<< HEAD
 >>>>>>> c1ac34e (.)
+=======
+use Modules\Employee\Models\Employee;
+use Illuminate\Support\Facades\Auth;
+>>>>>>> da93016 (.)
 
 class WorkHourDashboard extends Component
 {
     public ?Employee $employee = null;
+<<<<<<< HEAD
 <<<<<<< HEAD
     public array $weeklyStats = [];
     public array $monthlyStats = [];
@@ -37,31 +43,29 @@ class WorkHourDashboard extends Component
 =======
 
     /** @var array<int, array{date: string, day: string, hours: float, formatted_hours: string}> */
+=======
+>>>>>>> da93016 (.)
     public array $weeklyStats = [];
-
-    /** @var array<int, array{week: int, start_date: string, end_date: string, hours: float, formatted_hours: string}> */
     public array $monthlyStats = [];
-
     public float $todayHours = 0.0;
-
     public float $weekHours = 0.0;
-
     public float $monthHours = 0.0;
-
-    /** @var array<int, array{id: int, date: string, time: string, type: WorkHourTypeEnum, type_label: string, type_color: string, notes: string|null, status: WorkHourStatusEnum, status_color: string}> */
     public array $recentEntries = [];
-
     public string $selectedPeriod = 'week';
 
-    /** @var array<string, string> */
     protected $listeners = [
         'workHourRecorded' => 'refreshStats',
+<<<<<<< HEAD
         'refreshDashboard' => 'refreshStats',
 >>>>>>> c1ac34e (.)
+=======
+        'refreshDashboard' => 'refreshStats'
+>>>>>>> da93016 (.)
     ];
 
     public function mount(?int $employeeId = null): void
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         $this->employee = $employeeId 
             ? Employee::find($employeeId) 
@@ -85,6 +89,15 @@ class WorkHourDashboard extends Component
 
     public function render(): View
 >>>>>>> c1ac34e (.)
+=======
+        $this->employee = $employeeId 
+            ? Employee::find($employeeId) 
+            : (Auth::user()->employee ?? null);
+        $this->refreshStats();
+    }
+
+    public function render()
+>>>>>>> da93016 (.)
     {
         return view('employee::livewire.work-hour-dashboard');
     }
@@ -92,10 +105,14 @@ class WorkHourDashboard extends Component
     public function refreshStats(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (!$this->employee) {
 =======
         if (! $this->employee) {
 >>>>>>> c1ac34e (.)
+=======
+        if (!$this->employee) {
+>>>>>>> da93016 (.)
             return;
         }
 
@@ -113,12 +130,16 @@ class WorkHourDashboard extends Component
     private function calculateTodayHours(): void
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->todayHours = WorkHour::calculateWorkedHours($this->employee->id, Carbon::today());
 =======
         if ($this->employee) {
             $this->todayHours = WorkHour::calculateWorkedHours($this->employee->id, Carbon::today());
         }
 >>>>>>> c1ac34e (.)
+=======
+        $this->todayHours = WorkHour::calculateWorkedHours($this->employee->id, Carbon::today());
+>>>>>>> da93016 (.)
     }
 
     private function calculateWeeklyStats(): void
@@ -126,14 +147,19 @@ class WorkHourDashboard extends Component
         $startOfWeek = Carbon::now()->startOfWeek();
         $endOfWeek = Carbon::now()->endOfWeek();
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+        
+>>>>>>> da93016 (.)
         $this->weekHours = 0.0;
         $this->weeklyStats = [];
 
         for ($date = $startOfWeek->copy(); $date->lte($endOfWeek); $date->addDay()) {
+<<<<<<< HEAD
 <<<<<<< HEAD
             $hours = WorkHour::calculateWorkedHours($this->employee->id, $date);
             $this->weekHours += $hours;
@@ -143,6 +169,11 @@ class WorkHourDashboard extends Component
             $this->weekHours += $hours;
 
 >>>>>>> c1ac34e (.)
+=======
+            $hours = WorkHour::calculateWorkedHours($this->employee->id, $date);
+            $this->weekHours += $hours;
+            
+>>>>>>> da93016 (.)
             $this->weeklyStats[] = [
                 'date' => $date->format('Y-m-d'),
                 'day' => $date->format('D'),
@@ -157,10 +188,14 @@ class WorkHourDashboard extends Component
         $startOfMonth = Carbon::now()->startOfMonth();
         $endOfMonth = Carbon::now()->endOfMonth();
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+        
+>>>>>>> da93016 (.)
         $this->monthHours = 0.0;
         $this->monthlyStats = [];
 
@@ -178,10 +213,14 @@ class WorkHourDashboard extends Component
             for ($date = $currentWeek->copy(); $date->lte($weekEnd); $date->addDay()) {
                 if ($date->gte($startOfMonth) && $date->lte($endOfMonth)) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     $dayHours = WorkHour::calculateWorkedHours($this->employee->id, $date);
 =======
                     $dayHours = $this->employee ? WorkHour::calculateWorkedHours($this->employee->id, $date) : 0.0;
 >>>>>>> c1ac34e (.)
+=======
+                    $dayHours = WorkHour::calculateWorkedHours($this->employee->id, $date);
+>>>>>>> da93016 (.)
                     $weekHours += $dayHours;
                     $this->monthHours += $dayHours;
                 }
@@ -202,6 +241,7 @@ class WorkHourDashboard extends Component
 
     private function loadRecentEntries(): void
     {
+<<<<<<< HEAD
 <<<<<<< HEAD
         $this->recentEntries = WorkHour::where('employee_id', $this->employee->id)
             ->orderBy('timestamp', 'desc')
@@ -251,6 +291,26 @@ class WorkHourDashboard extends Component
         })->toArray();
         $this->recentEntries = $recentEntries;
 >>>>>>> c1ac34e (.)
+=======
+        $this->recentEntries = WorkHour::where('employee_id', $this->employee->id)
+            ->orderBy('timestamp', 'desc')
+            ->limit(10)
+            ->get()
+            ->map(function (WorkHour $entry) {
+                return [
+                    'id' => $entry->id,
+                    'date' => $entry->timestamp->format('d/m/Y'),
+                    'time' => $entry->timestamp->format('H:i:s'),
+                    'type' => $entry->type,
+                    'type_label' => $this->getTypeLabel($entry->type),
+                    'type_color' => $this->getTypeColor($entry->type),
+                    'notes' => $entry->notes,
+                    'status' => $entry->status,
+                    'status_color' => $this->getStatusColor($entry->status),
+                ];
+            })
+            ->toArray();
+>>>>>>> da93016 (.)
     }
 
     public function getTypeLabel(string $type): string
@@ -290,6 +350,7 @@ class WorkHourDashboard extends Component
         $wholeHours = floor($hours);
         $minutes = round(($hours - $wholeHours) * 60);
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         if ($minutes == 0) {
             return "{$wholeHours}h";
@@ -302,6 +363,13 @@ class WorkHourDashboard extends Component
         }
 
 >>>>>>> c1ac34e (.)
+=======
+        
+        if ($minutes == 0) {
+            return "{$wholeHours}h";
+        }
+        
+>>>>>>> da93016 (.)
         return "{$wholeHours}h {$minutes}m";
     }
 
@@ -318,9 +386,12 @@ class WorkHourDashboard extends Component
 
         $average = $this->weekHours / $workDays;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+>>>>>>> da93016 (.)
         return $this->formatHours($average);
     }
 
@@ -335,9 +406,12 @@ class WorkHourDashboard extends Component
         $targetHours = 40;
         $percentage = ($this->weekHours / $targetHours) * 100;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+>>>>>>> da93016 (.)
         return min(100, (int) round($percentage));
     }
 
@@ -345,10 +419,14 @@ class WorkHourDashboard extends Component
     {
         $percentage = $this->getProgressPercentage();
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+        
+>>>>>>> da93016 (.)
         if ($percentage >= 90) {
             return 'success';
         } elseif ($percentage >= 70) {

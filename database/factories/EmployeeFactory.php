@@ -16,10 +16,14 @@ class EmployeeFactory extends Factory
      * The name of the factory's corresponding model.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var string
 =======
      * @var class-string<\Modules\Employee\Models\Employee>
 >>>>>>> c1ac34e (.)
+=======
+     * @var string
+>>>>>>> da93016 (.)
      */
     protected $model = Employee::class;
 
@@ -33,6 +37,7 @@ class EmployeeFactory extends Factory
         return [
             'user_id' => null, // Will be set when needed
 <<<<<<< HEAD
+<<<<<<< HEAD
             'employee_code' => 'EMP' . $this->faker->unique()->numberBetween(1000, 9999),
             'personal_data' => [
                 'first_name' => $this->faker->firstName(),
@@ -43,6 +48,12 @@ class EmployeeFactory extends Factory
                 'first_name' => $this->faker->name(),
                 'last_name' => $this->faker->name(),
 >>>>>>> c1ac34e (.)
+=======
+            'employee_code' => 'EMP' . $this->faker->unique()->numberBetween(1000, 9999),
+            'personal_data' => [
+                'first_name' => $this->faker->firstName(),
+                'last_name' => $this->faker->lastName(),
+>>>>>>> da93016 (.)
                 'date_of_birth' => $this->faker->date(),
                 'gender' => $this->faker->randomElement(['M', 'F', 'O']),
                 'nationality' => $this->faker->countryCode(),
@@ -55,10 +66,14 @@ class EmployeeFactory extends Factory
                     'street' => $this->faker->streetAddress(),
                     'city' => $this->faker->city(),
 <<<<<<< HEAD
+<<<<<<< HEAD
                     'state' => $this->faker->optional()->randomElement(['CA', 'NY', 'TX', 'FL', 'WA', 'IL', 'PA', 'OH']),
 =======
                     'state' => 'IT',
 >>>>>>> c1ac34e (.)
+=======
+                    'state' => $this->faker->optional()->randomElement(['CA', 'NY', 'TX', 'FL', 'WA', 'IL', 'PA', 'OH']),
+>>>>>>> da93016 (.)
                     'postal_code' => $this->faker->postcode(),
                     'country' => $this->faker->country(),
                 ],
@@ -91,10 +106,15 @@ class EmployeeFactory extends Factory
     /**
      * Indicate that the employee is active.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function active(): static
     {
@@ -106,10 +126,15 @@ class EmployeeFactory extends Factory
     /**
      * Indicate that the employee is inactive.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function inactive(): static
     {
@@ -121,11 +146,17 @@ class EmployeeFactory extends Factory
     /**
      * Set a specific employee code.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @param string $code
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @param string $code
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function withCode(string $code): static
     {
@@ -137,11 +168,17 @@ class EmployeeFactory extends Factory
     /**
      * Set specific personal data.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @param array $personalData
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @param array $personalData
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function withPersonalData(array $personalData): static
     {
@@ -153,11 +190,17 @@ class EmployeeFactory extends Factory
     /**
      * Set specific contact data.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @param array $contactData
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @param array $contactData
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function withContactData(array $contactData): static
     {
@@ -169,11 +212,17 @@ class EmployeeFactory extends Factory
     /**
      * Set a specific status.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @param string $status
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @param string $status
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function withStatus(string $status): static
     {

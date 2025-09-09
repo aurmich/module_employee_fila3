@@ -15,21 +15,28 @@ use Parental\HasParent;
  * @property int|null $user_id
  * @property string $employee_code
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> da93016 (.)
  * @property array $personal_data
  * @property array $contact_data
  * @property array $work_data
  * @property array $documents
+<<<<<<< HEAD
 =======
  * @property array<string, mixed> $personal_data
  * @property array<string, mixed> $contact_data
  * @property array<string, mixed> $work_data
  * @property array<string, mixed> $documents
 >>>>>>> c1ac34e (.)
+=======
+>>>>>>> da93016 (.)
  * @property string|null $photo_url
  * @property string $status
  * @property int|null $department_id
  * @property int|null $manager_id
  * @property int|null $position_id
+<<<<<<< HEAD
 <<<<<<< HEAD
  * @property array $salary_data
  * @property \Illuminate\Support\Carbon|null $created_at
@@ -48,17 +55,29 @@ class Employee extends User
     protected $table = 'users';
 =======
  * @property array<string, mixed> $salary_data
+=======
+ * @property array $salary_data
+>>>>>>> da93016 (.)
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \Modules\User\Models\User|null $user
+ * @property-read \Modules\Employee\Models\Department|null $department
  * @property-read \Modules\Employee\Models\Employee|null $manager
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Employee\Models\Employee> $subordinates
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Employee\Models\WorkHour> $workHours
+ * @property-read \Illuminate\Database\Eloquent\Collection<\Modules\Employee\Models\Employee> $subordinates
+ * @property-read \Modules\Employee\Models\Position|null $position
+ * @property-read \Illuminate\Database\Eloquent\Collection<\Modules\Employee\Models\WorkHour> $workHours
+ * @property-read \Illuminate\Database\Eloquent\Collection<\Modules\Employee\Models\Leave> $leaves
+ * @property-read \Illuminate\Database\Eloquent\Collection<\Modules\Employee\Models\Document> $documents
  */
 class Employee extends User
 {
+<<<<<<< HEAD
     use HasParent;
 
 >>>>>>> c1ac34e (.)
+=======
+    protected $table = 'users';
+>>>>>>> da93016 (.)
     /**
      * The attributes that are mass assignable.
      *
@@ -97,6 +116,7 @@ class Employee extends User
         ];
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
    
 }
@@ -158,3 +178,7 @@ class Employee extends User
     }
 }
 >>>>>>> c1ac34e (.)
+=======
+   
+}
+>>>>>>> da93016 (.)

@@ -28,10 +28,14 @@ class DepartmentFactory extends Factory
     {
         return [
 <<<<<<< HEAD
+<<<<<<< HEAD
             'name' => $this->faker->unique()->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
 =======
             'name' => $this->faker->unique()->word().' Department',
 >>>>>>> c1ac34e (.)
+=======
+            'name' => $this->faker->unique()->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
+>>>>>>> da93016 (.)
             'description' => $this->faker->optional()->sentence(),
             'status' => $this->faker->randomElement(['attivo', 'inattivo']),
             'manager_id' => null, // Will be set when needed
@@ -41,10 +45,15 @@ class DepartmentFactory extends Factory
     /**
      * Indicate that the department is active.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function active(): static
     {
@@ -56,10 +65,15 @@ class DepartmentFactory extends Factory
     /**
      * Indicate that the department is inactive.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function inactive(): static
     {
@@ -71,11 +85,17 @@ class DepartmentFactory extends Factory
     /**
      * Set a specific department name.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @param string $name
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @param string $name
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function withName(string $name): static
     {
@@ -87,11 +107,17 @@ class DepartmentFactory extends Factory
     /**
      * Set a specific description.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @param string $description
      * @return static
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @param string $description
+     * @return static
+>>>>>>> da93016 (.)
      */
     public function withDescription(string $description): static
     {

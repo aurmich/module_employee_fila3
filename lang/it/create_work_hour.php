@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> da93016 (.)
 return array (
   'actions' => 
   array (
@@ -18,6 +21,7 @@ return array (
     ),
   ),
 );
+<<<<<<< HEAD
 =======
 return [
     'actions' => [
@@ -33,3 +37,5 @@ return [
     ],
 ];
 >>>>>>> c1ac34e (.)
+=======
+>>>>>>> da93016 (.)

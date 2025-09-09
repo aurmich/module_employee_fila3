@@ -1,6 +1,7 @@
 # Employee Module - Laraxot
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Overview
 
 Complete Employee module implementation for comprehensive employee management functionality. The module provides employee data management, time tracking, department organization, and follows strict Laraxot conventions.
@@ -141,6 +142,11 @@ The dashboard features 6 primary widgets providing comprehensive HR functionalit
 - **Real-time Updates**: Livewire polling for dynamic content
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
 >>>>>>> c1ac34e (.)
+=======
+## Overview
+
+Complete Employee module implementation for comprehensive employee management functionality. The module provides employee data management, time tracking, department organization, and follows strict Laraxot conventions.
+>>>>>>> da93016 (.)
 
 ## Critical Laraxot Philosophy Compliance
 
@@ -160,6 +166,7 @@ class EmployeePage extends Modules\Xot\Filament\Pages\XotBasePage
 
 ### Naming Standards (Employee Module)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 **ALL DATABASE ELEMENTS MUST BE IN ENGLISH**
 
@@ -214,6 +221,14 @@ class ClockInAction extends BaseAction
 }
 ```
 >>>>>>> c1ac34e (.)
+=======
+**ALL DATABASE ELEMENTS MUST BE IN ENGLISH**
+
+- Table names: English only
+- Column names: English only
+- Enum values: English only
+- Comments: English only
+>>>>>>> da93016 (.)
 
 ## Module Structure
 
@@ -229,10 +244,14 @@ laravel/Modules/Employee/
 ├── config/               # Module configuration
 ├── database/             # Migrations and seeders
 <<<<<<< HEAD
+<<<<<<< HEAD
 ├── docs/                 # Module documentation
 =======
 ├── docs/                 # Module documentation (organized structure)
 >>>>>>> c1ac34e (.)
+=======
+├── docs/                 # Module documentation
+>>>>>>> da93016 (.)
 ├── lang/                 # Language files
 │   ├── it/              # Italian translations
 │   └── en/              # English translations
@@ -340,6 +359,7 @@ The Employee module uses a custom SVG icon system:
 
 ### Widgets
 <<<<<<< HEAD
+<<<<<<< HEAD
 - Employee statistics overview
 =======
 
@@ -369,6 +389,9 @@ The Employee module uses a custom SVG icon system:
 - **EmployeeOverviewWidget** - General employee statistics overview
 - **WorkHourStatsWidget** - Time tracking statistics and attendance
 >>>>>>> c1ac34e (.)
+=======
+- Employee statistics overview
+>>>>>>> da93016 (.)
 - Recent activity tracking
 - Quick action buttons
 
@@ -447,18 +470,25 @@ php artisan test --coverage --testsuite=Employee
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Documentation
 =======
 ## 📚 Documentation
 >>>>>>> c1ac34e (.)
+=======
+## Documentation
+>>>>>>> da93016 (.)
 
 ### Module Documentation
 - [Model Architecture](model_architecture.md) - Database and model structure
 - [WorkHour Implementation](workhour_implementation.md) - Time tracking system
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 - [Filament Widgets](filament_widgets.md) - Dashboard widgets and statistics
 >>>>>>> c1ac34e (.)
+=======
+>>>>>>> da93016 (.)
 - [Technical Implementation](technical_implementation.md) - Technical details
 - [Language Best Practices](language_best_practices.md) - Translation standards
 - [SVG Icon Standards](svg_icon_standards.md) - Icon system and standards
@@ -473,6 +503,7 @@ php artisan test --coverage --testsuite=Employee
 - [Translation Standards](../../laravel/Modules/Lang/docs/translation_file_syntax.md) - Language file syntax
 - [Best Practices](../../laravel/Modules/Lang/docs/) - Language development guidelines
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Installation and Setup
 
@@ -502,6 +533,11 @@ php artisan serve
 
 #### 1. Module Registration
 >>>>>>> c1ac34e (.)
+=======
+## Installation and Setup
+
+### 1. Module Registration
+>>>>>>> da93016 (.)
 ```bash
 # Register the module in composer.json
 composer require modules/employee
@@ -514,10 +550,14 @@ php artisan migrate
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 2. Language Setup
 =======
 #### 2. Language Setup
 >>>>>>> c1ac34e (.)
+=======
+### 2. Language Setup
+>>>>>>> da93016 (.)
 ```bash
 # Publish language files
 php artisan vendor:publish --tag=employee-lang
@@ -527,10 +567,14 @@ php artisan lang:clear
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 3. Filament Setup
 =======
 #### 3. Filament Setup
 >>>>>>> c1ac34e (.)
+=======
+### 3. Filament Setup
+>>>>>>> da93016 (.)
 ```bash
 # Register Filament resources
 php artisan employee:install
@@ -540,10 +584,14 @@ php artisan filament:clear-cache
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ### 4. Icon System Setup
 =======
 #### 4. Icon System Setup
 >>>>>>> c1ac34e (.)
+=======
+### 4. Icon System Setup
+>>>>>>> da93016 (.)
 ```bash
 # Icons are automatically registered by XotBaseServiceProvider
 # No additional setup required
@@ -610,10 +658,14 @@ php artisan route:list | grep icon
 - [ ] Follows naming conventions
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Support and Resources
 =======
 ## 📞 Support and Resources
 >>>>>>> c1ac34e (.)
+=======
+## Support and Resources
+>>>>>>> da93016 (.)
 
 ### Internal Resources
 - [Employee Module Docs](./) - Complete module documentation
@@ -627,6 +679,7 @@ php artisan route:list | grep icon
 - [Laraxot Documentation](https://laraxot.com)
 - [Heroicons](https://heroicons.com/) - Icon reference
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ---
 
@@ -808,3 +861,8 @@ Employee/
 - **Redis**: Cache and sessions
 - **Elasticsearch**: Advanced search
 >>>>>>> c1ac34e (.)
+=======
+---
+
+**IMPORTANT**: Always follow Laraxot conventions and extend XotBase classes. Never extend Filament classes directly. Maintain high-quality translations, comprehensive documentation, and consistent SVG icon standards.
+>>>>>>> da93016 (.)

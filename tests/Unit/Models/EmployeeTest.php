@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Employee\Tests\Unit\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Modules\Employee\Models\Employee;
 use Modules\Employee\Models\Department;
 use Modules\Employee\Models\Position;
@@ -17,10 +18,16 @@ uses(TestCase::class, RefreshDatabase::class);
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 use Modules\Employee\Models\Department;
+=======
+>>>>>>> da93016 (.)
 use Modules\Employee\Models\Employee;
+use Modules\Employee\Models\Department;
 use Modules\Employee\Models\Position;
-use Modules\Employee\Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\Eloquent\Collection;
+use Tests\TestCase;
 
+<<<<<<< HEAD
 uses(TestCase::class);
 
 beforeEach(function () {
@@ -31,6 +38,9 @@ afterEach(function () {
     DB::rollBack();
 });
 >>>>>>> c1ac34e (.)
+=======
+uses(TestCase::class, RefreshDatabase::class);
+>>>>>>> da93016 (.)
 
 beforeEach(function () {
     $this->employee = Employee::factory()->create([
@@ -57,10 +67,14 @@ test('employee can be created', function () {
 test('employee has fillable attributes', function () {
     $fillable = $this->employee->getFillable();
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+    
+>>>>>>> da93016 (.)
     expect($fillable)->toContain('user_id');
     expect($fillable)->toContain('employee_code');
     expect($fillable)->toContain('personal_data');
@@ -72,10 +86,14 @@ test('employee has fillable attributes', function () {
 test('employee has casts defined', function () {
     $casts = $this->employee->getCasts();
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+    
+>>>>>>> da93016 (.)
     expect($casts)->toHaveKey('personal_data');
     expect($casts)->toHaveKey('contact_data');
     expect($casts)->toHaveKey('work_data');
@@ -97,10 +115,14 @@ test('employee belongs to department', function () {
     $department = Department::factory()->create();
     $this->employee->update(['department_id' => $department->id]);
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+    
+>>>>>>> da93016 (.)
     expect($this->employee->department)->toBeInstanceOf(Department::class);
     expect($this->employee->department->id)->toBe($department->id);
 });
@@ -109,10 +131,14 @@ test('employee belongs to position', function () {
     $position = Position::factory()->create();
     $this->employee->update(['position_id' => $position->id]);
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+    
+>>>>>>> da93016 (.)
     expect($this->employee->position)->toBeInstanceOf(Position::class);
     expect($this->employee->position->id)->toBe($position->id);
 });
@@ -121,10 +147,14 @@ test('employee can have manager', function () {
     $manager = Employee::factory()->create();
     $this->employee->update(['manager_id' => $manager->id]);
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+    
+>>>>>>> da93016 (.)
     expect($this->employee->manager)->toBeInstanceOf(Employee::class);
     expect($this->employee->manager->id)->toBe($manager->id);
 });
@@ -132,10 +162,14 @@ test('employee can have manager', function () {
 test('employee can have subordinates', function () {
     $subordinate = Employee::factory()->create(['manager_id' => $this->employee->id]);
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+    
+>>>>>>> da93016 (.)
     expect($this->employee->subordinates)->toBeInstanceOf(Collection::class);
     expect($this->employee->subordinates)->toHaveCount(1);
     expect($this->employee->subordinates->first()->id)->toBe($subordinate->id);
@@ -156,10 +190,14 @@ test('employee can get phone', function () {
 test('employee can check if active', function () {
     expect($this->employee->isActive())->toBeTrue();
 <<<<<<< HEAD
+<<<<<<< HEAD
     
 =======
 
 >>>>>>> c1ac34e (.)
+=======
+    
+>>>>>>> da93016 (.)
     $this->employee->update(['status' => 'inattivo']);
     expect($this->employee->isActive())->toBeFalse();
 });
@@ -167,6 +205,7 @@ test('employee can check if active', function () {
 test('employee can check if has manager', function () {
     expect($this->employee->hasManager())->toBeFalse();
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     $manager = Employee::factory()->create();
     $this->employee->update(['manager_id' => $manager->id]);
@@ -177,11 +216,18 @@ test('employee can check if has manager', function () {
     $this->employee->update(['manager_id' => $manager->id]);
 
 >>>>>>> c1ac34e (.)
+=======
+    
+    $manager = Employee::factory()->create();
+    $this->employee->update(['manager_id' => $manager->id]);
+    
+>>>>>>> da93016 (.)
     expect($this->employee->hasManager())->toBeTrue();
 });
 
 test('employee can check if has subordinates', function () {
     expect($this->employee->hasSubordinates())->toBeFalse();
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     Employee::factory()->create(['manager_id' => $this->employee->id]);
@@ -191,6 +237,11 @@ test('employee can check if has subordinates', function () {
     Employee::factory()->create(['manager_id' => $this->employee->id]);
 
 >>>>>>> c1ac34e (.)
+=======
+    
+    Employee::factory()->create(['manager_id' => $this->employee->id]);
+    
+>>>>>>> da93016 (.)
     expect($this->employee->hasSubordinates())->toBeTrue();
 });
 
@@ -198,6 +249,7 @@ test('employee can be filtered by status', function () {
     $activeEmployee = Employee::factory()->create(['status' => 'attivo']);
     $inactiveEmployee = Employee::factory()->create(['status' => 'inattivo']);
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     $activeEmployees = Employee::active()->get();
     $inactiveEmployees = Employee::inactive()->get();
@@ -207,13 +259,20 @@ test('employee can be filtered by status', function () {
     
 =======
 
+=======
+    
+>>>>>>> da93016 (.)
     $activeEmployees = Employee::active()->get();
     $inactiveEmployees = Employee::inactive()->get();
-
+    
     expect($activeEmployees)->toHaveCount(2); // Including the one from beforeEach
     expect($inactiveEmployees)->toHaveCount(1);
+<<<<<<< HEAD
 
 >>>>>>> c1ac34e (.)
+=======
+    
+>>>>>>> da93016 (.)
     expect($activeEmployees->pluck('id'))->toContain($this->employee->id);
     expect($activeEmployees->pluck('id'))->toContain($activeEmployee->id);
     expect($inactiveEmployees->pluck('id'))->toContain($inactiveEmployee->id);

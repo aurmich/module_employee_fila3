@@ -101,11 +101,16 @@ class Attendance extends BaseModel
      * Scope a query to only include attendance records for a specific user.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param \Illuminate\Database\Eloquent\Builder<static> $query
      * @param int $userId
 =======
      * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
 >>>>>>> c1ac34e (.)
+=======
+     * @param \Illuminate\Database\Eloquent\Builder<static> $query
+     * @param int $userId
+>>>>>>> da93016 (.)
      * @return \Illuminate\Database\Eloquent\Builder<static>
      */
     public function scopeForUser($query, int $userId)
@@ -117,11 +122,16 @@ class Attendance extends BaseModel
      * Scope a query to only include attendance records of a specific type.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param \Illuminate\Database\Eloquent\Builder<static> $query
      * @param string $type
 =======
      * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
 >>>>>>> c1ac34e (.)
+=======
+     * @param \Illuminate\Database\Eloquent\Builder<static> $query
+     * @param string $type
+>>>>>>> da93016 (.)
      * @return \Illuminate\Database\Eloquent\Builder<static>
      */
     public function scopeOfType($query, string $type)
@@ -133,11 +143,16 @@ class Attendance extends BaseModel
      * Scope a query to only include attendance records for a specific date.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param \Illuminate\Database\Eloquent\Builder<static> $query
      * @param Carbon $date
 =======
      * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
 >>>>>>> c1ac34e (.)
+=======
+     * @param \Illuminate\Database\Eloquent\Builder<static> $query
+     * @param Carbon $date
+>>>>>>> da93016 (.)
      * @return \Illuminate\Database\Eloquent\Builder<static>
      */
     public function scopeForDate($query, Carbon $date)
@@ -149,10 +164,14 @@ class Attendance extends BaseModel
      * Scope a query to only include valid attendance records.
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @param \Illuminate\Database\Eloquent\Builder<static> $query
 =======
      * @param  \Illuminate\Database\Eloquent\Builder<static>  $query
 >>>>>>> c1ac34e (.)
+=======
+     * @param \Illuminate\Database\Eloquent\Builder<static> $query
+>>>>>>> da93016 (.)
      * @return \Illuminate\Database\Eloquent\Builder<static>
      */
     public function scopeValid($query)
@@ -163,10 +182,15 @@ class Attendance extends BaseModel
     /**
      * Get the formatted timestamp.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return string
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return string
+>>>>>>> da93016 (.)
      */
     public function getFormattedTimestampAttribute(): string
     {
@@ -176,10 +200,15 @@ class Attendance extends BaseModel
     /**
      * Get the formatted time only.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return string
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return string
+>>>>>>> da93016 (.)
      */
     public function getFormattedTimeAttribute(): string
     {
@@ -189,10 +218,15 @@ class Attendance extends BaseModel
     /**
      * Get the formatted date only.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return string
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return string
+>>>>>>> da93016 (.)
      */
     public function getFormattedDateAttribute(): string
     {
@@ -202,10 +236,15 @@ class Attendance extends BaseModel
     /**
      * Check if the attendance record is an entry.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return bool
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return bool
+>>>>>>> da93016 (.)
      */
     public function isEntry(): bool
     {
@@ -215,10 +254,15 @@ class Attendance extends BaseModel
     /**
      * Check if the attendance record is an exit.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return bool
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return bool
+>>>>>>> da93016 (.)
      */
     public function isExit(): bool
     {
@@ -228,10 +272,15 @@ class Attendance extends BaseModel
     /**
      * Check if the attendance record is manual.
 <<<<<<< HEAD
+<<<<<<< HEAD
      *
      * @return bool
 =======
 >>>>>>> c1ac34e (.)
+=======
+     *
+     * @return bool
+>>>>>>> da93016 (.)
      */
     public function isManual(): bool
     {
@@ -240,6 +289,7 @@ class Attendance extends BaseModel
 
     /**
      * Check if the attendance record has location data.
+<<<<<<< HEAD
 <<<<<<< HEAD
      *
      * @return bool
@@ -250,10 +300,18 @@ class Attendance extends BaseModel
     }
 } 
 =======
+=======
+     *
+     * @return bool
+>>>>>>> da93016 (.)
      */
     public function hasLocation(): bool
     {
-        return ! empty($this->latitude) && ! empty($this->longitude);
+        return !empty($this->latitude) && !empty($this->longitude);
     }
+<<<<<<< HEAD
 }
 >>>>>>> c1ac34e (.)
+=======
+} 
+>>>>>>> da93016 (.)

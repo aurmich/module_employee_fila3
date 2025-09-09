@@ -1,10 +1,15 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 declare(strict_types=1);
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+declare(strict_types=1);
+
+>>>>>>> da93016 (.)
 return [
     'navigation' => [
         'label' => 'Ore di Lavoro',
@@ -13,9 +18,13 @@ return [
         'sort' => 50,
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'resource' => [
         'label' => 'Voce Oraria',
         'plural_label' => 'Voci Orarie',
@@ -23,9 +32,13 @@ return [
         'description' => 'Gestione completa delle registrazioni orarie dei dipendenti',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'fields' => [
         'employee_id' => [
             'label' => 'Dipendente',
@@ -135,6 +148,7 @@ return [
             'description' => 'Data e ora dell\'ultimo aggiornamento',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
     ],
 
 =======
@@ -143,6 +157,10 @@ return [
         ],
     ],
 >>>>>>> c1ac34e (.)
+=======
+    ],
+
+>>>>>>> da93016 (.)
     'actions' => [
         'create' => [
             'label' => 'Crea Voce Oraria',
@@ -211,9 +229,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'sections' => [
         'time_entry_details' => [
             'heading' => 'Dettagli Voce Oraria',
@@ -245,9 +267,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'filters' => [
         'employee' => [
             'label' => 'Dipendente',
@@ -280,9 +306,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'tabs' => [
         'all' => [
             'label' => 'Tutte le Voci',
@@ -316,9 +346,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'pages' => [
         'timeclock' => [
             'title' => 'Timbratura Dipendenti',
@@ -358,9 +392,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'widgets' => [
         'stats' => [
             'title' => 'Statistiche Ore di Lavoro',
@@ -424,9 +462,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'status' => [
         'not_clocked_in' => [
             'label' => 'Non Timbrato',
@@ -472,9 +514,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'messages' => [
         'validation' => [
             'invalid_sequence' => 'Sequenza voci non valida. Ultima voce: :last_entry',
@@ -527,9 +573,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'summary' => [
         'total_hours_worked' => [
             'label' => 'Ore Totali Lavorate',
@@ -578,9 +628,13 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> c1ac34e (.)
+=======
+
+>>>>>>> da93016 (.)
     'quick_actions' => [
         'title' => 'Azioni Rapide',
         'description' => 'Accesso veloce alle funzioni principali',
@@ -626,7 +680,11 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 ];
 =======
 ];
 >>>>>>> c1ac34e (.)
+=======
+];
+>>>>>>> da93016 (.)
