@@ -1,28 +1,7 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> da93016 (.)
-return array (
-  'actions' => 
-  array (
-    'create' => 
-    array (
-      'label' => 'create',
-    ),
-    'createAnother' => 
-    array (
-      'label' => 'createAnother',
-    ),
-    'cancel' => 
-    array (
-      'label' => 'cancel',
-    ),
-  ),
-);
-<<<<<<< HEAD
-=======
+declare(strict_types=1);
+
 return [
     'actions' => [
         'create' => [
@@ -36,6 +15,3 @@ return [
         ],
     ],
 ];
->>>>>>> c1ac34e (.)
-=======
->>>>>>> da93016 (.)

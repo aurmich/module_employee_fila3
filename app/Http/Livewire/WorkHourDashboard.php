@@ -5,30 +5,15 @@ declare(strict_types=1);
 namespace Modules\Employee\Http\Livewire;
 
 use Carbon\Carbon;
-<<<<<<< HEAD
-<<<<<<< HEAD
 use Livewire\Component;
 use Modules\Employee\Models\WorkHour;
 use Modules\Employee\Models\Employee;
 use Illuminate\Support\Facades\Auth;
-=======
 use Illuminate\Contracts\View\View;
-=======
->>>>>>> da93016 (.)
-use Livewire\Component;
-use Modules\Employee\Models\WorkHour;
-<<<<<<< HEAD
->>>>>>> c1ac34e (.)
-=======
-use Modules\Employee\Models\Employee;
-use Illuminate\Support\Facades\Auth;
->>>>>>> da93016 (.)
 
 class WorkHourDashboard extends Component
 {
     public ?Employee $employee = null;
-<<<<<<< HEAD
-<<<<<<< HEAD
     public array $weeklyStats = [];
     public array $monthlyStats = [];
     public float $todayHours = 0.0;
@@ -37,82 +22,47 @@ class WorkHourDashboard extends Component
     public array $recentEntries = [];
     public string $selectedPeriod = 'week';
 
+    /** @var array<string, string> */
     protected $listeners = [
         'workHourRecorded' => 'refreshStats',
         'refreshDashboard' => 'refreshStats'
-=======
-
-    /** @var array<int, array{date: string, day: string, hours: float, formatted_hours: string}> */
-=======
->>>>>>> da93016 (.)
-    public array $weeklyStats = [];
-    public array $monthlyStats = [];
-    public float $todayHours = 0.0;
-    public float $weekHours = 0.0;
-    public float $monthHours = 0.0;
-    public array $recentEntries = [];
-    public string $selectedPeriod = 'week';
-
-    protected $listeners = [
-        'workHourRecorded' => 'refreshStats',
-<<<<<<< HEAD
-        'refreshDashboard' => 'refreshStats',
->>>>>>> c1ac34e (.)
-=======
-        'refreshDashboard' => 'refreshStats'
->>>>>>> da93016 (.)
     ];
-
     public function mount(?int $employeeId = null): void
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         $this->employee = $employeeId 
             ? Employee::find($employeeId) 
             : (Auth::user()->employee ?? null);
         $this->refreshStats();
     }
 
-    public function render()
-=======
-        if ($employeeId) {
-            // PHPStan Level 10 workaround: create Employee manually for dashboard
-            /** @var Employee $employee */
-            $employee = new Employee();
-            $employee->id = $employeeId;
-            $this->employee = $employee;
-        } else {
-            $this->employee = null;
-        }
-        $this->refreshStats();
-    }
 
-    public function render(): View
->>>>>>> c1ac34e (.)
-=======
-        $this->employee = $employeeId 
-            ? Employee::find($employeeId) 
-            : (Auth::user()->employee ?? null);
-        $this->refreshStats();
-    }
-
-    public function render()
->>>>>>> da93016 (.)
+    public function getProgressPercentage(): int
     {
-        return view('employee::livewire.work-hour-dashboard');
+        // Assuming 40 hours per week as target
+        $targetHours = 40;
+        $percentage = ($this->weekHours / $targetHours) * 100;
+
+        return min(100, (int) round($percentage));
+    }
+
+    public function getProgressColor(): string
+    {
+        $percentage = $this->getProgressPercentage();
+        
+
+        
+        if ($percentage >= 90) {
+            return 'success';
+        } elseif ($percentage >= 70) {
+            return 'warning';
+        } else {
+            return 'danger';
+        }
     }
 
     public function refreshStats(): void
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (!$this->employee) {
-=======
-        if (! $this->employee) {
->>>>>>> c1ac34e (.)
-=======
-        if (!$this->employee) {
->>>>>>> da93016 (.)
             return;
         }
 
@@ -122,317 +72,98 @@ class WorkHourDashboard extends Component
         $this->loadRecentEntries();
     }
 
-    public function updatedSelectedPeriod(): void
-    {
-        $this->refreshStats();
-    }
-
     private function calculateTodayHours(): void
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->todayHours = WorkHour::calculateWorkedHours($this->employee->id, Carbon::today());
-=======
-        if ($this->employee) {
-            $this->todayHours = WorkHour::calculateWorkedHours($this->employee->id, Carbon::today());
+        if (!$this->employee) {
+            $this->todayHours = 0.0;
+            return;
         }
->>>>>>> c1ac34e (.)
-=======
-        $this->todayHours = WorkHour::calculateWorkedHours($this->employee->id, Carbon::today());
->>>>>>> da93016 (.)
+
+        $this->todayHours = (float) WorkHour::calculateWorkedHours($this->employee->id);
     }
 
     private function calculateWeeklyStats(): void
     {
+        if (!$this->employee) {
+            $this->weekHours = 0.0;
+            $this->weeklyStats = [];
+            return;
+        }
+
         $startOfWeek = Carbon::now()->startOfWeek();
         $endOfWeek = Carbon::now()->endOfWeek();
-<<<<<<< HEAD
-<<<<<<< HEAD
         
-=======
+        $this->weekHours = (float) WorkHour::calculateWorkedHours(
+            $this->employee->id, 
+            $startOfWeek
+        );
 
->>>>>>> c1ac34e (.)
-=======
-        
->>>>>>> da93016 (.)
-        $this->weekHours = 0.0;
-        $this->weeklyStats = [];
-
-        for ($date = $startOfWeek->copy(); $date->lte($endOfWeek); $date->addDay()) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            $hours = WorkHour::calculateWorkedHours($this->employee->id, $date);
-            $this->weekHours += $hours;
-            
-=======
-            $hours = $this->employee ? WorkHour::calculateWorkedHours($this->employee->id, $date) : 0.0;
-            $this->weekHours += $hours;
-
->>>>>>> c1ac34e (.)
-=======
-            $hours = WorkHour::calculateWorkedHours($this->employee->id, $date);
-            $this->weekHours += $hours;
-            
->>>>>>> da93016 (.)
-            $this->weeklyStats[] = [
-                'date' => $date->format('Y-m-d'),
-                'day' => $date->format('D'),
-                'hours' => $hours,
-                'formatted_hours' => $this->formatHours($hours),
-            ];
-        }
+        $this->weeklyStats = [
+            'total_hours' => $this->weekHours,
+            'days_worked' => $this->getDaysWorkedInPeriod($startOfWeek, $endOfWeek),
+            'average_daily' => $this->weekHours / 7,
+        ];
     }
 
     private function calculateMonthlyStats(): void
     {
+        if (!$this->employee) {
+            $this->monthHours = 0.0;
+            $this->monthlyStats = [];
+            return;
+        }
+
         $startOfMonth = Carbon::now()->startOfMonth();
         $endOfMonth = Carbon::now()->endOfMonth();
-<<<<<<< HEAD
-<<<<<<< HEAD
         
-=======
+        $this->monthHours = (float) WorkHour::calculateWorkedHours(
+            $this->employee->id, 
+            $startOfMonth
+        );
 
->>>>>>> c1ac34e (.)
-=======
-        
->>>>>>> da93016 (.)
-        $this->monthHours = 0.0;
-        $this->monthlyStats = [];
-
-        // Group by weeks
-        $currentWeek = $startOfMonth->copy()->startOfWeek();
-        $weekNumber = 1;
-
-        while ($currentWeek->lte($endOfMonth)) {
-            $weekEnd = $currentWeek->copy()->endOfWeek();
-            if ($weekEnd->gt($endOfMonth)) {
-                $weekEnd = $endOfMonth->copy();
-            }
-
-            $weekHours = 0.0;
-            for ($date = $currentWeek->copy(); $date->lte($weekEnd); $date->addDay()) {
-                if ($date->gte($startOfMonth) && $date->lte($endOfMonth)) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    $dayHours = WorkHour::calculateWorkedHours($this->employee->id, $date);
-=======
-                    $dayHours = $this->employee ? WorkHour::calculateWorkedHours($this->employee->id, $date) : 0.0;
->>>>>>> c1ac34e (.)
-=======
-                    $dayHours = WorkHour::calculateWorkedHours($this->employee->id, $date);
->>>>>>> da93016 (.)
-                    $weekHours += $dayHours;
-                    $this->monthHours += $dayHours;
-                }
-            }
-
-            $this->monthlyStats[] = [
-                'week' => $weekNumber,
-                'start_date' => $currentWeek->format('d/m'),
-                'end_date' => $weekEnd->format('d/m'),
-                'hours' => $weekHours,
-                'formatted_hours' => $this->formatHours($weekHours),
-            ];
-
-            $currentWeek->addWeek();
-            $weekNumber++;
-        }
+        $this->monthlyStats = [
+            'total_hours' => $this->monthHours,
+            'days_worked' => $this->getDaysWorkedInPeriod($startOfMonth, $endOfMonth),
+            'average_daily' => $this->monthHours / Carbon::now()->daysInMonth,
+        ];
     }
 
     private function loadRecentEntries(): void
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        $this->recentEntries = WorkHour::where('employee_id', $this->employee->id)
-            ->orderBy('timestamp', 'desc')
-            ->limit(10)
-            ->get()
-            ->map(function (WorkHour $entry) {
-                return [
-                    'id' => $entry->id,
-                    'date' => $entry->timestamp->format('d/m/Y'),
-                    'time' => $entry->timestamp->format('H:i:s'),
-                    'type' => $entry->type,
-                    'type_label' => $this->getTypeLabel($entry->type),
-                    'type_color' => $this->getTypeColor($entry->type),
-                    'notes' => $entry->notes,
-                    'status' => $entry->status,
-                    'status_color' => $this->getStatusColor($entry->status),
-                ];
-            })
-            ->toArray();
-=======
-        if (! $this->employee) {
+        if (!$this->employee) {
             $this->recentEntries = [];
-
             return;
         }
 
-        /** @var \Illuminate\Database\Eloquent\Collection<int, WorkHour> $entries */
-        $entries = WorkHour::query()
-            ->where('employee_id', $this->employee->id)
-            ->orderBy('timestamp', 'desc')
-            ->limit(10)
-            ->get();
-
-        /** @var array<int, array{id: int, date: string, time: string, type: WorkHourTypeEnum, type_label: string, type_color: string, notes: string|null, status: WorkHourStatusEnum, status_color: string}> $recentEntries */
-        $recentEntries = $entries->map(function (WorkHour $entry): array {
+        $entries = WorkHour::getTodayEntries($this->employee->id);
+        $this->recentEntries = $entries->map(function (WorkHour $entry): array {
             return [
                 'id' => $entry->id,
-                'date' => $entry->timestamp->format('d/m/Y'),
-                'time' => $entry->timestamp->format('H:i:s'),
-                'type' => $entry->type,
-                'type_label' => $this->getTypeLabel($entry->type->value),
-                'type_color' => $this->getTypeColor($entry->type->value),
-                'notes' => $entry->notes,
-                'status' => $entry->status,
-                'status_color' => $this->getStatusColor($entry->status->value),
+                'time' => $entry->timestamp->format('H:i'),
+                'type' => (string) $entry->type,
+                'status' => (string) $entry->status,
             ];
         })->toArray();
-        $this->recentEntries = $recentEntries;
->>>>>>> c1ac34e (.)
-=======
-        $this->recentEntries = WorkHour::where('employee_id', $this->employee->id)
-            ->orderBy('timestamp', 'desc')
-            ->limit(10)
-            ->get()
-            ->map(function (WorkHour $entry) {
-                return [
-                    'id' => $entry->id,
-                    'date' => $entry->timestamp->format('d/m/Y'),
-                    'time' => $entry->timestamp->format('H:i:s'),
-                    'type' => $entry->type,
-                    'type_label' => $this->getTypeLabel($entry->type),
-                    'type_color' => $this->getTypeColor($entry->type),
-                    'notes' => $entry->notes,
-                    'status' => $entry->status,
-                    'status_color' => $this->getStatusColor($entry->status),
-                ];
-            })
-            ->toArray();
->>>>>>> da93016 (.)
     }
 
-    public function getTypeLabel(string $type): string
+    private function getDaysWorkedInPeriod(Carbon $start, Carbon $end): int
     {
-        return match ($type) {
-            WorkHour::TYPE_CLOCK_IN => 'Clock In',
-            WorkHour::TYPE_CLOCK_OUT => 'Clock Out',
-            WorkHour::TYPE_BREAK_START => 'Break Start',
-            WorkHour::TYPE_BREAK_END => 'Break End',
-            default => $type,
-        };
-    }
-
-    public function getTypeColor(string $type): string
-    {
-        return match ($type) {
-            WorkHour::TYPE_CLOCK_IN => 'success',
-            WorkHour::TYPE_CLOCK_OUT => 'danger',
-            WorkHour::TYPE_BREAK_START => 'warning',
-            WorkHour::TYPE_BREAK_END => 'info',
-            default => 'gray',
-        };
-    }
-
-    public function getStatusColor(string $status): string
-    {
-        return match ($status) {
-            'pending' => 'warning',
-            'approved' => 'success',
-            'rejected' => 'danger',
-            default => 'gray',
-        };
-    }
-
-    public function formatHours(float $hours): string
-    {
-        $wholeHours = floor($hours);
-        $minutes = round(($hours - $wholeHours) * 60);
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
-        if ($minutes == 0) {
-            return "{$wholeHours}h";
-        }
-        
-=======
-
-        if ($minutes == 0) {
-            return "{$wholeHours}h";
+        if (!$this->employee) {
+            return 0;
         }
 
->>>>>>> c1ac34e (.)
-=======
-        
-        if ($minutes == 0) {
-            return "{$wholeHours}h";
-        }
-        
->>>>>>> da93016 (.)
-        return "{$wholeHours}h {$minutes}m";
+        $entries = WorkHour::where('employee_id', $this->employee->id)
+            ->whereBetween('timestamp', [$start, $end])
+            ->where('type', WorkHour::TYPE_CLOCK_IN)
+            ->get();
+
+        return $entries->groupBy(function (WorkHour $entry): string {
+            return $entry->timestamp->format('Y-m-d');
+        })->count();
     }
 
-    public function getAverageHoursPerDay(): string
+    public function render(): View
     {
-        if (empty($this->weeklyStats)) {
-            return '0h';
-        }
-
-        $workDays = collect($this->weeklyStats)->where('hours', '>', 0)->count();
-        if ($workDays == 0) {
-            return '0h';
-        }
-
-        $average = $this->weekHours / $workDays;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> c1ac34e (.)
-=======
->>>>>>> da93016 (.)
-        return $this->formatHours($average);
-    }
-
-    public function getTotalWorkDays(): int
-    {
-        return collect($this->weeklyStats)->where('hours', '>', 0)->count();
-    }
-
-    public function getProgressPercentage(): int
-    {
-        // Assuming 40 hours per week as target
-        $targetHours = 40;
-        $percentage = ($this->weekHours / $targetHours) * 100;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> c1ac34e (.)
-=======
->>>>>>> da93016 (.)
-        return min(100, (int) round($percentage));
-    }
-
-    public function getProgressColor(): string
-    {
-        $percentage = $this->getProgressPercentage();
-<<<<<<< HEAD
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> c1ac34e (.)
-=======
-        
->>>>>>> da93016 (.)
-        if ($percentage >= 90) {
-            return 'success';
-        } elseif ($percentage >= 70) {
-            return 'warning';
-        } else {
-            return 'danger';
-        }
+        return view('employee::livewire.work-hour-dashboard');
     }
 }

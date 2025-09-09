@@ -7,27 +7,11 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
  * Class CreateAttendancesTable.
-<<<<<<< HEAD
-<<<<<<< HEAD
  * 
  * Migrazione per la creazione della tabella attendances.
  * Gestisce presenze, timbrature, calcolo ore e geolocalizzazione.
  */
 return new class extends XotBaseMigration
-=======
- *
- * Migrazione per la creazione della tabella attendances.
- * Gestisce presenze, timbrature, calcolo ore e geolocalizzazione.
- */
-return new class() extends XotBaseMigration
->>>>>>> c1ac34e (.)
-=======
- * 
- * Migrazione per la creazione della tabella attendances.
- * Gestisce presenze, timbrature, calcolo ore e geolocalizzazione.
- */
-return new class extends XotBaseMigration
->>>>>>> da93016 (.)
 {
     /**
      * The name of the table.
@@ -44,47 +28,24 @@ return new class extends XotBaseMigration
             static function (Blueprint $table): void {
                 $table->id();
                 $table->uuid('uuid')->unique();
-<<<<<<< HEAD
-<<<<<<< HEAD
-                
-=======
-
->>>>>>> c1ac34e (.)
-=======
-                
->>>>>>> da93016 (.)
                 // Relazioni
                 $table->foreignId('employee_id')->constrained()->onDelete('cascade');
                 $table->foreignId('work_schedule_id')->nullable()->constrained('work_schedules');
                 $table->foreignId('approved_by')->nullable()->constrained('employees');
-<<<<<<< HEAD
-<<<<<<< HEAD
                 
-=======
 
->>>>>>> c1ac34e (.)
-=======
                 
->>>>>>> da93016 (.)
                 // Dati temporali
                 $table->date('date');
                 $table->time('time_in')->nullable();
                 $table->time('time_out')->nullable();
-<<<<<<< HEAD
-<<<<<<< HEAD
                 
-=======
 
->>>>>>> c1ac34e (.)
-=======
                 
->>>>>>> da93016 (.)
                 // Calcoli ore
                 $table->decimal('total_hours', 5, 2)->default(0);
                 $table->decimal('overtime_hours', 5, 2)->default(0);
                 $table->decimal('break_hours', 5, 2)->default(0);
-<<<<<<< HEAD
-<<<<<<< HEAD
                 
                 // Tipo e stato
                 $table->enum('type', [
@@ -121,11 +82,8 @@ return new class extends XotBaseMigration
                 // Timestamps standard
                 $table->timestamps();
                 
-=======
 
-=======
                 
->>>>>>> da93016 (.)
                 // Tipo e stato
                 $table->enum('type', [
                     'normale',
@@ -160,27 +118,17 @@ return new class extends XotBaseMigration
                 
                 // Timestamps standard
                 $table->timestamps();
-<<<<<<< HEAD
 
->>>>>>> c1ac34e (.)
-=======
                 
->>>>>>> da93016 (.)
                 // Indici per performance
                 $table->index(['employee_id', 'date']);
                 $table->index(['date', 'status']);
                 $table->index(['employee_id', 'status']);
                 $table->index(['type', 'status']);
                 $table->index(['is_remote']);
-<<<<<<< HEAD
-<<<<<<< HEAD
                 
-=======
 
->>>>>>> c1ac34e (.)
-=======
                 
->>>>>>> da93016 (.)
                 // Indice univoco per evitare duplicati
                 $table->unique(['employee_id', 'date'], 'unique_employee_date');
             }
@@ -190,8 +138,6 @@ return new class extends XotBaseMigration
         $this->tableUpdate(
             function (Blueprint $table): void {
                 // Aggiungi colonne se non esistono
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (!$this->hasColumn('uuid')) {
                     $table->uuid('uuid')->unique()->after('id');
                 }
@@ -209,11 +155,8 @@ return new class extends XotBaseMigration
                 }
 
                 if (!$this->hasColumn('smart_working')) {
-=======
                 if (! $this->hasColumn('uuid')) {
-=======
                 if (!$this->hasColumn('uuid')) {
->>>>>>> da93016 (.)
                     $table->uuid('uuid')->unique()->after('id');
                 }
 
@@ -229,12 +172,8 @@ return new class extends XotBaseMigration
                     $table->decimal('break_hours', 5, 2)->default(0)->after('overtime_hours');
                 }
 
-<<<<<<< HEAD
                 if (! $this->hasColumn('smart_working')) {
->>>>>>> c1ac34e (.)
-=======
                 if (!$this->hasColumn('smart_working')) {
->>>>>>> da93016 (.)
                     // Aggiorna enum type se necessario
                     if ($this->hasColumn('type')) {
                         // Nota: MySQL non permette di modificare enum facilmente
@@ -242,8 +181,6 @@ return new class extends XotBaseMigration
                     }
                 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (!$this->hasColumn('location_validated')) {
                     $table->boolean('location_validated')->default(false)->after('location');
                 }
@@ -257,11 +194,8 @@ return new class extends XotBaseMigration
                 }
 
                 if (!$this->hasColumn('approved_at')) {
-=======
                 if (! $this->hasColumn('location_validated')) {
-=======
                 if (!$this->hasColumn('location_validated')) {
->>>>>>> da93016 (.)
                     $table->boolean('location_validated')->default(false)->after('location');
                 }
 
@@ -273,18 +207,12 @@ return new class extends XotBaseMigration
                     $table->text('rejection_reason')->nullable()->after('notes');
                 }
 
-<<<<<<< HEAD
                 if (! $this->hasColumn('approved_at')) {
->>>>>>> c1ac34e (.)
-=======
                 if (!$this->hasColumn('approved_at')) {
->>>>>>> da93016 (.)
                     $table->timestamp('approved_at')->nullable()->after('rejection_reason');
                 }
 
                 // Aggiorna indici se non esistono
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (!$this->hasIndex('employee_id')) {
                     $table->index(['employee_id', 'date'], 'idx_employee_date');
                 }
@@ -302,11 +230,8 @@ return new class extends XotBaseMigration
                 }
 
                 if (!$this->hasIndex('is_remote')) {
-=======
                 if (! $this->hasIndex('employee_id')) {
-=======
                 if (!$this->hasIndex('employee_id')) {
->>>>>>> da93016 (.)
                     $table->index(['employee_id', 'date'], 'idx_employee_date');
                 }
 
@@ -322,25 +247,15 @@ return new class extends XotBaseMigration
                     $table->index(['type', 'status'], 'idx_type_status');
                 }
 
-<<<<<<< HEAD
                 if (! $this->hasIndex('is_remote')) {
->>>>>>> c1ac34e (.)
-=======
                 if (!$this->hasIndex('is_remote')) {
->>>>>>> da93016 (.)
                     $table->index(['is_remote'], 'idx_is_remote');
                 }
 
                 // Aggiorna unique constraint se non esiste
-<<<<<<< HEAD
-<<<<<<< HEAD
                 if (!$this->hasIndex('unique_employee_date')) {
-=======
                 if (! $this->hasIndex('unique_employee_date')) {
->>>>>>> c1ac34e (.)
-=======
                 if (!$this->hasIndex('unique_employee_date')) {
->>>>>>> da93016 (.)
                     $table->unique(['employee_id', 'date'], 'unique_employee_date');
                 }
 
@@ -371,12 +286,6 @@ return new class extends XotBaseMigration
         // Rimuovi tabella
         $this->dropTableIfExists($this->table);
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }; 
-=======
 };
->>>>>>> c1ac34e (.)
-=======
 }; 
->>>>>>> da93016 (.)

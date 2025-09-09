@@ -4,37 +4,19 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Filament\Pages;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 use Modules\Employee\Filament\Widgets;
->>>>>>> c1ac34e (.)
-=======
->>>>>>> da93016 (.)
 use Modules\Xot\Filament\Pages\XotBaseDashboard;
 
 /**
  * Dashboard per il modulo Employee.
-<<<<<<< HEAD
-<<<<<<< HEAD
  * 
-=======
->>>>>>> c1ac34e (.)
-=======
  * 
->>>>>>> da93016 (.)
  * Estende XotBaseDashboard che gestisce automaticamente:
  * - Navigazione (icon, title, label, sort)
  * - Filtri del dashboard
  * - Struttura base del dashboard
-<<<<<<< HEAD
-<<<<<<< HEAD
  * 
-=======
->>>>>>> c1ac34e (.)
-=======
  * 
->>>>>>> da93016 (.)
  * REGOLA CRITICA: NON ridefinire proprietà di navigazione
  * che sono già gestite centralmente da XotBaseDashboard.
  */
@@ -45,17 +27,10 @@ class Dashboard extends XotBaseDashboard
     // protected static ?string $title
     // protected static ?string $navigationLabel
     // protected static ?int $navigationSort
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> da93016 (.)
     
     // ✅ XotBaseDashboard auto-configura tutto basandosi sul modulo
     
     // protected static string $view = 'employee::filament.pages.dashboard';
-<<<<<<< HEAD
-=======
-
 
     /**
      * Widget da visualizzare nella pagina con configurazione columnSpan personalizzata.
@@ -66,15 +41,14 @@ class Dashboard extends XotBaseDashboard
     public function getWidgets(): array
     {
         return [
-            Widgets\TimeClockWidget::class,
-            Widgets\TodoWidget::class,
-            Widgets\UpcomingScheduleWidget::class,
-            Widgets\PendingRequestsWidget::class,
-            Widgets\TimeOffBalanceWidget::class,
-            Widgets\TodayPresenceWidget::class,
+            // Widgets\TimeClockWidget::class,
+            // Widgets\TodoWidget::class,
+            // Widgets\UpcomingScheduleWidget::class,
+            // Widgets\PendingRequestsWidget::class,
+            // Widgets\TimeOffBalanceWidget::class,
+            // Widgets\TodayPresenceWidget::class,
         ];
     }
-
 
     /**
      * Configura il numero di colonne per i widget (3 widget per riga).
@@ -84,7 +58,4 @@ class Dashboard extends XotBaseDashboard
         return 3;
     }
 
->>>>>>> c1ac34e (.)
-=======
->>>>>>> da93016 (.)
 }

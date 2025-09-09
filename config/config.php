@@ -15,15 +15,9 @@ return [
     'description' => 'Modulo per la gestione completa delle risorse umane e dipendenti',
     'version' => '1.0.0',
     'icon' => 'employee-icon2',
-<<<<<<< HEAD
-<<<<<<< HEAD
     
-=======
 
->>>>>>> c1ac34e (.)
-=======
     
->>>>>>> da93016 (.)
     /*
     |--------------------------------------------------------------------------
     | Navigation Configuration
@@ -102,15 +96,9 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
     | Timeclock Configuration  
-=======
     | Timeclock Configuration
->>>>>>> c1ac34e (.)
-=======
     | Timeclock Configuration  
->>>>>>> da93016 (.)
     |--------------------------------------------------------------------------
     |
     | Settings for the timeclock functionality and validation.
@@ -225,15 +213,9 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-<<<<<<< HEAD
-<<<<<<< HEAD
     | API Configuration  
-=======
     | API Configuration
->>>>>>> c1ac34e (.)
-=======
     | API Configuration  
->>>>>>> da93016 (.)
     |--------------------------------------------------------------------------
     |
     | Settings for API access and rate limiting.
@@ -283,12 +265,4 @@ return [
             'sync_interval' => env('EMPLOYEE_HR_SYNC_INTERVAL', 3600), // seconds
         ],
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
 ];
-=======
-];
->>>>>>> c1ac34e (.)
-=======
-];
->>>>>>> da93016 (.)

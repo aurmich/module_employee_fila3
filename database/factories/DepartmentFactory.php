@@ -15,9 +15,9 @@ class DepartmentFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
-     * @var string
+     * @var class-string<\Modules\Employee\Models\Department>
      */
-    protected $model = Department::class;
+    protected $model = \Modules\Employee\Models\Department::class;
 
     /**
      * Define the model's default state.
@@ -27,75 +27,42 @@ class DepartmentFactory extends Factory
     public function definition(): array
     {
         return [
-<<<<<<< HEAD
-<<<<<<< HEAD
             'name' => $this->faker->unique()->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
-=======
-            'name' => $this->faker->unique()->word().' Department',
->>>>>>> c1ac34e (.)
-=======
-            'name' => $this->faker->unique()->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
->>>>>>> da93016 (.)
             'description' => $this->faker->optional()->sentence(),
-            'status' => $this->faker->randomElement(['attivo', 'inattivo']),
+            'is_active' => $this->faker->boolean(80), // 80% chance of being active
             'manager_id' => null, // Will be set when needed
         ];
     }
 
     /**
      * Indicate that the department is active.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * @return static
-=======
->>>>>>> c1ac34e (.)
-=======
-     *
-     * @return static
->>>>>>> da93016 (.)
      */
     public function active(): static
     {
         return $this->state(fn (array $attributes) => [
-            'status' => 'attivo',
+            'is_active' => true,
         ]);
     }
 
     /**
      * Indicate that the department is inactive.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * @return static
-=======
->>>>>>> c1ac34e (.)
-=======
-     *
-     * @return static
->>>>>>> da93016 (.)
      */
     public function inactive(): static
     {
         return $this->state(fn (array $attributes) => [
-            'status' => 'inattivo',
+            'is_active' => false,
         ]);
     }
 
     /**
      * Set a specific department name.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * @param string $name
      * @return static
-=======
->>>>>>> c1ac34e (.)
-=======
-     *
-     * @param string $name
-     * @return static
->>>>>>> da93016 (.)
      */
     public function withName(string $name): static
     {
@@ -106,18 +73,9 @@ class DepartmentFactory extends Factory
 
     /**
      * Set a specific description.
-<<<<<<< HEAD
-<<<<<<< HEAD
      *
      * @param string $description
      * @return static
-=======
->>>>>>> c1ac34e (.)
-=======
-     *
-     * @param string $description
-     * @return static
->>>>>>> da93016 (.)
      */
     public function withDescription(string $description): static
     {

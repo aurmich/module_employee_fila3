@@ -1,11 +1,5 @@
 # Employee Module - Laraxot
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Overview
-
-Complete Employee module implementation for comprehensive employee management functionality. The module provides employee data management, time tracking, department organization, and follows strict Laraxot conventions.
-=======
 ## 📋 Module Overview
 
 Complete Employee module implementation designed to replicate and enhance the functionality of [dipendentincloud.it](https://www.dipendentincloud.it/), creating a comprehensive HR system based on Laraxot/PTVX architecture. The module provides complete employee lifecycle management with advanced time tracking, organizational management, and strict Laraxot conventions compliance.
@@ -33,6 +27,7 @@ The documentation is organized into logical categories for better navigation and
 - **[README.md](README.md)** - This overview document
 - **[Configuration Guide](configuration.md)** - Module configuration guide
 - **[Getting Started](GETTING_STARTED.md)** - Installation and setup guide
+- **[Git Conflicts Resolution Summary](git-conflicts-resolution-summary.md)** - Summary of Git conflicts resolution process
 
 ### 📋 Core Documentation
 - **[Naming Standards](naming-standards.md)** - Naming conventions and standards
@@ -141,12 +136,6 @@ The dashboard features 6 primary widgets providing comprehensive HR functionalit
 - **Filament Components**: Native `x-filament::badge` and `x-filament::button` usage
 - **Real-time Updates**: Livewire polling for dynamic content
 - **Responsive Design**: Mobile-first approach with Tailwind CSS
->>>>>>> c1ac34e (.)
-=======
-## Overview
-
-Complete Employee module implementation for comprehensive employee management functionality. The module provides employee data management, time tracking, department organization, and follows strict Laraxot conventions.
->>>>>>> da93016 (.)
 
 ## Critical Laraxot Philosophy Compliance
 
@@ -166,15 +155,6 @@ class EmployeePage extends Modules\Xot\Filament\Pages\XotBasePage
 
 ### Naming Standards (Employee Module)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-**ALL DATABASE ELEMENTS MUST BE IN ENGLISH**
-
-- Table names: English only
-- Column names: English only
-- Enum values: English only
-- Comments: English only
-=======
 **ALL CODE ELEMENTS MUST BE IN ENGLISH - NO EXCEPTIONS**
 
 - **Classes**: English only (TimeClockWidget ✅, TimbratureWidget ❌)
@@ -220,15 +200,6 @@ class ClockInAction extends BaseAction
     }
 }
 ```
->>>>>>> c1ac34e (.)
-=======
-**ALL DATABASE ELEMENTS MUST BE IN ENGLISH**
-
-- Table names: English only
-- Column names: English only
-- Enum values: English only
-- Comments: English only
->>>>>>> da93016 (.)
 
 ## Module Structure
 
@@ -243,15 +214,7 @@ laravel/Modules/Employee/
 │   └── Providers/        # Service providers
 ├── config/               # Module configuration
 ├── database/             # Migrations and seeders
-<<<<<<< HEAD
-<<<<<<< HEAD
-├── docs/                 # Module documentation
-=======
 ├── docs/                 # Module documentation (organized structure)
->>>>>>> c1ac34e (.)
-=======
-├── docs/                 # Module documentation
->>>>>>> da93016 (.)
 ├── lang/                 # Language files
 │   ├── it/              # Italian translations
 │   └── en/              # English translations
@@ -358,10 +321,6 @@ The Employee module uses a custom SVG icon system:
 - Dashboard with employee statistics
 
 ### Widgets
-<<<<<<< HEAD
-<<<<<<< HEAD
-- Employee statistics overview
-=======
 
 #### Primary Widget (Enhanced - 2025)
 - **TimeClockWidget** ✨ UNIFIED - Single consolidated time tracking widget with enhanced UI/UX
@@ -388,10 +347,6 @@ The Employee module uses a custom SVG icon system:
 #### Supporting Widgets (Available)
 - **EmployeeOverviewWidget** - General employee statistics overview
 - **WorkHourStatsWidget** - Time tracking statistics and attendance
->>>>>>> c1ac34e (.)
-=======
-- Employee statistics overview
->>>>>>> da93016 (.)
 - Recent activity tracking
 - Quick action buttons
 
@@ -469,26 +424,12 @@ php artisan test tests/Feature/Employee/EmployeeTest.php
 php artisan test --coverage --testsuite=Employee
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Documentation
-=======
 ## 📚 Documentation
->>>>>>> c1ac34e (.)
-=======
-## Documentation
->>>>>>> da93016 (.)
 
 ### Module Documentation
 - [Model Architecture](model_architecture.md) - Database and model structure
 - [WorkHour Implementation](workhour_implementation.md) - Time tracking system
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 - [Filament Widgets](filament_widgets.md) - Dashboard widgets and statistics
->>>>>>> c1ac34e (.)
-=======
->>>>>>> da93016 (.)
 - [Technical Implementation](technical_implementation.md) - Technical details
 - [Language Best Practices](language_best_practices.md) - Translation standards
 - [SVG Icon Standards](svg_icon_standards.md) - Icon system and standards
@@ -503,12 +444,6 @@ php artisan test --coverage --testsuite=Employee
 - [Translation Standards](../../laravel/Modules/Lang/docs/translation_file_syntax.md) - Language file syntax
 - [Best Practices](../../laravel/Modules/Lang/docs/) - Language development guidelines
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Installation and Setup
-
-### 1. Module Registration
-=======
 ## 🚀 Installation and Setup
 
 ### Quick Installation
@@ -532,12 +467,6 @@ php artisan serve
 ### Detailed Setup
 
 #### 1. Module Registration
->>>>>>> c1ac34e (.)
-=======
-## Installation and Setup
-
-### 1. Module Registration
->>>>>>> da93016 (.)
 ```bash
 # Register the module in composer.json
 composer require modules/employee
@@ -549,15 +478,7 @@ php artisan vendor:publish --tag=employee-config
 php artisan migrate
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-### 2. Language Setup
-=======
 #### 2. Language Setup
->>>>>>> c1ac34e (.)
-=======
-### 2. Language Setup
->>>>>>> da93016 (.)
 ```bash
 # Publish language files
 php artisan vendor:publish --tag=employee-lang
@@ -566,15 +487,7 @@ php artisan vendor:publish --tag=employee-lang
 php artisan lang:clear
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-### 3. Filament Setup
-=======
 #### 3. Filament Setup
->>>>>>> c1ac34e (.)
-=======
-### 3. Filament Setup
->>>>>>> da93016 (.)
 ```bash
 # Register Filament resources
 php artisan employee:install
@@ -583,15 +496,7 @@ php artisan employee:install
 php artisan filament:clear-cache
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-### 4. Icon System Setup
-=======
 #### 4. Icon System Setup
->>>>>>> c1ac34e (.)
-=======
-### 4. Icon System Setup
->>>>>>> da93016 (.)
 ```bash
 # Icons are automatically registered by XotBaseServiceProvider
 # No additional setup required
@@ -657,15 +562,7 @@ php artisan route:list | grep icon
 - [ ] Updates documentation
 - [ ] Follows naming conventions
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Support and Resources
-=======
 ## 📞 Support and Resources
->>>>>>> c1ac34e (.)
-=======
-## Support and Resources
->>>>>>> da93016 (.)
 
 ### Internal Resources
 - [Employee Module Docs](./) - Complete module documentation
@@ -679,12 +576,6 @@ php artisan route:list | grep icon
 - [Laraxot Documentation](https://laraxot.com)
 - [Heroicons](https://heroicons.com/) - Icon reference
 
-<<<<<<< HEAD
-<<<<<<< HEAD
----
-
-**IMPORTANT**: Always follow Laraxot conventions and extend XotBase classes. Never extend Filament classes directly. Maintain high-quality translations, comprehensive documentation, and consistent SVG icon standards.
-=======
 ### Community Support
 - **Issues**: Report bugs and request features via GitHub issues
 - **Discussions**: Join community discussions and ask questions
@@ -860,9 +751,3 @@ Employee/
 - **MySQL 8**: Primary database
 - **Redis**: Cache and sessions
 - **Elasticsearch**: Advanced search
->>>>>>> c1ac34e (.)
-=======
----
-
-**IMPORTANT**: Always follow Laraxot conventions and extend XotBase classes. Never extend Filament classes directly. Maintain high-quality translations, comprehensive documentation, and consistent SVG icon standards.
->>>>>>> da93016 (.)
