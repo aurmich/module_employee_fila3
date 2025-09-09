@@ -15,13 +15,9 @@ return [
     'description' => 'Modulo per la gestione completa delle risorse umane e dipendenti',
     'version' => '1.0.0',
     'icon' => 'employee-icon2',
-<<<<<<< HEAD
-
-=======
     
 
     
->>>>>>> 95b3a4c (.)
     /*
     |--------------------------------------------------------------------------
     | Navigation Configuration
@@ -100,13 +96,9 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-<<<<<<< HEAD
-    | Timeclock Configuration
-=======
     | Timeclock Configuration  
     | Timeclock Configuration
     | Timeclock Configuration  
->>>>>>> 95b3a4c (.)
     |--------------------------------------------------------------------------
     |
     | Settings for the timeclock functionality and validation.
@@ -221,13 +213,9 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-<<<<<<< HEAD
-    | API Configuration
-=======
     | API Configuration  
     | API Configuration
     | API Configuration  
->>>>>>> 95b3a4c (.)
     |--------------------------------------------------------------------------
     |
     | Settings for API access and rate limiting.

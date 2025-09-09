@@ -4,15 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Enums;
 
-<<<<<<< HEAD
-/**
- * Work Hour Type Enum
- *
- * Defines the types of time tracking entries available in the system.
- * Replaces constants from WorkHour model for better type safety.
- */
-=======
->>>>>>> 95b3a4c (.)
 enum WorkHourTypeEnum: string
 {
     case CLOCK_IN = 'clock_in';
@@ -21,29 +12,17 @@ enum WorkHourTypeEnum: string
     case BREAK_END = 'break_end';
 
     /**
-<<<<<<< HEAD
-     * Get all available types as array.
-     *
-     * @return array<string>
-     */
-    public static function toArray(): array
-=======
      * Get all enum values as array.
      *
      * @return array<string>
      */
     public static function values(): array
->>>>>>> 95b3a4c (.)
     {
         return array_column(self::cases(), 'value');
     }
 
     /**
-<<<<<<< HEAD
-     * Get human-readable label for the type.
-=======
      * Get enum label for display.
->>>>>>> 95b3a4c (.)
      */
     public function getLabel(): string
     {
@@ -54,49 +33,4 @@ enum WorkHourTypeEnum: string
             self::BREAK_END => 'Break End',
         };
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-    /**
-     * Get Italian translation for the type.
-     */
-    public function getItalianLabel(): string
-    {
-        return match ($this) {
-            self::CLOCK_IN => 'Entrata',
-            self::CLOCK_OUT => 'Uscita',
-            self::BREAK_START => 'Inizio Pausa',
-            self::BREAK_END => 'Fine Pausa',
-        };
-    }
-
-    /**
-     * Determine if this is a clock-in type entry.
-     */
-    public function isClockedIn(): bool
-    {
-        return match ($this) {
-            self::CLOCK_IN, self::BREAK_END => true,
-            self::CLOCK_OUT, self::BREAK_START => false,
-        };
-    }
-
-    /**
-     * Get the next expected action based on current type.
-     */
-    public function getNextAction(): self
-    {
-        return match ($this) {
-            self::CLOCK_IN => self::BREAK_START,
-            self::BREAK_START => self::BREAK_END,
-            self::BREAK_END => self::CLOCK_OUT,
-            self::CLOCK_OUT => self::CLOCK_IN,
-        };
-    }
 }
-=======
-}
->>>>>>> 95b3a4c (.)
-=======
-}
->>>>>>> 6229c57 (.)

@@ -27,24 +27,11 @@ class EmployeeFactory extends Factory
     public function definition(): array
     {
         return [
-<<<<<<< HEAD
-            'user_id' => null, // Will be set when needed
-            'employee_code' => 'EMP'.$this->faker->unique()->numberBetween(1000, 9999),
-            'personal_data' => [
-                'first_name' => $this->faker->name(),
-                'last_name' => $this->faker->name(),
-=======
             'user_id' => null,
             'employee_code' => 'EMP'.$this->faker->unique()->numberBetween(1000, 9999),
             'personal_data' => [
-<<<<<<< HEAD
-                'first_name' => $this->faker->firstName(),
-                'last_name' => $this->faker->lastName(),
->>>>>>> 95b3a4c (.)
-=======
                 'first_name' => $this->faker->name(),
                 'last_name' => $this->faker->name(),
->>>>>>> 6229c57 (.)
                 'date_of_birth' => $this->faker->date(),
                 'gender' => $this->faker->randomElement(['M', 'F', 'O']),
                 'nationality' => $this->faker->countryCode(),
@@ -56,11 +43,7 @@ class EmployeeFactory extends Factory
                 'address' => [
                     'street' => $this->faker->streetAddress(),
                     'city' => $this->faker->city(),
-<<<<<<< HEAD
-                    'state' => 'IT',
-=======
                     'state' => $this->faker->state(),
->>>>>>> 95b3a4c (.)
                     'postal_code' => $this->faker->postcode(),
                     'country' => $this->faker->country(),
                 ],
@@ -78,38 +61,23 @@ class EmployeeFactory extends Factory
             ],
             'photo_url' => $this->faker->optional()->imageUrl(),
             'status' => $this->faker->randomElement(['attivo', 'inattivo', 'sospeso', 'licenziato']),
-<<<<<<< HEAD
-            'department_id' => null, // Will be set when needed
-            'manager_id' => null, // Will be set when needed
-            'position_id' => null, // Will be set when needed
-=======
             'department_id' => null,
             'manager_id' => null,
             'position_id' => null,
->>>>>>> 95b3a4c (.)
             'salary_data' => [
                 'base_salary' => $this->faker->numberBetween(20000, 100000),
                 'currency' => 'EUR',
                 'payment_frequency' => $this->faker->randomElement(['monthly', 'bi-weekly', 'weekly']),
-<<<<<<< HEAD
-                'benefits' => $this->faker->optional()->words(3),
-=======
                 'benefits' => $this->faker->optional()->words(3, false),
->>>>>>> 95b3a4c (.)
             ],
         ];
     }
 
     /**
      * Indicate that the employee is active.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
      *
      * @return static
->>>>>>> 95b3a4c (.)
 =======
->>>>>>> 6229c57 (.)
      */
     public function active(): static
     {
@@ -120,14 +88,9 @@ class EmployeeFactory extends Factory
 
     /**
      * Indicate that the employee is inactive.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
      *
      * @return static
->>>>>>> 95b3a4c (.)
 =======
->>>>>>> 6229c57 (.)
      */
     public function inactive(): static
     {
@@ -148,39 +111,25 @@ class EmployeeFactory extends Factory
 
     /**
      * Set specific personal data.
-<<<<<<< HEAD
-=======
      *
      * @param array<string, mixed> $personalData
->>>>>>> 95b3a4c (.)
      */
     public function withPersonalData(array $personalData): static
     {
         return $this->state(fn (array $attributes) => [
-<<<<<<< HEAD
-            'personal_data' => array_merge($attributes['personal_data'], $personalData),
-=======
             'personal_data' => array_merge($attributes['personal_data'] ?? [], $personalData),
->>>>>>> 95b3a4c (.)
         ]);
     }
 
     /**
      * Set specific contact data.
-<<<<<<< HEAD
-=======
      *
      * @param array<string, mixed> $contactData
->>>>>>> 95b3a4c (.)
      */
     public function withContactData(array $contactData): static
     {
         return $this->state(fn (array $attributes) => [
-<<<<<<< HEAD
-            'contact_data' => array_merge($attributes['contact_data'], $contactData),
-=======
             'contact_data' => array_merge($attributes['contact_data'] ?? [], $contactData),
->>>>>>> 95b3a4c (.)
         ]);
     }
 

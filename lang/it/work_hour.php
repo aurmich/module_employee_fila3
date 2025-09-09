@@ -1,9 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-=======
 declare(strict_types=1);
->>>>>>> 95b3a4c (.)
 return [
     'navigation' => [
         'label' => 'Ore di Lavoro',
@@ -125,18 +122,10 @@ return [
             'tooltip' => 'Timestamp ultimo aggiornamento',
             'description' => 'Data e ora dell\'ultimo aggiornamento',
         ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-        'toggleColumns' => [
-            'label' => 'toggleColumns',
-        ],
-=======
->>>>>>> 95b3a4c (.)
 =======
         'toggleColumns' => [
             'label' => 'toggleColumns',
         ],
->>>>>>> 6229c57 (.)
     ],
     'actions' => [
         'create' => [

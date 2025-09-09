@@ -12,8 +12,4 @@ use Modules\Xot\Models\XotBaseModel;
 abstract class BaseModel extends XotBaseModel
 {
     // Personalizzazioni specifiche del modulo Employee
-<<<<<<< HEAD
-}
-=======
 } 
->>>>>>> 95b3a4c (.)

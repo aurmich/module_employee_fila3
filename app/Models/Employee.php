@@ -26,11 +26,6 @@ use Parental\HasParent;
  * @property array<string, mixed> $salary_data
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
-<<<<<<< HEAD
- * @property-read \Modules\Employee\Models\Employee|null $manager
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Employee\Models\Employee> $subordinates
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Employee\Models\WorkHour> $workHours
-=======
  * @property-read \Modules\User\Models\User|null $user
  * @property-read \Illuminate\Database\Eloquent\Collection<\Modules\Employee\Models\WorkHour> $workHours
  * @property string|null $name
@@ -128,16 +123,12 @@ use Parental\HasParent;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee withoutRole($roles, $guard = null)
  * @mixin \Eloquent
->>>>>>> 95b3a4c (.)
  */
 class Employee extends User
 {
     use HasParent;
 
-<<<<<<< HEAD
-=======
     protected $table = 'users';
->>>>>>> 95b3a4c (.)
     /**
      * The attributes that are mass assignable.
      *
@@ -186,11 +177,6 @@ class Employee extends User
         return $this->hasMany(WorkHour::class, 'employee_id');
     }
 
-<<<<<<< HEAD
-    // Department relationship removed - class doesn't exist
-
-=======
->>>>>>> 95b3a4c (.)
     /**
      * Get the manager of this employee.
      *
