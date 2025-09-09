@@ -6,6 +6,7 @@ namespace Modules\Employee\Models;
 
 use Parental\HasParent;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
@@ -183,12 +184,36 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereAgeRange($value)
  * @mixin IdeHelperAdmin
  * @mixin \Eloquent
+=======
+/**
+ * Employee Module Admin Model
+ *
+ * Admin user type using Single Table Inheritance with Parental package.
+ * Child class of User model for administrative users.
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $type
+ * @property string|null $first_name
+ * @property string|null $last_name
+ * @property \Carbon\Carbon|null $date_of_birth
+ * @property string|null $gender
+ * @property string|null $address
+ * @property string|null $phone
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+>>>>>>> c1ac34e (.)
  */
 class Admin extends User
 {
     use HasParent;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     /**
      * Gli attributi che sono mass assignable.
      *
@@ -210,10 +235,17 @@ class Admin extends User
     protected function casts(): array
     {
         return array_merge(parent::casts(), [
+<<<<<<< HEAD
             //'certifications' => 'array',
             //'availability' => 'array',
         ]);
     }
 
     
+=======
+            // 'certifications' => 'array',
+            // 'availability' => 'array',
+        ]);
+    }
+>>>>>>> c1ac34e (.)
 }

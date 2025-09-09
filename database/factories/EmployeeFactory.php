@@ -15,7 +15,11 @@ class EmployeeFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
+<<<<<<< HEAD
      * @var string
+=======
+     * @var class-string<\Modules\Employee\Models\Employee>
+>>>>>>> c1ac34e (.)
      */
     protected $model = Employee::class;
 
@@ -28,10 +32,17 @@ class EmployeeFactory extends Factory
     {
         return [
             'user_id' => null, // Will be set when needed
+<<<<<<< HEAD
             'employee_code' => 'EMP' . $this->faker->unique()->numberBetween(1000, 9999),
             'personal_data' => [
                 'first_name' => $this->faker->firstName(),
                 'last_name' => $this->faker->lastName(),
+=======
+            'employee_code' => 'EMP'.$this->faker->unique()->numberBetween(1000, 9999),
+            'personal_data' => [
+                'first_name' => $this->faker->name(),
+                'last_name' => $this->faker->name(),
+>>>>>>> c1ac34e (.)
                 'date_of_birth' => $this->faker->date(),
                 'gender' => $this->faker->randomElement(['M', 'F', 'O']),
                 'nationality' => $this->faker->countryCode(),
@@ -43,7 +54,11 @@ class EmployeeFactory extends Factory
                 'address' => [
                     'street' => $this->faker->streetAddress(),
                     'city' => $this->faker->city(),
+<<<<<<< HEAD
                     'state' => $this->faker->optional()->randomElement(['CA', 'NY', 'TX', 'FL', 'WA', 'IL', 'PA', 'OH']),
+=======
+                    'state' => 'IT',
+>>>>>>> c1ac34e (.)
                     'postal_code' => $this->faker->postcode(),
                     'country' => $this->faker->country(),
                 ],
@@ -75,8 +90,11 @@ class EmployeeFactory extends Factory
 
     /**
      * Indicate that the employee is active.
+<<<<<<< HEAD
      *
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function active(): static
     {
@@ -87,8 +105,11 @@ class EmployeeFactory extends Factory
 
     /**
      * Indicate that the employee is inactive.
+<<<<<<< HEAD
      *
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function inactive(): static
     {
@@ -99,9 +120,12 @@ class EmployeeFactory extends Factory
 
     /**
      * Set a specific employee code.
+<<<<<<< HEAD
      *
      * @param string $code
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withCode(string $code): static
     {
@@ -112,9 +136,12 @@ class EmployeeFactory extends Factory
 
     /**
      * Set specific personal data.
+<<<<<<< HEAD
      *
      * @param array $personalData
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withPersonalData(array $personalData): static
     {
@@ -125,9 +152,12 @@ class EmployeeFactory extends Factory
 
     /**
      * Set specific contact data.
+<<<<<<< HEAD
      *
      * @param array $contactData
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withContactData(array $contactData): static
     {
@@ -138,9 +168,12 @@ class EmployeeFactory extends Factory
 
     /**
      * Set a specific status.
+<<<<<<< HEAD
      *
      * @param string $status
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withStatus(string $status): static
     {

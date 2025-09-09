@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 return array (
   'actions' => 
   array (
@@ -17,3 +18,18 @@ return array (
     ),
   ),
 );
+=======
+return [
+    'actions' => [
+        'create' => [
+            'label' => 'create',
+        ],
+        'createAnother' => [
+            'label' => 'createAnother',
+        ],
+        'cancel' => [
+            'label' => 'cancel',
+        ],
+    ],
+];
+>>>>>>> c1ac34e (.)

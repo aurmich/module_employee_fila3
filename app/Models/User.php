@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 declare(strict_types=1);
 namespace Modules\Employee\Models;
 
@@ -18,12 +19,38 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * 
  * Questo modello estende BaseUser e implementa Single Table Inheritance
  * per gestire i tipi di utente (doctor, patient).
+=======
+
+declare(strict_types=1);
+
+namespace Modules\Employee\Models;
+
+use Modules\Gdpr\Models\Traits\HasGdpr;
+use Modules\SaluteOra\Enums\UserTypeEnum;
+use Modules\User\Models\BaseUser;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\ModelStates\HasStates;
+use Spatie\ModelStates\HasStatesContract;
+
+/**
+ * Employee Module User Model
+ *
+ * Extends BaseUser with Single Table Inheritance for Employee module.
+ * Parent class for Admin and Employee models using Parental STI.
+>>>>>>> c1ac34e (.)
  *
  * @property int $id
  * @property string $name
  * @property string $email
  * @property string $password
+<<<<<<< HEAD
  * @property UserTypeEnum $type
+=======
+ * @property string $type
+>>>>>>> c1ac34e (.)
  * @property string|null $first_name
  * @property string|null $last_name
  * @property \Carbon\Carbon|null $date_of_birth
@@ -36,6 +63,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property bool $is_active
  * @property bool $is_otp
  * @property \Carbon\Carbon|null $password_expires_at
+<<<<<<< HEAD
  * @property int|null $studio_id
  * @property string|null $continuation_token
  * @property \Carbon\Carbon|null $email_verified_at
@@ -192,11 +220,28 @@ class User extends BaseUser implements HasMedia,HasStatesContract
     protected $connection = 'employee';
 
 
+=======
+ * @property \Carbon\Carbon|null $email_verified_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ */
+class User extends BaseUser implements HasMedia, HasStatesContract
+{
+    use HasGdpr;
+    use HasStates;
+    use InteractsWithMedia;
+    use LogsActivity;
+
+    /** @var string */
+    protected $connection = 'employee';
+
+>>>>>>> c1ac34e (.)
     /**
      * Mappatura dei tipi di utente con le relative classi
      * Utilizziamo l'enum UserTypeEnum per una gestione tipizzata e sicura
      */
     protected $childTypes = [
+<<<<<<< HEAD
         
         'admin' => Admin::class,
         'Employee' => Employee::class,
@@ -213,6 +258,21 @@ class User extends BaseUser implements HasMedia,HasStatesContract
     ];
 
 
+=======
+        'admin' => Admin::class,
+        'employee' => Employee::class,
+    ];
+
+    /** @var array<string, mixed> */
+    protected $attributes = [
+        // 'state' => Pending::class,
+        // 'state' => 'pending',
+        'is_otp' => false,
+        'is_active' => true,
+        'type' => 'patient',  // Valore di default secondo la best practice dell'enum
+    ];
+
+>>>>>>> c1ac34e (.)
     /** @var list<string> */
     protected $fillable = [
         'name',
@@ -229,6 +289,7 @@ class User extends BaseUser implements HasMedia,HasStatesContract
         'phone',
         'lang',
         'current_team_id',
+<<<<<<< HEAD
         //'is_active',
         'is_otp',
         'password_expires_at',
@@ -239,6 +300,16 @@ class User extends BaseUser implements HasMedia,HasStatesContract
 
     
 
+=======
+        // 'is_active',
+        'is_otp',
+        'password_expires_at',
+        // 'studio_id',
+        // 'continuation_token',
+        // 'certifications'
+    ];
+
+>>>>>>> c1ac34e (.)
     /**
      * Cast custom per il campo type:
      * - Va dichiarato solo nel modello User del modulo SaluteOra, mai nella base User generica.
@@ -253,6 +324,7 @@ class User extends BaseUser implements HasMedia,HasStatesContract
         return array_merge(parent::casts(), [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+<<<<<<< HEAD
             //'type' => UserTypeEnum::class, // Sintassi corretta per Laravel 12
             //'state' => UserState::class,
             //'certifications' => 'array',
@@ -269,13 +341,32 @@ class User extends BaseUser implements HasMedia,HasStatesContract
      * Configurazione per il logging delle attività.
      *
      * @return LogOptions
+=======
+            // 'type' => UserTypeEnum::class, // Sintassi corretta per Laravel 12
+            // 'state' => UserState::class,
+            // 'certifications' => 'array',
+            // 'certification' => 'array',  // ESSENZIALE: Evita "foreach() argument must be of type array|object, string given"
+            // 'moderation_data' => 'array',
+        ]);
+
+    }
+
+    /**
+     * Configurazione per il logging delle attività.
+>>>>>>> c1ac34e (.)
      */
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
+<<<<<<< HEAD
             //->logOnly(['name', 'email', 'type', 'state'])
             ->logOnlyDirty();
     }
 
    
+=======
+            // ->logOnly(['name', 'email', 'type', 'state'])
+            ->logOnlyDirty();
+    }
+>>>>>>> c1ac34e (.)
 }

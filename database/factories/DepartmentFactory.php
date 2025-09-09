@@ -27,7 +27,11 @@ class DepartmentFactory extends Factory
     public function definition(): array
     {
         return [
+<<<<<<< HEAD
             'name' => $this->faker->unique()->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
+=======
+            'name' => $this->faker->unique()->word().' Department',
+>>>>>>> c1ac34e (.)
             'description' => $this->faker->optional()->sentence(),
             'status' => $this->faker->randomElement(['attivo', 'inattivo']),
             'manager_id' => null, // Will be set when needed
@@ -36,8 +40,11 @@ class DepartmentFactory extends Factory
 
     /**
      * Indicate that the department is active.
+<<<<<<< HEAD
      *
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function active(): static
     {
@@ -48,8 +55,11 @@ class DepartmentFactory extends Factory
 
     /**
      * Indicate that the department is inactive.
+<<<<<<< HEAD
      *
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function inactive(): static
     {
@@ -60,9 +70,12 @@ class DepartmentFactory extends Factory
 
     /**
      * Set a specific department name.
+<<<<<<< HEAD
      *
      * @param string $name
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withName(string $name): static
     {
@@ -73,9 +86,12 @@ class DepartmentFactory extends Factory
 
     /**
      * Set a specific description.
+<<<<<<< HEAD
      *
      * @param string $description
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withDescription(string $description): static
     {

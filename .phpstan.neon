@@ -1,10 +1,15 @@
 parameters:
+<<<<<<< HEAD
     level: 8
+=======
+    level: 10
+>>>>>>> c1ac34e (.)
     paths:
         - app
         - tests
     excludePaths:
         - database/migrations
+<<<<<<< HEAD
     checkMissingIterableValueType: false
     
     # Ignora errori specifici se necessario
@@ -14,3 +19,11 @@ parameters:
         - '#Call to an undefined method.*dropIndex#'
         # Ignora errori di covarianza nei tipi di ritorno delle relazioni
         - '#Template type TDeclaringModel on class Illuminate\\Database\\Eloquent\\Relations\\BelongsTo is not covariant#' 
+=======
+    
+    # Ignora solo errori di migrazione
+    ignoreErrors:
+        # Ignora errori temporanei durante la migrazione
+        - '#Call to an undefined method.*renameColumn#'
+        - '#Call to an undefined method.*dropIndex#' 
+>>>>>>> c1ac34e (.)

@@ -31,3 +31,10 @@ docs/phpstan/
 
 # Other
 
+<<<<<<< HEAD
+=======
+
+# Standard ignores (auto)
+*.bakcup
+*.backup.*
+>>>>>>> c1ac34e (.)

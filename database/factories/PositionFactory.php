@@ -15,7 +15,11 @@ class PositionFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
+<<<<<<< HEAD
      * @var string
+=======
+     * @var class-string<\Modules\Employee\Models\Position>
+>>>>>>> c1ac34e (.)
      */
     protected $model = Position::class;
 
@@ -36,8 +40,11 @@ class PositionFactory extends Factory
 
     /**
      * Indicate that the position is active.
+<<<<<<< HEAD
      *
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function active(): static
     {
@@ -48,8 +55,11 @@ class PositionFactory extends Factory
 
     /**
      * Indicate that the position is inactive.
+<<<<<<< HEAD
      *
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function inactive(): static
     {
@@ -60,9 +70,12 @@ class PositionFactory extends Factory
 
     /**
      * Set a specific position title.
+<<<<<<< HEAD
      *
      * @param string $title
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withTitle(string $title): static
     {
@@ -73,9 +86,12 @@ class PositionFactory extends Factory
 
     /**
      * Set a specific level.
+<<<<<<< HEAD
      *
      * @param string $level
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withLevel(string $level): static
     {
@@ -86,9 +102,12 @@ class PositionFactory extends Factory
 
     /**
      * Set a specific description.
+<<<<<<< HEAD
      *
      * @param string $description
      * @return static
+=======
+>>>>>>> c1ac34e (.)
      */
     public function withDescription(string $description): static
     {

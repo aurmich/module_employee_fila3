@@ -1,7 +1,10 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
+=======
+>>>>>>> c1ac34e (.)
 return [
     'navigation' => [
         'label' => 'Ore di Lavoro',
@@ -9,14 +12,20 @@ return [
         'icon' => 'heroicon-o-clock',
         'sort' => 50,
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'resource' => [
         'label' => 'Voce Oraria',
         'plural_label' => 'Voci Orarie',
         'navigation_label' => 'Ore di Lavoro',
         'description' => 'Gestione completa delle registrazioni orarie dei dipendenti',
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'fields' => [
         'employee_id' => [
             'label' => 'Dipendente',
@@ -125,8 +134,15 @@ return [
             'tooltip' => 'Timestamp ultimo aggiornamento',
             'description' => 'Data e ora dell\'ultimo aggiornamento',
         ],
+<<<<<<< HEAD
     ],
 
+=======
+        'toggleColumns' => [
+            'label' => 'toggleColumns',
+        ],
+    ],
+>>>>>>> c1ac34e (.)
     'actions' => [
         'create' => [
             'label' => 'Crea Voce Oraria',
@@ -194,7 +210,10 @@ return [
             'tooltip' => 'Rifiuta tutte le voci selezionate',
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'sections' => [
         'time_entry_details' => [
             'heading' => 'Dettagli Voce Oraria',
@@ -225,7 +244,10 @@ return [
             'collapsed' => true,
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'filters' => [
         'employee' => [
             'label' => 'Dipendente',
@@ -257,7 +279,10 @@ return [
             'help' => 'Mostra solo voci in attesa di approvazione',
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'tabs' => [
         'all' => [
             'label' => 'Tutte le Voci',
@@ -290,7 +315,10 @@ return [
             'icon' => 'heroicon-o-x-circle',
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'pages' => [
         'timeclock' => [
             'title' => 'Timbratura Dipendenti',
@@ -329,7 +357,10 @@ return [
             'description' => 'Informazioni complete sulla registrazione',
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'widgets' => [
         'stats' => [
             'title' => 'Statistiche Ore di Lavoro',
@@ -392,7 +423,10 @@ return [
             ],
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'status' => [
         'not_clocked_in' => [
             'label' => 'Non Timbrato',
@@ -437,7 +471,10 @@ return [
             'icon' => 'heroicon-o-x-circle',
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'messages' => [
         'validation' => [
             'invalid_sequence' => 'Sequenza voci non valida. Ultima voce: :last_entry',
@@ -489,7 +526,10 @@ return [
             'bulk_reject' => 'Confermi il rifiuto di :count voci orarie?',
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'summary' => [
         'total_hours_worked' => [
             'label' => 'Ore Totali Lavorate',
@@ -537,7 +577,10 @@ return [
             'tooltip' => 'Calcolo ore straordinarie',
         ],
     ],
+<<<<<<< HEAD
 
+=======
+>>>>>>> c1ac34e (.)
     'quick_actions' => [
         'title' => 'Azioni Rapide',
         'description' => 'Accesso veloce alle funzioni principali',
@@ -582,4 +625,8 @@ return [
             'tooltip' => 'Operazione bulk rifiuto',
         ],
     ],
+<<<<<<< HEAD
 ];
+=======
+];
+>>>>>>> c1ac34e (.)

@@ -1,8 +1,146 @@
 # Employee Module - Laraxot
 
+<<<<<<< HEAD
 ## Overview
 
 Complete Employee module implementation for comprehensive employee management functionality. The module provides employee data management, time tracking, department organization, and follows strict Laraxot conventions.
+=======
+## 📋 Module Overview
+
+Complete Employee module implementation designed to replicate and enhance the functionality of [dipendentincloud.it](https://www.dipendentincloud.it/), creating a comprehensive HR system based on Laraxot/PTVX architecture. The module provides complete employee lifecycle management with advanced time tracking, organizational management, and strict Laraxot conventions compliance.
+
+### 🎯 Core Purpose
+- **Employee Management**: Complete CRUD operations with profiles and history
+- **Time Tracking**: Advanced attendance system with clock in/out functionality  
+- **Organizational Management**: Departments, positions, and hierarchical structures
+- **Leave Management**: Vacation, sick leave, and approval workflows
+- **Document Management**: Contract storage and document lifecycle
+- **Reporting & Analytics**: Real-time dashboards and comprehensive reports
+
+### 🏗️ Architecture Principles
+- **XotBase Extension**: ALL classes extend XotBase (NEVER Filament directly)
+- **English Naming**: All code elements use English naming conventions
+- **Actions Pattern**: Business logic implemented using Laraxot Actions pattern
+- **Multi-language Support**: Italian primary, English secondary
+- **Modular Design**: Clean separation of concerns and responsibilities
+
+## 📚 Documentation Structure
+
+The documentation is organized into logical categories for better navigation and maintenance:
+
+### 🚀 Quick Start
+- **[README.md](README.md)** - This overview document
+- **[Configuration Guide](configuration.md)** - Module configuration guide
+- **[Getting Started](GETTING_STARTED.md)** - Installation and setup guide
+
+### 📋 Core Documentation
+- **[Naming Standards](naming-standards.md)** - Naming conventions and standards
+- **[Module Structure](module_structure.md)** - Module organization guide
+- **[XotBase Extension Rules](xotbase_extension_rules.md)** - Critical Laraxot compliance rules
+- **[Laraxot Actions Pattern](laraxot_actions_pattern.md)** - Business logic implementation pattern
+
+### 📋 Business Logic Documentation (Actions Pattern)
+- **[business_logic_new/README.md](business_logic_new/README.md)** - Actions pattern overview and guidelines
+- **[business_logic_new/overview.md](business_logic_new/overview.md)** - Complete business logic with Actions
+- **[business_logic_new/time_tracking.md](business_logic_new/time_tracking.md)** - Time tracking Actions implementation
+- **[business_logic_new/employee_management.md](business_logic_new/employee_management.md)** - Employee management Actions
+- **[laraxot_actions_pattern.md](laraxot_actions_pattern.md)** - 🚨 CRITICAL: Actions pattern rules
+
+### 🏗️ Architecture Documentation
+- **[architecture/](architecture/README.md)** - System architecture and design
+  - Data architecture and relationships
+  - Model architecture and structure
+  - Technical architecture overview
+  - Feature comparison matrix
+
+### 🚀 Implementation Guides
+- **[implementation/](implementation/README.md)** - Implementation guides and setup
+  - Master implementation plan
+  - Module setup and installation
+  - Technical implementation details
+  - Development workflows and best practices
+
+### ✨ Feature Documentation
+- **[features/](features/README.md)** - Feature specifications and implementation
+  - Work hour tracking system
+  - Functional requirements
+  - Implementation strategies
+  - Detailed feature specifications
+
+### 🔍 Analysis & Research
+- **[analysis/](analysis/README.md)** - Research and analysis documentation
+  - Reference system analysis (dipendentincloud.it)
+  - Language and naming best practices
+  - Functional strategy and comparison
+
+### 🔧 Maintenance & Fixes
+- **[maintenance/](maintenance/README.md)** - Maintenance and troubleshooting
+  - Historical corrections log
+  - PHPStan fixes and solutions
+  - XotBase compliance fixes
+
+### 👨‍💻 Development Guides
+- **[development/](development/README.md)** - Step-by-step development guides
+  - **[employee-management/](development/employee-management/README.md)** - Employee registry and profiles
+  - **[time-tracking/](development/time-tracking/README.md)** - Time tracking and attendance
+  - **[organizational/](development/organizational/README.md)** - Department and position management
+  - **[leave-management/](development/leave-management/README.md)** - Vacation and leave systems
+  - **[document-management/](development/document-management/README.md)** - Document storage and contracts
+  - **[communication/](development/communication/README.md)** - Bulletin board and messaging
+  - **[reporting/](development/reporting/README.md)** - Dashboard and analytics
+  - **[security/](development/security/README.md)** - Roles and permissions
+  - **[mobile/](development/mobile/README.md)** - PWA and mobile development
+  - **[integrations/](development/integrations/README.md)** - External system integrations
+
+### 🎨 Widget Documentation
+- **[widgets/](widgets/README.md)** - Filament widgets documentation and guides
+  - **[timeclock-widget-ui-ux-improvements.md](widgets/timeclock-widget-ui-ux-improvements.md)** - ✨ Enhanced TimeClockWidget with Filament badges and buttons
+  - **[timeclock-widget-implementation-summary.md](widgets/timeclock-widget-implementation-summary.md)** - Complete implementation details
+  - **[timeclock-widget-layout-troubleshooting.md](widgets/timeclock-widget-layout-troubleshooting.md)** - Layout issues and solutions
+  - **[timeclock-widget-final-implementation.md](widgets/timeclock-widget-final-implementation.md)** - Production-ready summary
+  - **[filament-widget-3-column-best-practices.md](widgets/filament-widget-3-column-best-practices.md)** - 🏆 **ULTIMATE**: 3-column widget best practices
+  - **[gestione_orari_dipendenti.md](widgets/gestione_orari_dipendenti.md)** - Complete time management analysis
+  - **[weekly_time_table_widget_analysis.md](widgets/weekly_time_table_widget_analysis.md)** - Weekly time tracking widgets
+  - **[workhours_page_analysis.md](widgets/workhours_page_analysis.md)** - Work hours page implementation
+
+## 🎯 Project Objectives
+
+### Complete Replication of dipendentincloud.it Features
+- ✅ Employee registry management
+- ✅ Organizational management (departments, locations, roles)
+- ✅ Attendance and time tracking system
+- ✅ Leave and vacation management
+- ✅ Document management
+- ✅ Dashboard and reporting
+- ✅ Employee self-service
+- ✅ Communications and notifications
+
+### Enhancements Over dipendentincloud.it
+- 🚀 **Modern Architecture** (Laravel 11 + Filament 3)
+- 🚀 **Superior Performance** (-70% loading time)
+- 🚀 **AI/ML Features** (automatic categorization, predictions)
+- 🚀 **Complete Integration** with Laraxot/PTVX ecosystem
+- 🚀 **Advanced Security** (GDPR, audit trail, encryption)
+- 🚀 **Enterprise Scalability** (multi-tenant, complete APIs)
+
+### 🎨 Dashboard Widget System
+
+The dashboard features 6 primary widgets providing comprehensive HR functionality:
+
+1. **⏰ TimeClockWidget** - Central time tracking with real-time clock in/out
+2. **📋 TodoWidget** - Task management and HR action items
+3. **📅 UpcomingScheduleWidget** - 7-day schedule and events overview  
+4. **📝 PendingRequestsWidget** - Request status and approval tracking
+5. **📊 TimeOffBalanceWidget** - Leave balances with visual progress
+6. **👥 TodayPresenceWidget** - Real-time team presence monitoring
+
+### Widget Development Standards
+- **XotBase Extension**: All widgets extend `XotBaseWidget`
+- **English Naming**: Widget classes use English naming conventions
+- **Filament Components**: Native `x-filament::badge` and `x-filament::button` usage
+- **Real-time Updates**: Livewire polling for dynamic content
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+>>>>>>> c1ac34e (.)
 
 ## Critical Laraxot Philosophy Compliance
 
@@ -22,12 +160,60 @@ class EmployeePage extends Modules\Xot\Filament\Pages\XotBasePage
 
 ### Naming Standards (Employee Module)
 
+<<<<<<< HEAD
 **ALL DATABASE ELEMENTS MUST BE IN ENGLISH**
 
 - Table names: English only
 - Column names: English only
 - Enum values: English only
 - Comments: English only
+=======
+**ALL CODE ELEMENTS MUST BE IN ENGLISH - NO EXCEPTIONS**
+
+- **Classes**: English only (TimeClockWidget ✅, TimbratureWidget ❌)
+- **Methods**: English only (getTimeEntries ✅, getTimbrature ❌)
+- **Properties**: English only ($timeEntries ✅, $timbrature ❌)
+- **Files**: English only (TimeClockWidget.php ✅, TimbratureWidget.php ❌)
+- **Directories**: English only (TimeClock/ ✅, Timbrature/ ❌)
+- **Table names**: English only (time_entries ✅, timbrature ❌)
+- **Column names**: English only (timestamp ✅, data_timbratura ❌)
+- **Enum values**: English only (clock_in ✅, entrata ❌)
+- **Variables**: English only ($currentTime ✅, $oraCorrente ❌)
+
+**CRITICAL: NO CASE-ONLY VARIATIONS**
+
+**NEVER create multiple classes where names differ ONLY by case:**
+- ❌ `userController` vs `UserController` (case-only difference)
+- ❌ `employeeModel` vs `EmployeeModel` (case-only difference)
+- ✅ `TimeClockWidget` vs `AttendanceWidget` (distinct names)
+- ✅ `UserController` vs `AuthController` (distinct names)
+
+**Why This Rule Exists:**
+- Prevents developer confusion and maintenance nightmares
+- Avoids file system conflicts on case-insensitive systems
+- Ensures clear, unambiguous naming conventions
+- Maintains code clarity and team collaboration
+
+**ITALIAN ALLOWED ONLY IN:**
+- Translation files (lang/it/, lang/en/)
+- View Blade text for users  
+- PHP comments for explanations
+- As absolute last resort when no English alternative exists
+
+### Actions Pattern Implementation
+**ALL BUSINESS LOGIC MUST USE ACTIONS PATTERN**
+
+```php
+// ✅ CORRECT - Actions pattern
+class ClockInAction extends BaseAction
+{
+    public function handle(ClockInData $data): TimeEntry
+    {
+        // Business logic implementation
+    }
+}
+```
+>>>>>>> c1ac34e (.)
 
 ## Module Structure
 
@@ -42,7 +228,11 @@ laravel/Modules/Employee/
 │   └── Providers/        # Service providers
 ├── config/               # Module configuration
 ├── database/             # Migrations and seeders
+<<<<<<< HEAD
 ├── docs/                 # Module documentation
+=======
+├── docs/                 # Module documentation (organized structure)
+>>>>>>> c1ac34e (.)
 ├── lang/                 # Language files
 │   ├── it/              # Italian translations
 │   └── en/              # English translations
@@ -149,7 +339,36 @@ The Employee module uses a custom SVG icon system:
 - Dashboard with employee statistics
 
 ### Widgets
+<<<<<<< HEAD
 - Employee statistics overview
+=======
+
+#### Primary Widget (Enhanced - 2025)
+- **TimeClockWidget** ✨ UNIFIED - Single consolidated time tracking widget with enhanced UI/UX
+  - **NEW**: Enhanced badge-based time entries display
+  - **NEW**: Interactive session cards with status indicators
+  - **NEW**: Action buttons with status badges
+  - Layout: [TIME+DATE+STATS] [ENHANCED SESSIONS] [SMART ACTION BUTTON]
+  - Native Filament components (`x-filament::button`, `x-filament::badge`)
+  - Real-time updates with polling and visual feedback
+  - Complete time tracking functionality with improved accessibility
+  - Consolidates all time tracking features into one widget
+  - **Documentation**: [timeclock-widget-ui-ux-improvements.md](widgets/timeclock-widget-ui-ux-improvements.md)
+
+#### CRITICAL NAMING RULES
+**NEVER use Italian words in class names** - Fundamental Laraxot philosophy rule:
+- ❌ FORBIDDEN: `TimbratureWidget`, `DipendenteModel`, `OrganizzativaResource`
+- ✅ CORRECT: `TimeClockWidget`, `EmployeeModel`, `OrganizationalResource`
+
+**NEVER create case-only variations** - Prevents confusion and maintenance issues:
+- ❌ FORBIDDEN: `userController` and `UserController` (case difference only)
+- ❌ FORBIDDEN: `UserService` and `userService` (case difference only)
+- ✅ CORRECT: ONE unified class with clear, distinct naming
+
+#### Supporting Widgets (Available)
+- **EmployeeOverviewWidget** - General employee statistics overview
+- **WorkHourStatsWidget** - Time tracking statistics and attendance
+>>>>>>> c1ac34e (.)
 - Recent activity tracking
 - Quick action buttons
 
@@ -227,11 +446,19 @@ php artisan test tests/Feature/Employee/EmployeeTest.php
 php artisan test --coverage --testsuite=Employee
 ```
 
+<<<<<<< HEAD
 ## Documentation
+=======
+## 📚 Documentation
+>>>>>>> c1ac34e (.)
 
 ### Module Documentation
 - [Model Architecture](model_architecture.md) - Database and model structure
 - [WorkHour Implementation](workhour_implementation.md) - Time tracking system
+<<<<<<< HEAD
+=======
+- [Filament Widgets](filament_widgets.md) - Dashboard widgets and statistics
+>>>>>>> c1ac34e (.)
 - [Technical Implementation](technical_implementation.md) - Technical details
 - [Language Best Practices](language_best_practices.md) - Translation standards
 - [SVG Icon Standards](svg_icon_standards.md) - Icon system and standards
@@ -246,9 +473,35 @@ php artisan test --coverage --testsuite=Employee
 - [Translation Standards](../../laravel/Modules/Lang/docs/translation_file_syntax.md) - Language file syntax
 - [Best Practices](../../laravel/Modules/Lang/docs/) - Language development guidelines
 
+<<<<<<< HEAD
 ## Installation and Setup
 
 ### 1. Module Registration
+=======
+## 🚀 Installation and Setup
+
+### Quick Installation
+```bash
+# Clone the module
+git clone [repository-url] Modules/Employee
+
+# Install dependencies  
+composer install
+
+# Run migrations
+php artisan migrate
+
+# Seed demo data
+php artisan db:seed --class=EmployeeSeeder
+
+# Start development server
+php artisan serve
+```
+
+### Detailed Setup
+
+#### 1. Module Registration
+>>>>>>> c1ac34e (.)
 ```bash
 # Register the module in composer.json
 composer require modules/employee
@@ -260,7 +513,11 @@ php artisan vendor:publish --tag=employee-config
 php artisan migrate
 ```
 
+<<<<<<< HEAD
 ### 2. Language Setup
+=======
+#### 2. Language Setup
+>>>>>>> c1ac34e (.)
 ```bash
 # Publish language files
 php artisan vendor:publish --tag=employee-lang
@@ -269,7 +526,11 @@ php artisan vendor:publish --tag=employee-lang
 php artisan lang:clear
 ```
 
+<<<<<<< HEAD
 ### 3. Filament Setup
+=======
+#### 3. Filament Setup
+>>>>>>> c1ac34e (.)
 ```bash
 # Register Filament resources
 php artisan employee:install
@@ -278,7 +539,11 @@ php artisan employee:install
 php artisan filament:clear-cache
 ```
 
+<<<<<<< HEAD
 ### 4. Icon System Setup
+=======
+#### 4. Icon System Setup
+>>>>>>> c1ac34e (.)
 ```bash
 # Icons are automatically registered by XotBaseServiceProvider
 # No additional setup required
@@ -344,7 +609,11 @@ php artisan route:list | grep icon
 - [ ] Updates documentation
 - [ ] Follows naming conventions
 
+<<<<<<< HEAD
 ## Support and Resources
+=======
+## 📞 Support and Resources
+>>>>>>> c1ac34e (.)
 
 ### Internal Resources
 - [Employee Module Docs](./) - Complete module documentation
@@ -358,6 +627,184 @@ php artisan route:list | grep icon
 - [Laraxot Documentation](https://laraxot.com)
 - [Heroicons](https://heroicons.com/) - Icon reference
 
+<<<<<<< HEAD
 ---
 
 **IMPORTANT**: Always follow Laraxot conventions and extend XotBase classes. Never extend Filament classes directly. Maintain high-quality translations, comprehensive documentation, and consistent SVG icon standards.
+=======
+### Community Support
+- **Issues**: Report bugs and request features via GitHub issues
+- **Discussions**: Join community discussions and ask questions
+- **Contributing**: See [Contribution Guidelines](05-development/contribution-guidelines.md)
+- **Documentation**: Help improve documentation quality
+
+---
+
+**IMPORTANT**: Always follow Laraxot conventions and extend XotBase classes. Never extend Filament classes directly. Maintain high-quality translations, comprehensive documentation, and consistent SVG icon standards.
+
+**Last Updated**: September 2025  
+**Module Version**: 2.0  
+**Framework**: Laravel 11 + Filament 3  
+**Compliance**: XotBase Extension Rules + English Naming Standards
+
+## 🏗️ System Architecture
+
+### Core Models
+```
+Employee/
+├── Models/
+│   ├── Employee.php          # Main employee model
+│   ├── Department.php        # Department management
+│   ├── Location.php          # Company locations
+│   ├── Role.php              # Job roles
+│   ├── Contract.php          # Employment contracts
+│   ├── Attendance.php        # Time tracking
+│   ├── Leave.php             # Vacation and leave management
+│   └── Document.php          # Document storage
+├── Filament/
+│   ├── Resources/            # CRUD operations
+│   ├── Pages/                # Custom pages and dashboards
+│   └── Widgets/              # Dashboard widgets
+└── Views/                    # Blade templates
+```
+
+### Module Integration
+- **User**: Authentication and profiles
+- **Media**: Document and file management
+- **Notify**: Notification and communication system
+- **Setting**: System configuration
+- **Geo**: GPS location tracking for attendance
+
+## 📊 Core Features
+
+### 1. **Employee Management**
+- Complete employee profiles with photos
+- Personal, work, and contract data
+- Change history and versioning
+- Career progression tracking
+
+### 2. **Organizational Management**
+- Hierarchical company structure
+- Interactive organizational chart
+- Department and location management
+- Role assignment and responsibilities
+
+### 3. **Attendance System**
+- Virtual and physical time tracking
+- Schedule and overtime management
+- Interactive attendance calendar
+- Approval workflows
+
+### 4. **Leave Management**
+- Online leave requests
+- Approval workflows
+- Company leave calendar
+- Automatic leave balance calculation
+
+### 5. **Document Management**
+- Upload with automatic categorization
+- Expiration tracking and notifications
+- Secure digital archive
+- Document versioning
+
+### 6. **Dashboard and Reporting**
+- Role-based personalized dashboards
+- Real-time KPIs and metrics
+- Customizable reports
+- Excel/PDF data export
+
+### 7. **Employee Self-Service**
+- Personal employee portal
+- Online requests (leave, time off)
+- Payslip viewing
+- Personal data updates
+
+### 8. **Communications**
+- Internal messaging
+- Company bulletin board
+- Automatic notifications
+- Feedback and surveys
+
+## 🚀 Implementation Roadmap
+
+### Phase 1: Foundation (Months 1-2)
+- [ ] Base models (Employee, Department, Location)
+- [ ] Main Filament resources
+- [ ] Authentication and permission system
+- [ ] Base dashboard
+
+### Phase 2: Core HR (Months 3-4)
+- [ ] Complete employee management
+- [ ] Contract system
+- [ ] Basic attendance management
+- [ ] Employee self-service
+
+### Phase 3: Advanced Features (Months 5-6)
+- [ ] Analytics and reporting
+- [ ] Advanced document management
+- [ ] Complex workflows
+- [ ] External integrations
+
+### Phase 4: Enhancement (Months 7-8)
+- [ ] Advanced user interface
+- [ ] AI/ML functionality
+- [ ] Mobile optimization
+- [ ] Enterprise features
+
+## 🎯 Strategic Innovations
+
+### Artificial Intelligence
+- Automatic document categorization
+- Absence and turnover prediction
+- Shift optimization
+- Employee assistance chatbot
+
+### Predictive Analytics
+- Executive dashboards
+- Custom KPIs
+- Predictive reports
+- Benchmarking
+
+### Advanced Compliance
+- Automatic GDPR compliance
+- Complete audit trail
+- Zero-trust security
+- Italian regulatory compliance
+
+## 🔗 External Integrations
+
+### Public APIs
+- **INPS**: Social security data transmission
+- **INAIL**: Work injury management
+- **Banks**: Salary transfers
+- **PEC**: Official communications
+
+### Calendar Integration
+- **Google Calendar**: Event synchronization
+- **Outlook**: Calendar integration
+- **iCal**: Event export/import
+
+### Mobile
+- **Native apps**: iOS and Android
+- **PWA**: Progressive Web App
+- **Offline mode**: Offline functionality
+
+## 🔧 Technologies Used
+
+### Backend
+- **Laravel 11**: Modern framework
+- **Filament 3**: Advanced admin panel
+- **Livewire 3**: Reactive components
+- **Folio + Volt**: Routing and components
+
+### Frontend
+- **Tailwind CSS**: Modern styling
+- **Alpine.js**: Interactivity
+- **Chart.js**: Interactive charts
+- **FullCalendar.js**: Calendar system
+
+### Database
+- **MySQL 8**: Primary database
+- **Redis**: Cache and sessions
+- **Elasticsearch**: Advanced search
+>>>>>>> c1ac34e (.)
