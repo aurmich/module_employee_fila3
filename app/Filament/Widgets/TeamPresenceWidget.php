@@ -48,15 +48,6 @@ class TeamPresenceWidget extends XotBaseWidget
                         ->afterStateUpdated(fn (mixed $state) => $this->selectedDepartment = is_string($state) ? $state : null),
 
                     Placeholder::make('presence_stats')
-<<<<<<< HEAD
-                        ->content(function () use ($presenceData): \Illuminate\Contracts\View\View {
-                            // @phpstan-ignore-next-line argument.type
-                            return view('employee::widgets.team-presence.stats-display', [
-                                'present' => $presenceData['present'],
-                                'absent' => $presenceData['absent'],
-                                'presentCount' => is_countable($presenceData['present']) ? count($presenceData['present']) : 0,
-                                'absentCount' => is_countable($presenceData['absent']) ? count($presenceData['absent']) : 0,
-=======
                         ->content(function () use ($presenceData) {
                             /** @var view-string $view */
                             $view = 'employee::widgets.team-presence.stats-display';
@@ -65,25 +56,16 @@ class TeamPresenceWidget extends XotBaseWidget
                                 'absent' => $presenceData['absent'],
                                 'presentCount' => count($presenceData['present']),
                                 'absentCount' => count($presenceData['absent']),
->>>>>>> f143926 (.)
                             ]);
                         }),
 
                     Placeholder::make('presence_list')
-<<<<<<< HEAD
-                        ->content(function () use ($presenceData): \Illuminate\Contracts\View\View {
-                            // @phpstan-ignore-next-line argument.type
-                            return view('employee::widgets.team-presence.presence-list', [
-                                'present' => is_array($presenceData['present']) ? $presenceData['present'] : [],
-                                'absent' => is_array($presenceData['absent']) ? $presenceData['absent'] : [],
-=======
                         ->content(function () use ($presenceData) {
                             /** @var view-string $view */
                             $view = 'employee::widgets.team-presence.presence-list';
                             return view($view, [
                                 'present' => $presenceData['present'],
                                 'absent' => $presenceData['absent'],
->>>>>>> f143926 (.)
                             ]);
                         }),
 
@@ -156,8 +138,6 @@ class TeamPresenceWidget extends XotBaseWidget
             }
         }
 
-<<<<<<< HEAD
-=======
         // Get present employees (who clocked in today and haven't clocked out)
         $present = $baseQuery->clone()
             ->whereHas('workHours', function ($query) use ($today) {
@@ -208,7 +188,6 @@ class TeamPresenceWidget extends XotBaseWidget
                 ];
             })->toArray();
 
->>>>>>> f143926 (.)
         return [
             'present' => $present,
             'absent' => $absent,

@@ -110,25 +110,14 @@ class TimeClockWidget extends XotBaseWidget
     {
         // Aggiorna ora e data
         $this->currentTime = Carbon::now()->format('H:i');
-<<<<<<< HEAD
-        $carbon = Carbon::now();
-        $carbon->locale('it');
-        $this->todayDate = $carbon->isoFormat('dddd D MMMM YYYY');
-
-        $userId = Auth::id();
-        if ($userId === null) {
-            $this->todayEntries = [];
-            $this->sessions = [];
-=======
         
         /** @var \Carbon\Carbon $localizedDate */
         $localizedDate = Carbon::now()->locale('it');
         $this->todayDate = $localizedDate->isoFormat('dddd D MMMM YYYY');
->>>>>>> f143926 (.)
 
-            return;
-        }
-
+        /** @var int|string|null $userId */
+        $userId = Auth::id();
+        
         $this->loadTodayEntries((string) $userId);
         $this->updateSessionStatus();
     }
@@ -145,27 +134,18 @@ class TimeClockWidget extends XotBaseWidget
             ->orderBy('timestamp', 'asc')
             ->get();
 
-<<<<<<< HEAD
-        /** @var array<int, array{time: string, type: string, status: string}> $todayEntries */
-=======
         // Popola array per la vista
         /** @var array<int, array{time: string, type: string}> $todayEntries */
->>>>>>> f143926 (.)
         $todayEntries = $entries->map(function (WorkHour $entry): array {
             return [
                 'time' => $entry->timestamp->format('H:i'),
                 'type' => $entry->type->value,
                 'status' => $entry->status->value,
             ];
-<<<<<<< HEAD
-        })->values()->all();
-        $this->todayEntries = $todayEntries;
-    }
-=======
         })->toArray();
         
         $this->todayEntries = $todayEntries;
->>>>>>> f143926 (.)
+    }
 
     /**
      * Update current session state.

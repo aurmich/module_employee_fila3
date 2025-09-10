@@ -27,11 +27,7 @@ class TimeClock extends Component
 
     public ?WorkHour $lastEntry = null;
 
-<<<<<<< HEAD
     /** @var array<int, array{time:string,type:string}> */
-=======
-    /** @var array<int, array{id?: int, employee_id: int, type: string, timestamp: string, location_lat?: float|null, location_lng?: float|null, location_name?: string|null, device_info?: array|null, photo_path?: string|null, notes?: string|null, status: string, approved_by?: int|null, approved_at?: string|null, created_at?: string, updated_at?: string}> */
->>>>>>> f143926 (.)
     public array $todayEntries = [];
 
     public float $workedHours = 0.0;
@@ -50,11 +46,7 @@ class TimeClock extends Component
         $this->loadTodayData();
     }
 
-<<<<<<< HEAD
-    public function render(): View
-=======
     public function render(): \Illuminate\Contracts\View\View
->>>>>>> f143926 (.)
     {
         return view('employee::livewire.time-clock');
     }
@@ -127,11 +119,6 @@ class TimeClock extends Component
 
     private function loadTodayData(): void
     {
-<<<<<<< HEAD
-        if (! $this->employee) {
-            $this->todayEntries = [];
-            return;
-=======
         if ($this->employee) {
             $entries = WorkHour::getTodayEntries($this->employee->id);
             // @phpstan-ignore-next-line assign.propertyType
@@ -155,7 +142,6 @@ class TimeClock extends Component
                 ];
             })->toArray();
             $this->workedHours = WorkHour::calculateWorkedHours($this->employee->id);
->>>>>>> f143926 (.)
         }
 
         $entries = WorkHour::getTodayEntries($this->employee->id);

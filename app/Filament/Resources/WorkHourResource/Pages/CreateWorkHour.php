@@ -34,14 +34,6 @@ class CreateWorkHour extends XotBaseCreateRecord
     protected function beforeCreate(): void
     {
         $data = $this->form->getState();
-<<<<<<< HEAD
-        
-        $timestamp = Carbon::parse((string) ($data['timestamp'] ?? ''));
-        $employeeId = (int) ($data['employee_id'] ?? 0);
-        
-        $existingEntry = WorkHour::query()
-            ->where('employee_id', $employeeId)
-=======
 
         // Validate if this entry is allowed based on the last entry
         /** @var string $timestampString */
@@ -81,7 +73,6 @@ class CreateWorkHour extends XotBaseCreateRecord
 
         // Check for duplicate entries within the same minute
         $existingEntry = WorkHour::where('employee_id', $employeeId)
->>>>>>> f143926 (.)
             ->where('timestamp', $timestamp)
             ->where('type', $data['type'])
             ->first();

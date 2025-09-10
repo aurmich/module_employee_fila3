@@ -27,10 +27,6 @@ use Spatie\ModelStates\HasStatesContract;
  * @property string $name
  * @property string $email
  * @property string $password
-<<<<<<< HEAD
- * @property string $type
-=======
->>>>>>> f143926 (.)
  * @property string|null $first_name
  * @property string|null $last_name
  * @property \Carbon\Carbon|null $date_of_birth
@@ -46,8 +42,6 @@ use Spatie\ModelStates\HasStatesContract;
  * @property \Carbon\Carbon|null $email_verified_at
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
-<<<<<<< HEAD
-=======
  *
  * @see \Modules\User\Models\BaseUser
  *
@@ -193,7 +187,6 @@ use Spatie\ModelStates\HasStatesContract;
  *
  * @mixin IdeHelperUser
  * @mixin \Eloquent
->>>>>>> f143926 (.)
  */
 class User extends BaseUser implements HasMedia, HasStatesContract
 {
@@ -201,8 +194,6 @@ class User extends BaseUser implements HasMedia, HasStatesContract
     use HasStates;
     use InteractsWithMedia;
     use LogsActivity;
-<<<<<<< HEAD
-=======
 
     /** @var string */
     protected $connection = 'employee';
@@ -283,5 +274,4 @@ class User extends BaseUser implements HasMedia, HasStatesContract
             // ->logOnly(['name', 'email', 'type', 'state'])
             ->logOnlyDirty();
     }
->>>>>>> f143926 (.)
 }

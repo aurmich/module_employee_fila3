@@ -153,11 +153,7 @@ class UpcomingScheduleWidget extends XotBaseWidget
     /**
      * Get full name from Employee model using real database fields
      */
-<<<<<<< HEAD
-    protected function getEmployeeFullName(\Modules\Employee\Models\Employee $employee): string
-=======
     protected function getEmployeeFullName(Employee $employee): string
->>>>>>> f143926 (.)
     {
         // Use full_name mutator if available
         if (! empty($employee->full_name)) {

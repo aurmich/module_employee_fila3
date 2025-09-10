@@ -35,54 +35,24 @@ class EditWorkHour extends XotBaseEditRecord
         /** @var \Modules\Employee\Models\WorkHour $currentRecord */
         $currentRecord = $this->record;
 
-<<<<<<< HEAD
-        // Ensure we have a WorkHour record
-        if (! ($currentRecord instanceof WorkHour)) {
-            throw new \InvalidArgumentException('Expected WorkHour record');
-        }
-
-        // Validate and cast form data
-        $timestampValue = $data['timestamp'] ?? null;
-        if (! is_string($timestampValue) && ! ($timestampValue instanceof \DateTimeInterface)) {
-            throw new \InvalidArgumentException('Invalid timestamp format');
-        }
-
-        $employeeIdValue = $data['employee_id'] ?? null;
-        if (! is_numeric($employeeIdValue)) {
-            throw new \InvalidArgumentException('Invalid employee ID');
-        }
-        $employeeId = (int) $employeeIdValue;
-
-        $newTimestamp = Carbon::parse(is_string($timestampValue) ? $timestampValue : $timestampValue->format('Y-m-d H:i:s'));
-=======
         /** @var int $employeeId */
         $employeeId = (int) ($data['employee_id'] ?? 0);
         /** @var string $timestampString */
         $timestampString = $data['timestamp'] ?? '';
         $timestamp = Carbon::parse($timestampString);
->>>>>>> f143926 (.)
 
         // Skip validation if no changes to critical fields
         if (
             $currentRecord->employee_id === $employeeId &&
             $currentRecord->type === $data['type'] &&
-<<<<<<< HEAD
-            $currentRecord->timestamp->eq($newTimestamp)
-=======
             $currentRecord->timestamp->eq($timestamp)
->>>>>>> f143926 (.)
         ) {
             return;
         }
 
         // Check for duplicate entries within the same minute (excluding current record)
-<<<<<<< HEAD
-        $existingEntry = WorkHour::where('employee_id', $data['employee_id'])
-            ->where('timestamp', $newTimestamp)
-=======
         $existingEntry = WorkHour::where('employee_id', $employeeId)
             ->where('timestamp', $timestamp)
->>>>>>> f143926 (.)
             ->where('type', $data['type'])
             ->where('id', '!=', $currentRecord->id)
             ->first();

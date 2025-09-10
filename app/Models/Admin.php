@@ -32,12 +32,8 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $created_by
  * @property string|null $updated_by
-<<<<<<< HEAD
- * @property-read \Modules\User\Models\User|null $user
-=======
  * @property-read \Modules\Xot\Contracts\UserContract|null $user
  *
->>>>>>> f143926 (.)
  * @method static \Illuminate\Database\Eloquent\Builder|Admin newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Admin newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Admin query()
@@ -65,15 +61,8 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @property int|null $current_team_id
  * @property string|null $profile_photo_path
  * @property \Illuminate\Support\Carbon|null $deleted_at
-<<<<<<< HEAD
- * @property string|null $state
  * @property array<array-key, mixed>|null $moderation_data
  * @property string|null $lang
- * @property string|null $type
-=======
- * @property array<array-key, mixed>|null $moderation_data
- * @property string|null $lang
->>>>>>> f143926 (.)
  * @property bool $is_active
  * @property bool $is_otp
  * @property \Illuminate\Support\Carbon|null $password_expires_at
@@ -106,15 +95,8 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @property-read int|null $roles_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\SocialiteUser> $socialiteUsers
  * @property-read int|null $socialite_users_count
-<<<<<<< HEAD
- * @property-read mixed|null $pivot
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Team> $teams
  * @property-read int|null $teams_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, mixed> $tenants
-=======
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Team> $teams
- * @property-read int|null $teams_count
->>>>>>> f143926 (.)
  * @property-read int|null $tenants_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\Token> $tokens
  * @property-read int|null $tokens_count
@@ -194,10 +176,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereNationality($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereYearsInItaly($value)
  * @property string|null $age_range
-<<<<<<< HEAD
-=======
  *
->>>>>>> f143926 (.)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Admin whereAgeRange($value)
  * @mixin IdeHelperAdmin
  * @mixin \Eloquent

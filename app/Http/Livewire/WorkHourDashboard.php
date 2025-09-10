@@ -49,8 +49,6 @@ class WorkHourDashboard extends Component
         $this->refreshStats();
     }
 
-<<<<<<< HEAD
-=======
     public function render(): \Illuminate\Contracts\View\View
     {
         return view('employee::livewire.work-hour-dashboard');
@@ -247,7 +245,6 @@ class WorkHourDashboard extends Component
         return collect($this->weeklyStats)->where('hours', '>', 0)->count();
     }
 
->>>>>>> f143926 (.)
     public function getProgressPercentage(): int
     {
         // Assuming 40 hours per week as target
