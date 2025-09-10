@@ -21,9 +21,14 @@
 - Aggiornamento real-time ogni secondo
 
 #### 📋 Colonna 2: Timbrature e Stato
+<<<<<<< HEAD
 - **"Sessione attiva"** - Stato con badge verde
 - **→ 08:02** - Badge cronologici timbrature (verde=entrata, rosso=uscita)
 - Interattività con hover effect e transizioni
+=======
+- **"Sessione attiva"** - Stato con pallino verde animato
+- **● 08:02** - Lista cronologica timbrature reali
+>>>>>>> cda86dd (.)
 - Query database effettive (NO mock)
 
 #### 🔴 Colonna 3: Pulsante Filament Nativo
@@ -50,6 +55,7 @@ class TimeClockWidget extends XotBaseWidget
 }
 ```
 
+<<<<<<< HEAD
 ### Vista Blade - Componenti Filament Nativi con Badge
 ```blade
 <x-filament-widgets::widget>
@@ -115,6 +121,32 @@ class TimeClockWidget extends XotBaseWidget
                     Timbra entrata
                 </x-filament::button>
             @endif
+=======
+### Vista Blade - Componenti Filament Nativi
+```blade
+<x-filament-widgets::widget>
+    <div class="grid grid-cols-3 gap-6 items-center h-20" wire:poll.1s="updateData">
+        {{-- SINISTRA: Ora e Data --}}
+        <div class="text-center">
+            <div class="text-3xl font-mono font-bold">{{ $currentTime }}</div>
+            <div class="text-sm text-gray-600 mt-1">{{ $todayDate }}</div>
+        </div>
+        
+        {{-- CENTRO: Timbrature --}}
+        <div class="text-center">
+            <!-- Stato e lista timbrature -->
+        </div>
+        
+        {{-- DESTRA: Pulsante Filament --}}
+        <div class="text-center">
+            <x-filament::button 
+                wire:click="{{ $isClockedIn ? 'clockOut' : 'clockIn' }}" 
+                color="{{ $isClockedIn ? 'danger' : 'success' }}"
+                size="lg"
+                class="w-full">
+                {{ $isClockedIn ? '🔴 Timbra uscita' : '🟢 Timbra entrata' }}
+            </x-filament::button>
+>>>>>>> cda86dd (.)
         </div>
     </div>
 </x-filament-widgets::widget>
@@ -123,11 +155,18 @@ class TimeClockWidget extends XotBaseWidget
 ## 📊 Caratteristiche Implementate
 
 ### ✅ Studio Filament 3 Completato
+<<<<<<< HEAD
 - **Componenti nativi**: `x-filament::button` e `x-filament::badge`
 - **Colori semantici**: `success` (entrata), `danger` (uscita), `gray` (stati)
 - **Dimensioni standard**: `size="lg"` per pulsanti, `size="sm"` per badge
 - **Wrapper corretto**: `x-filament-widgets::widget`
 - **Layout flexbox**: `flex items-center gap-6` per 3 colonne perfette
+=======
+- **Componenti nativi**: Sempre `x-filament::button`
+- **Colori semantici**: `success`, `danger`, `warning`
+- **Dimensioni standard**: `size="lg"` per pulsanti principali
+- **Wrapper corretto**: `x-filament-widgets::widget`
+>>>>>>> cda86dd (.)
 
 ### ✅ Documentazione Aggiornata
 1. **[filament3_widget_patterns.md](../development/filament3_widget_patterns.md)** - Studio Filament 3
@@ -148,6 +187,7 @@ class TimeClockWidget extends XotBaseWidget
 
 ### Layout Responsivo
 ```css
+<<<<<<< HEAD
 /* Layout definitivo 3 colonne */
 flex items-center gap-6 h-24 w-full
 
@@ -156,6 +196,13 @@ flex-1 text-center
 
 /* Mobile responsive */
 Le colonne si adattano automaticamente allo spazio disponibile
+=======
+/* Desktop: 3 colonne affiancate */
+grid-cols-3
+
+/* Mobile: Stack verticale se necessario */  
+grid-cols-1 md:grid-cols-3
+>>>>>>> cda86dd (.)
 ```
 
 ### Colori Semantici Filament
@@ -178,9 +225,14 @@ Le colonne si adattano automaticamente allo spazio disponibile
 ```
 
 ### Test Funzionalità
+<<<<<<< HEAD
 - ✅ **Layout 3 colonne**: Flexbox perfettamente funzionante
 - ✅ **Componenti Filament**: Button e Badge nativi
 - ✅ **Badge interattivi**: Hover effect e transizioni
+=======
+- ✅ **Layout 3 colonne**: Grid funzionante
+- ✅ **Componenti Filament**: Button nativi
+>>>>>>> cda86dd (.)
 - ✅ **Real-time**: Polling ogni secondo
 - ✅ **Database**: Query timbrature reali
 
@@ -204,19 +256,31 @@ protected function getHeaderWidgets(): array
 ```
 
 ### Caratteristiche UX
+<<<<<<< HEAD
 - **Altezza fissa**: `h-24` per compattezza
 - **Visibilità immediata**: Primo widget nel dashboard
 - **Azioni rapide**: Un click per timbrare
 - **Feedback visivo**: Notifiche Filament integrate
 - **Badge interattivi**: Hover effect e transizioni smooth
 - **Design moderno**: Badge colorati con frecce Unicode
+=======
+- **Altezza fissa**: `h-20` per compattezza
+- **Visibilità immediata**: Primo widget nel dashboard
+- **Azioni rapide**: Un click per timbrare
+- **Feedback visivo**: Notifiche Filament integrate
+>>>>>>> cda86dd (.)
 
 ## 🎉 Risultato Finale
 
 ### Conformità 100%
+<<<<<<< HEAD
 - 🎯 **Layout 3 colonne perfetto** con flexbox
 - ✅ **Componenti Filament** nativi (Button + Badge)
 - ✅ **UI/UX migliorata** con badge interattivi
+=======
+- 🎯 **Layout identico** all'immagine fornita
+- ✅ **Componenti Filament** nativi obbligatori
+>>>>>>> cda86dd (.)
 - ✅ **Logica reale** senza dati mock
 - ✅ **Performance** ottimizzate con polling
 
