@@ -8,14 +8,15 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Employee\Models\WorkHour;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> 5098881 (.)
 use Modules\Employee\Enums\WorkHourStatusEnum;
 use Modules\Employee\Enums\WorkHourTypeEnum;
 >>>>>>> 0a1bcc1 (.)
 use Modules\Employee\Models\Employee;
-use Modules\Employee\Enums\WorkHourTypeEnum;
-use Modules\Employee\Enums\WorkHourStatusEnum;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Employee\Models\WorkHour>

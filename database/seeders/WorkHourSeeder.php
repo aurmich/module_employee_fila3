@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace Modules\Employee\Database\Seeders;
 
 use Carbon\Carbon;
+<<<<<<< HEAD
 use Illuminate\Database\Seeder;
 <<<<<<< HEAD
 =======
 =======
 use Illuminate\Support\Collection;
 >>>>>>> 0a1bcc1 (.)
+=======
+use Illuminate\Database\Seeder;use Illuminate\Support\Collection;
+>>>>>>> 5098881 (.)
 use Modules\Employee\Models\WorkHour;
 use Modules\User\Models\User;
 

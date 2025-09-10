@@ -16,7 +16,6 @@ use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\InteractsWithMedia;
 =======
 use Modules\Gdpr\Models\Traits\HasGdpr;
-use Modules\SaluteOra\Enums\UserTypeEnum;
 use Modules\User\Models\BaseUser;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
@@ -225,5 +224,13 @@ class User extends BaseUser implements HasMedia, HasStatesContract
     use HasStates;
     use InteractsWithMedia;
     use LogsActivity;
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->logOnly(['name', 'email', 'type', 'is_active'])
+            ->logOnlyDirty()
+            ->dontSubmitEmptyLogs();
+    }
 }
 >>>>>>> 0a1bcc1 (.)

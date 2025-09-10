@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Employee\Tests\Unit\Models;
 
 use Modules\Employee\Models\BaseModel;
+<<<<<<< HEAD
 use Illuminate\Foundation\Testing\RefreshDatabase;
 <<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
@@ -14,6 +15,9 @@ uses(TestCase::class, RefreshDatabase::class);
 =======
 =======
 use Illuminate\Database\Eloquent\Model;
+=======
+use Illuminate\Foundation\Testing\RefreshDatabase;use Illuminate\Database\Eloquent\Model;
+>>>>>>> 5098881 (.)
 use Modules\Employee\Models\BaseModel;
 >>>>>>> 0a1bcc1 (.)
 

@@ -27,10 +27,13 @@ class DepartmentFactory extends Factory
     public function definition(): array
     {
         return [
+<<<<<<< HEAD
             'name' => $this->faker->unique()->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
 <<<<<<< HEAD
 =======
 =======
+=======
+>>>>>>> 5098881 (.)
             'name' => $this->faker->unique()->word().' Department',
 >>>>>>> 0a1bcc1 (.)
             'description' => $this->faker->optional()->sentence(),
@@ -42,12 +45,16 @@ class DepartmentFactory extends Factory
     /**
      * Indicate that the department is active.
      *
+<<<<<<< HEAD
      * @return static
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> 0a1bcc1 (.)
      */
+=======
+     * @return static     */
+>>>>>>> 5098881 (.)
     public function active(): static
     {
         return $this->state(fn (array $attributes) => [
@@ -58,12 +65,16 @@ class DepartmentFactory extends Factory
     /**
      * Indicate that the department is inactive.
      *
+<<<<<<< HEAD
      * @return static
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> 0a1bcc1 (.)
      */
+=======
+     * @return static     */
+>>>>>>> 5098881 (.)
     public function inactive(): static
     {
         return $this->state(fn (array $attributes) => [
@@ -75,12 +86,16 @@ class DepartmentFactory extends Factory
      * Set a specific department name.
      *
      * @param string $name
+<<<<<<< HEAD
      * @return static
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> 0a1bcc1 (.)
      */
+=======
+     * @return static     */
+>>>>>>> 5098881 (.)
     public function withName(string $name): static
     {
         return $this->state(fn (array $attributes) => [
@@ -92,12 +107,16 @@ class DepartmentFactory extends Factory
      * Set a specific description.
      *
      * @param string $description
+<<<<<<< HEAD
      * @return static
 <<<<<<< HEAD
 =======
 =======
 >>>>>>> 0a1bcc1 (.)
      */
+=======
+     * @return static     */
+>>>>>>> 5098881 (.)
     public function withDescription(string $description): static
     {
         return $this->state(fn (array $attributes) => [

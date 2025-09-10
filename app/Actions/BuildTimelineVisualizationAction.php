@@ -27,7 +27,7 @@ class BuildTimelineVisualizationAction
      *   timeSlots: array<string, string>,
      *   sessionBlocks: array<string, array<int, array{
      *     start: string,
-     *     end: string,
+     *     end: string|null,
      *     duration: float,
      *     color: string,
      *     status: string,
@@ -133,7 +133,7 @@ class BuildTimelineVisualizationAction
             switch ($entry->type) {
                 case WorkHourTypeEnum::CLOCK_IN:
                     // Chiudi sessione precedente se aperta
-                    if ($currentSession && ! isset($currentSession['end'])) {
+                    if ($currentSession && ($currentSession['end'] ?? null) === null) {
                         $blocks[] = $this->finalizeSessionBlock($currentSession);
                     }
 
@@ -333,18 +333,23 @@ class BuildTimelineVisualizationAction
     private function detectProblems(array $blocks, Carbon $date): bool
     {
         foreach ($blocks as $block) {
+            // Type check for proper array structure
+            if (!is_array($block)) {
+                continue;
+            }
+            
             // Sessione senza uscita
-            if ($block['status'] === 'active' && ! $date->isToday()) {
+            if (isset($block['status']) && is_string($block['status']) && $block['status'] === 'active' && ! $date->isToday()) {
                 return true;
             }
 
             // Sessioni troppo lunghe (>12 ore)
-            if ($block['duration'] > 12) {
+            if (isset($block['duration']) && is_float($block['duration']) && $block['duration'] > 12) {
                 return true;
             }
 
             // Orari anomali (prima delle 06:00 o dopo le 22:00)
-            if (isset($block['startTime'])) {
+            if (isset($block['startTime']) && $block['startTime'] instanceof \Carbon\Carbon) {
                 $hour = $block['startTime']->hour;
                 if ($hour < 6 || $hour > 22) {
                     return true;

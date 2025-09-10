@@ -9,6 +9,7 @@ use Parental\HasParent;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 /**
@@ -23,6 +24,8 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @property string|null $date_of_birth
 =======
 =======
+=======
+>>>>>>> 5098881 (.)
 /**
  * Employee Module Admin Model
  *
@@ -94,7 +97,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Gdpr\Models\Consent> $consents
  * @property-read int|null $consents_count
  * @property-read \Modules\User\Models\Team|null $currentTeam
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\User> $all_team_users
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Database\Eloquent\Model> $all_team_users
  * @property-read \Modules\User\Models\AuthenticationLog|null $latestAuthentication
  * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Modules\Media\Models\Media> $media
  * @property-read int|null $media_count
@@ -112,7 +115,7 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @property-read mixed|null $pivot
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\User\Models\Team> $teams
  * @property-read int|null $teams_count
- * @property-read \Illuminate\Database\Eloquent\Collection<int, mixed> $tenants
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \Modules\Tenant\Models\Tenant> $tenants
  * @property-read int|null $tenants_count
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \Laravel\Passport\Token> $tokens
  * @property-read int|null $tokens_count
@@ -229,6 +232,7 @@ class Admin extends User
 }
 =======
 }
+<<<<<<< HEAD
 =======
             // 'certifications' => 'array',
             // 'availability' => 'array',
@@ -236,3 +240,5 @@ class Admin extends User
     }
 }
 >>>>>>> 0a1bcc1 (.)
+=======
+>>>>>>> 5098881 (.)
