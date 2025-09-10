@@ -33,8 +33,4 @@ enum WorkHourTypeEnum: string
             self::BREAK_END => 'Break End',
         };
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0a1bcc1 (.)

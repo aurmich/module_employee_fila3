@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Filament\Resources;
 
-<<<<<<< HEAD
 use Carbon\Carbon;
-=======
->>>>>>> 0a1bcc1 (.)
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Tables;
@@ -51,8 +48,4 @@ class WorkHourResource extends XotBaseResource
     {
         return [];
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0a1bcc1 (.)

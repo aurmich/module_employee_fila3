@@ -17,6 +17,7 @@ class EmployeeFactory extends Factory
      *
      * @var class-string<\Modules\Employee\Models\Employee>
      */
+    //@phpstan-ignore-next-line
     protected $model = Employee::class;
 
     /**
@@ -30,13 +31,8 @@ class EmployeeFactory extends Factory
             'user_id' => null,
             'employee_code' => 'EMP'.$this->faker->unique()->numberBetween(1000, 9999),
             'personal_data' => [
-<<<<<<< HEAD
                 'first_name' => $this->faker->firstName(),
                 'last_name' => $this->faker->lastName(),
-=======
-                'first_name' => $this->faker->name(),
-                'last_name' => $this->faker->name(),
->>>>>>> 0a1bcc1 (.)
                 'date_of_birth' => $this->faker->date(),
                 'gender' => $this->faker->randomElement(['M', 'F', 'O']),
                 'nationality' => $this->faker->countryCode(),
@@ -48,7 +44,7 @@ class EmployeeFactory extends Factory
                 'address' => [
                     'street' => $this->faker->streetAddress(),
                     'city' => $this->faker->city(),
-                    'state' => $this->faker->state(),
+                    'state' => $this->faker->randomElement(['IT', 'FR', 'DE', 'ES', 'UK']),
                     'postal_code' => $this->faker->postcode(),
                     'country' => $this->faker->country(),
                 ],
@@ -81,16 +77,8 @@ class EmployeeFactory extends Factory
     /**
      * Indicate that the employee is active.
      *
-<<<<<<< HEAD
      * @return static
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 0a1bcc1 (.)
      */
-=======
-     * @return static     */
->>>>>>> 5098881 (.)
     public function active(): static
     {
         return $this->state(fn (array $attributes) => [
@@ -101,16 +89,8 @@ class EmployeeFactory extends Factory
     /**
      * Indicate that the employee is inactive.
      *
-<<<<<<< HEAD
      * @return static
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 0a1bcc1 (.)
      */
-=======
-     * @return static     */
->>>>>>> 5098881 (.)
     public function inactive(): static
     {
         return $this->state(fn (array $attributes) => [

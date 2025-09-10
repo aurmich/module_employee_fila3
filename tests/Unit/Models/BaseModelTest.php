@@ -5,34 +5,10 @@ declare(strict_types=1);
 namespace Modules\Employee\Tests\Unit\Models;
 
 use Modules\Employee\Models\BaseModel;
-<<<<<<< HEAD
-use Illuminate\Foundation\Testing\RefreshDatabase;
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Tests\TestCase;
 
-uses(TestCase::class, RefreshDatabase::class);
-=======
-=======
-use Illuminate\Database\Eloquent\Model;
-=======
-use Illuminate\Foundation\Testing\RefreshDatabase;use Illuminate\Database\Eloquent\Model;
->>>>>>> 5098881 (.)
-use Modules\Employee\Models\BaseModel;
->>>>>>> 0a1bcc1 (.)
 
-beforeEach(function () {
-    $this->baseModel = new class extends BaseModel {
-
-uses(TestCase::class, RefreshDatabase::class);
-
-beforeEach(function () {
-    $this->baseModel = new class() extends BaseModel
-    {
-    $this->baseModel = new class extends BaseModel {
-        protected $table = 'test_employee_table';
-    };
-});
 
 test('base model extends eloquent model', function () {
     expect($this->baseModel)->toBeInstanceOf(Model::class);

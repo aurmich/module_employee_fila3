@@ -4,21 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Filament\Resources\WorkHourResource\Pages;
 
-<<<<<<< HEAD
-use Filament\Actions;
-use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
-use Modules\Employee\Filament\Resources\WorkHourResource;
-use Modules\Employee\Models\WorkHour;
-use Filament\Notifications\Notification;
-use Carbon\Carbon;
-=======
 use Carbon\Carbon;
 use Filament\Actions;
 use Filament\Notifications\Notification;
 use Modules\Employee\Filament\Resources\WorkHourResource;
 use Modules\Employee\Models\WorkHour;
 use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
->>>>>>> 0a1bcc1 (.)
 
 class EditWorkHour extends XotBaseEditRecord
 {
@@ -33,10 +24,7 @@ class EditWorkHour extends XotBaseEditRecord
 
     protected function getRedirectUrl(): string
     {
-<<<<<<< HEAD
-=======
         /** @var string */
->>>>>>> 0a1bcc1 (.)
         return $this->getResource()::getUrl('index');
     }
 
@@ -44,19 +32,6 @@ class EditWorkHour extends XotBaseEditRecord
     {
         $data = $this->form->getState();
         $currentRecord = $this->record;
-<<<<<<< HEAD
-        
-        // Skip validation if no changes to critical fields
-        if (
-            $currentRecord instanceof WorkHour &&
-            $currentRecord->employee_id === $data['employee_id'] &&
-            $currentRecord->type === $data['type'] &&
-            $currentRecord->timestamp->eq(Carbon::parse((string) ($data['timestamp'] ?? '')))
-        ) {
-            return;
-        }
-=======
->>>>>>> 0a1bcc1 (.)
 
         // Ensure we have a WorkHour record
         if (! ($currentRecord instanceof WorkHour)) {
@@ -77,10 +52,6 @@ class EditWorkHour extends XotBaseEditRecord
 
         $newTimestamp = Carbon::parse(is_string($timestampValue) ? $timestampValue : $timestampValue->format('Y-m-d H:i:s'));
 
-<<<<<<< HEAD
-        
-=======
->>>>>>> 0a1bcc1 (.)
         // Skip validation if no changes to critical fields
         if (
             $currentRecord->employee_id === $data['employee_id'] &&

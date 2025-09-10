@@ -121,18 +121,11 @@ return [
             'help' => 'Data ultimo aggiornamento',
             'tooltip' => 'Timestamp ultimo aggiornamento',
             'description' => 'Data e ora dell\'ultimo aggiornamento',
-<<<<<<< HEAD
         ],
-<<<<<<< HEAD
-=======
-=======
         'toggleColumns' => [
-=======
-        ],        'toggleColumns' => [
->>>>>>> 5098881 (.)
             'label' => 'toggleColumns',
+            'help' => 'Toggle colonne tabella',
         ],
->>>>>>> 0a1bcc1 (.)
     ],
     'actions' => [
         'create' => [

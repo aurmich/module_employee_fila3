@@ -5,13 +5,6 @@ declare(strict_types=1);
 namespace Modules\Employee\Http\Livewire;
 
 use Carbon\Carbon;
-<<<<<<< HEAD
-use Livewire\Component;
-use Modules\Employee\Models\WorkHour;
-use Modules\Employee\Models\Employee;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Contracts\View\View;
-=======
 
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
@@ -20,19 +13,10 @@ use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Models\Employee;
 use Illuminate\Support\Facades\Auth;
 use Modules\Employee\Models\WorkHour;
->>>>>>> 0a1bcc1 (.)
 
 class WorkHourDashboard extends Component
 {
     public ?Employee $employee = null;
-<<<<<<< HEAD
-    public array $weeklyStats = [];
-    public array $monthlyStats = [];
-    public float $todayHours = 0.0;
-    public float $weekHours = 0.0;
-    public float $monthHours = 0.0;
-    public array $recentEntries = [];
-=======
 
 
     /** @var array<int, array{date: string, day: string, hours: float, formatted_hours: string}> */
@@ -50,17 +34,12 @@ class WorkHourDashboard extends Component
     /** @var array<int, array{id: int, date: string, time: string, type: WorkHourTypeEnum, type_label: string, type_color: string, notes: string|null, status: WorkHourStatusEnum, status_color: string}> */
     public array $recentEntries = [];
 
->>>>>>> 0a1bcc1 (.)
     public string $selectedPeriod = 'week';
 
     /** @var array<string, string> */
     protected $listeners = [
         'workHourRecorded' => 'refreshStats',
-<<<<<<< HEAD
-        'refreshDashboard' => 'refreshStats'
-=======
         'refreshDashboard' => 'refreshStats',
->>>>>>> 0a1bcc1 (.)
     ];
     public function mount(?int $employeeId = null): void
     {
@@ -70,10 +49,6 @@ class WorkHourDashboard extends Component
         $this->refreshStats();
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0a1bcc1 (.)
     public function getProgressPercentage(): int
     {
         // Assuming 40 hours per week as target
@@ -213,7 +188,9 @@ class WorkHourDashboard extends Component
                 'date' => $entry->timestamp->format('Y-m-d'),
                 'time' => $entry->timestamp->format('H:i'),
                 'type' => $entry->type,
+                //@phpstan-ignore-next-line
                 'type_label' => $entry->type instanceof WorkHourTypeEnum ? $entry->type->getLabel() : (string) $entry->type,
+                //@phpstan-ignore-next-line
                 'type_color' => $entry->type instanceof WorkHourTypeEnum ? $entry->type->getColor() : 'gray',
                 'notes' => $entry->notes,
                 'status' => $entry->status,

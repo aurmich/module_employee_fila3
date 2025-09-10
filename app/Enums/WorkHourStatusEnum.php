@@ -33,8 +33,4 @@ enum WorkHourStatusEnum: string
             self::CANCELLED => 'Cancelled',
         };
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0a1bcc1 (.)
