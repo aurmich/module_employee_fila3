@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Filament\Resources\WorkHourResource\Pages;
 
+<<<<<<< HEAD
 use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
 use Modules\Employee\Filament\Resources\WorkHourResource;
 use Modules\Employee\Models\WorkHour;
@@ -12,6 +13,15 @@ use Modules\Employee\Enums\WorkHourStatusEnum;
 use Filament\Notifications\Notification;
 use Carbon\Carbon;
 
+=======
+use Carbon\Carbon;
+use Filament\Notifications\Notification;
+use Modules\Employee\Enums\WorkHourStatusEnum;
+use Modules\Employee\Enums\WorkHourTypeEnum;
+use Modules\Employee\Filament\Resources\WorkHourResource;
+use Modules\Employee\Models\WorkHour;
+use Modules\Xot\Filament\Resources\Pages\XotBaseCreateRecord;
+>>>>>>> 0a1bcc1 (.)
 class CreateWorkHour extends XotBaseCreateRecord
 {
     protected static string $resource = WorkHourResource::class;
@@ -36,6 +46,7 @@ class CreateWorkHour extends XotBaseCreateRecord
     {
         $data = $this->form->getState();
         
+<<<<<<< HEAD
         // Validate if this entry is allowed based on the last entry
         $timestamp = Carbon::parse((string) ($data['timestamp'] ?? ''));
         $employeeId = (int) ($data['employee_id'] ?? 0);
@@ -70,6 +81,13 @@ class CreateWorkHour extends XotBaseCreateRecord
 
         // Check for duplicate entries within the same minute
         $existingEntry = WorkHour::where('employee_id', $data['employee_id'])
+=======
+        $timestamp = Carbon::parse((string) ($data['timestamp'] ?? ''));
+        $employeeId = (int) ($data['employee_id'] ?? 0);
+        
+        $existingEntry = WorkHour::query()
+            ->where('employee_id', $employeeId)
+>>>>>>> 0a1bcc1 (.)
             ->where('timestamp', $timestamp)
             ->where('type', $data['type'])
             ->first();

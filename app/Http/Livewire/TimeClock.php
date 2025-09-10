@@ -9,14 +9,21 @@ use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+<<<<<<< HEAD
 use Modules\Employee\Models\Employee;
 use Modules\Employee\Models\WorkHour;
 use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Enums\WorkHourStatusEnum;
+=======
+use Modules\Employee\Enums\WorkHourTypeEnum;
+use Modules\Employee\Models\Employee;
+use Modules\Employee\Models\WorkHour;
+>>>>>>> 0a1bcc1 (.)
 
 class TimeClock extends Component
 {
     public ?Employee $employee = null;
+<<<<<<< HEAD
     public string $currentTime = '';
     public string $currentDate = '';
     public string $nextAction = '';
@@ -25,6 +32,24 @@ class TimeClock extends Component
     /** @var array<int, array{time:string,type:string}> */
     public array $todayEntries = [];
     public float $workedHours = 0.0;
+=======
+
+    public string $currentTime = '';
+
+    public string $currentDate = '';
+
+    public string $nextAction = '';
+
+    public string $currentStatus = '';
+
+    public ?WorkHour $lastEntry = null;
+
+    /** @var array<int, array{time:string,type:string}> */
+    public array $todayEntries = [];
+
+    public float $workedHours = 0.0;
+
+>>>>>>> 0a1bcc1 (.)
     public string $notes = '';
 
     /** @var array<string, string> */

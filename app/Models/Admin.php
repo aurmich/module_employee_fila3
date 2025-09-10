@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
+<<<<<<< HEAD
 /**
  * Class Admin
  * 
@@ -20,6 +21,23 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
  * @property string $id
  * @property string $user_id
  * @property string|null $date_of_birth
+=======
+=======
+/**
+ * Employee Module Admin Model
+ *
+ * Admin user type using Single Table Inheritance with Parental package.
+ * Child class of User model for administrative users.
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property string $password
+ * @property string $type
+ * @property string|null $first_name
+ * @property string|null $last_name
+ * @property \Carbon\Carbon|null $date_of_birth
+>>>>>>> 0a1bcc1 (.)
  * @property string|null $gender
  * @property string|null $address
  * @property string|null $phone
@@ -207,4 +225,14 @@ class Admin extends User
             //'availability' => 'array',
         ]);
     }
+<<<<<<< HEAD
 }
+=======
+}
+=======
+            // 'certifications' => 'array',
+            // 'availability' => 'array',
+        ]);
+    }
+}
+>>>>>>> 0a1bcc1 (.)

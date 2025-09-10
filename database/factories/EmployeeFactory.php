@@ -30,8 +30,13 @@ class EmployeeFactory extends Factory
             'user_id' => null,
             'employee_code' => 'EMP'.$this->faker->unique()->numberBetween(1000, 9999),
             'personal_data' => [
+<<<<<<< HEAD
                 'first_name' => $this->faker->firstName(),
                 'last_name' => $this->faker->lastName(),
+=======
+                'first_name' => $this->faker->name(),
+                'last_name' => $this->faker->name(),
+>>>>>>> 0a1bcc1 (.)
                 'date_of_birth' => $this->faker->date(),
                 'gender' => $this->faker->randomElement(['M', 'F', 'O']),
                 'nationality' => $this->faker->countryCode(),
@@ -77,6 +82,10 @@ class EmployeeFactory extends Factory
      * Indicate that the employee is active.
      *
      * @return static
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0a1bcc1 (.)
      */
     public function active(): static
     {
@@ -89,6 +98,10 @@ class EmployeeFactory extends Factory
      * Indicate that the employee is inactive.
      *
      * @return static
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0a1bcc1 (.)
      */
     public function inactive(): static
     {

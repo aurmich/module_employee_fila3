@@ -6,10 +6,16 @@ namespace Modules\Employee\Tests\Unit\Models;
 
 use Modules\Employee\Models\BaseModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class);
+=======
+=======
+use Illuminate\Database\Eloquent\Model;
+use Modules\Employee\Models\BaseModel;
+>>>>>>> 0a1bcc1 (.)
 
 beforeEach(function () {
     $this->baseModel = new class extends BaseModel {

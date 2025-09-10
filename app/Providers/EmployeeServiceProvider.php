@@ -9,6 +9,11 @@ use Modules\Xot\Providers\XotBaseServiceProvider;
 /**
  * Service Provider per il modulo Employee.
  * 
+<<<<<<< HEAD
+=======
+=======
+ *
+>>>>>>> 0a1bcc1 (.)
  * Questo provider gestisce la registrazione e configurazione
  * del modulo Employee nell'applicazione Laravel.
  * 

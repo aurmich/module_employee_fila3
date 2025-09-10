@@ -28,6 +28,11 @@ class DepartmentFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->randomElement(['HR', 'IT', 'Sales', 'Marketing', 'Finance', 'Operations']),
+<<<<<<< HEAD
+=======
+=======
+            'name' => $this->faker->unique()->word().' Department',
+>>>>>>> 0a1bcc1 (.)
             'description' => $this->faker->optional()->sentence(),
             'is_active' => $this->faker->boolean(80), // 80% chance of being active
             'manager_id' => null, // Will be set when needed
@@ -38,6 +43,10 @@ class DepartmentFactory extends Factory
      * Indicate that the department is active.
      *
      * @return static
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0a1bcc1 (.)
      */
     public function active(): static
     {
@@ -50,6 +59,10 @@ class DepartmentFactory extends Factory
      * Indicate that the department is inactive.
      *
      * @return static
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0a1bcc1 (.)
      */
     public function inactive(): static
     {
@@ -63,6 +76,10 @@ class DepartmentFactory extends Factory
      *
      * @param string $name
      * @return static
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0a1bcc1 (.)
      */
     public function withName(string $name): static
     {
@@ -76,6 +93,10 @@ class DepartmentFactory extends Factory
      *
      * @param string $description
      * @return static
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 0a1bcc1 (.)
      */
     public function withDescription(string $description): static
     {

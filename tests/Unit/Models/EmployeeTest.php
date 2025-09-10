@@ -8,8 +8,18 @@ use Modules\Employee\Models\Employee;
 use Modules\Employee\Models\Department;
 use Modules\Employee\Models\Position;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Collection;
 use Tests\TestCase;
+=======
+=======
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
+use Modules\Employee\Models\Department;
+use Modules\Employee\Models\Employee;
+use Modules\Employee\Models\Position;
+use Modules\Employee\Tests\TestCase;
+>>>>>>> 0a1bcc1 (.)
 
 uses(TestCase::class, RefreshDatabase::class);
 use Illuminate\Support\Facades\DB;
@@ -146,6 +156,11 @@ test('employee can check if active', function () {
 test('employee can check if has manager', function () {
     expect($this->employee->hasManager())->toBeFalse();
     
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 0a1bcc1 (.)
     $manager = Employee::factory()->create();
     $this->employee->update(['manager_id' => $manager->id]);
     
@@ -163,6 +178,11 @@ test('employee can check if has manager', function () {
 test('employee can check if has subordinates', function () {
     expect($this->employee->hasSubordinates())->toBeFalse();
     
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 0a1bcc1 (.)
     Employee::factory()->create(['manager_id' => $this->employee->id]);
     
 
@@ -178,9 +198,17 @@ test('employee can be filtered by status', function () {
     $activeEmployee = Employee::factory()->create(['status' => 'attivo']);
     $inactiveEmployee = Employee::factory()->create(['status' => 'inattivo']);
     
+<<<<<<< HEAD
     $activeEmployees = Employee::active()->get();
     $inactiveEmployees = Employee::inactive()->get();
     
+=======
+=======
+
+    $activeEmployees = Employee::active()->get();
+    $inactiveEmployees = Employee::inactive()->get();
+
+>>>>>>> 0a1bcc1 (.)
     expect($activeEmployees)->toHaveCount(2); // Including the one from beforeEach
     expect($inactiveEmployees)->toHaveCount(1);
     

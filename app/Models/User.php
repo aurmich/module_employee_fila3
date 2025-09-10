@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Employee\Models;
 
+<<<<<<< HEAD
 use Modules\User\Models\BaseUser;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\ModelStates\HasStates;
@@ -13,6 +14,21 @@ use Modules\SaluteOra\Enums\UserTypeEnum;
 use Spatie\ModelStates\HasStatesContract;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\MediaLibrary\InteractsWithMedia;
+=======
+use Modules\Gdpr\Models\Traits\HasGdpr;
+use Modules\SaluteOra\Enums\UserTypeEnum;
+use Modules\User\Models\BaseUser;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\ModelStates\HasStates;
+use Spatie\ModelStates\HasStatesContract;
+
+/**
+ * Employee Module User Model
+ *
+>>>>>>> 0a1bcc1 (.)
 
 /**
  * Employee Module User Model
@@ -37,6 +53,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property bool $is_active
  * @property bool $is_otp
  * @property \Carbon\Carbon|null $password_expires_at
+<<<<<<< HEAD
  * @property int|null $studio_id
  * @property string|null $continuation_token
  * @property \Carbon\Carbon|null $email_verified_at
@@ -197,3 +214,16 @@ class User extends BaseUser implements HasMedia, HasStatesContract
             ->logOnlyDirty();
     }
 }
+=======
+ * @property \Carbon\Carbon|null $email_verified_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
+ */
+class User extends BaseUser implements HasMedia, HasStatesContract
+{
+    use HasGdpr;
+    use HasStates;
+    use InteractsWithMedia;
+    use LogsActivity;
+}
+>>>>>>> 0a1bcc1 (.)

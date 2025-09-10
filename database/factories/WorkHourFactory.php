@@ -7,6 +7,12 @@ namespace Modules\Employee\Database\Factories;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Employee\Models\WorkHour;
+<<<<<<< HEAD
+=======
+=======
+use Modules\Employee\Enums\WorkHourStatusEnum;
+use Modules\Employee\Enums\WorkHourTypeEnum;
+>>>>>>> 0a1bcc1 (.)
 use Modules\Employee\Models\Employee;
 use Modules\Employee\Enums\WorkHourTypeEnum;
 use Modules\Employee\Enums\WorkHourStatusEnum;
@@ -168,4 +174,8 @@ class WorkHourFactory extends Factory
             'badge_id' => $this->faker->numerify('EMP####'),
         ]);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 0a1bcc1 (.)

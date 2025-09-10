@@ -122,6 +122,13 @@ return [
             'tooltip' => 'Timestamp ultimo aggiornamento',
             'description' => 'Data e ora dell\'ultimo aggiornamento',
         ],
+<<<<<<< HEAD
+=======
+=======
+        'toggleColumns' => [
+            'label' => 'toggleColumns',
+        ],
+>>>>>>> 0a1bcc1 (.)
     ],
     'actions' => [
         'create' => [

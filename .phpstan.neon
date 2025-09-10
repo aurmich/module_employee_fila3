@@ -6,9 +6,21 @@ parameters:
         - tests
     excludePaths:
         - database/migrations
+<<<<<<< HEAD
     checkMissingIterableValueType: false
     
     # Ignora errori specifici se necessario
+=======
+    
+    # Ignora solo errori di migrazione
+    ignoreErrors:
+        # Ignora errori temporanei durante la migrazione
+        - '#Call to an undefined method.*renameColumn#'
+        - '#Call to an undefined method.*dropIndex#' 
+    checkMissingIterableValueType: false
+    
+    # Ignora solo errori di migrazione
+>>>>>>> 0a1bcc1 (.)
     ignoreErrors:
         # Ignora errori temporanei durante la migrazione
         - '#Call to an undefined method.*renameColumn#'
