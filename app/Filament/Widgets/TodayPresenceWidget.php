@@ -6,6 +6,9 @@ namespace Modules\Employee\Filament\Widgets;
 
 use Modules\Employee\Models\Employee;
 use Modules\Xot\Filament\Widgets\XotBaseWidget;
+use Modules\Employee\Models\Employee;
+use Modules\Employee\Models\WorkHour;
+use Illuminate\Support\Facades\DB;
 
 /**
  * TodayPresenceWidget - Real-time Presence Tracking Widget
@@ -41,6 +44,7 @@ class TodayPresenceWidget extends XotBaseWidget
         // Mock implementation since Employee->workHours relation doesn't exist
         $employees = Employee::limit(10)->get();
 
+<<<<<<< HEAD
         $presentEmployees = [];
         $absentEmployees = [];
 
@@ -57,6 +61,36 @@ class TodayPresenceWidget extends XotBaseWidget
                     'department' => 'SVILUPPO',
                     'check_in_time' => '08:'.str_pad((string) (30 + $index * 5), 2, '0', STR_PAD_LEFT),
                     'location' => 'Ufficio',
+=======
+        // Get employees who clocked in today (present employees)
+        $presentEmployees = \Modules\Employee\Models\Employee::whereHas('workHours', function ($query) use ($today) {
+            $query->where('type', \Modules\Employee\Models\WorkHour::TYPE_CLOCK_IN)
+                ->whereDate('timestamp', $today)
+                ->whereNotExists(function ($subQuery) use ($today) {
+                    $subQuery->from('time_entries as te2')
+                        ->whereColumn('te2.employee_id', 'time_entries.employee_id')
+                        ->where('te2.type', \Modules\Employee\Models\WorkHour::TYPE_CLOCK_OUT)
+                        ->whereDate('te2.timestamp', $today)
+                        ->where('te2.timestamp', '>', \DB::raw('time_entries.timestamp'));
+                });
+        })
+            ->with(['workHours' => function ($query) use ($today) {
+                $query->whereDate('timestamp', $today)->latest('timestamp');
+            }])
+            ->get()
+            ->map(function ($employee) {
+                /** @var \Modules\Employee\Models\WorkHour|null $lastEntry */
+                $lastEntry = $employee->workHours->first();
+                $workType = $this->determineWorkType($lastEntry);
+
+                return [
+                    'id' => $employee->id,
+                    'name' => $employee->full_name ?? 'N/A',
+                    'initials' => $this->generateInitials($employee->full_name ?? ''),
+                    'department' => $employee->work_data['department'] ?? 'N/A',
+                    'check_in_time' => $lastEntry && property_exists($lastEntry, 'timestamp') ? $lastEntry->timestamp->format('H:i') : 'N/A',
+                    'location' => $lastEntry && property_exists($lastEntry, 'location_name') ? $lastEntry->location_name : $workType['default_location'],
+>>>>>>> f143926 (.)
                     'status' => 'present',
                     'work_type' => $index % 2 === 0 ? 'office' : 'remote',
                 ]);
@@ -97,6 +131,78 @@ class TodayPresenceWidget extends XotBaseWidget
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Determine work type based on last entry
+     *
+     * @return array<string, string>
+     */
+    protected function determineWorkType(?\Illuminate\Database\Eloquent\Model $lastEntry): array
+    {
+        if (! $lastEntry) {
+            return ['type' => 'office', 'default_location' => 'Ufficio'];
+        }
+
+        if ($lastEntry->location_name) {
+            if (str_contains(strtolower($lastEntry->location_name), 'smart') ||
+                str_contains(strtolower($lastEntry->location_name), 'remote') ||
+                str_contains(strtolower($lastEntry->location_name), 'casa')) {
+                return ['type' => 'remote', 'default_location' => 'Smart Working'];
+            }
+
+            if (str_contains(strtolower($lastEntry->location_name), 'trasferta') ||
+                str_contains(strtolower($lastEntry->location_name), 'viaggio')) {
+                return ['type' => 'travel', 'default_location' => 'Trasferta'];
+            }
+        }
+
+        return ['type' => 'office', 'default_location' => 'Ufficio'];
+    }
+
+    /**
+     * Determine absence type for employee
+     */
+    protected function determineAbsenceType(\Modules\Employee\Models\Employee $employee): string
+    {
+        // This would typically check a leaves/absences table
+        // For now, return a default based on status
+        return match ($employee->status) {
+            'on_leave' => 'vacation',
+            'sick_leave' => 'sick',
+            'inactive' => 'permit',
+            default => 'unknown',
+        };
+    }
+
+    /**
+     * Get absence reason for employee
+     */
+    protected function getAbsenceReason(\Modules\Employee\Models\Employee $employee): string
+    {
+        return match ($this->determineAbsenceType($employee)) {
+            'vacation' => 'Ferie programmate',
+            'sick' => 'Malattia',
+            'permit' => 'Permesso personale',
+            default => 'Non specificato',
+        };
+    }
+
+    /**
+     * Get estimated return date for employee
+     */
+    protected function getEstimatedReturnDate(\Modules\Employee\Models\Employee $employee): string
+    {
+        // This would typically come from a leaves table
+        // For now, provide reasonable defaults
+        return match ($this->determineAbsenceType($employee)) {
+            'sick' => now()->addDays(1)->format('d/m/Y'),
+            'vacation' => now()->addDays(rand(1, 5))->format('d/m/Y'),
+            default => now()->addDay()->format('d/m/Y'),
+        };
+    }
+
+    /**
+>>>>>>> f143926 (.)
      * Get avatar background color based on initials
      */
     protected function getAvatarColor(string $initials): string

@@ -34,12 +34,54 @@ class CreateWorkHour extends XotBaseCreateRecord
     protected function beforeCreate(): void
     {
         $data = $this->form->getState();
+<<<<<<< HEAD
         
         $timestamp = Carbon::parse((string) ($data['timestamp'] ?? ''));
         $employeeId = (int) ($data['employee_id'] ?? 0);
         
         $existingEntry = WorkHour::query()
             ->where('employee_id', $employeeId)
+=======
+
+        // Validate if this entry is allowed based on the last entry
+        /** @var string $timestampString */
+        $timestampString = $data['timestamp'] ?? '';
+        $timestamp = Carbon::parse($timestampString);
+        
+        /** @var int $employeeId */
+        $employeeId = (int) ($data['employee_id'] ?? 0);
+        $lastEntry = WorkHour::getLastEntryForEmployee($employeeId, $timestamp);
+        $expectedAction = WorkHour::getNextAction($employeeId, $timestamp);
+
+        if ($data['type'] !== $expectedAction) {
+            $lastEntryType = $lastEntry ? match ($lastEntry->type) {
+                WorkHour::TYPE_CLOCK_IN => 'Clock In',
+                WorkHour::TYPE_CLOCK_OUT => 'Clock Out',
+                WorkHour::TYPE_BREAK_START => 'Break Start',
+                WorkHour::TYPE_BREAK_END => 'Break End',
+                default => $lastEntry->type,
+            } : 'None';
+
+            $expectedActionLabel = match ($expectedAction) {
+                WorkHour::TYPE_CLOCK_IN => 'Clock In',
+                WorkHour::TYPE_CLOCK_OUT => 'Clock Out',
+                WorkHour::TYPE_BREAK_START => 'Break Start',
+                WorkHour::TYPE_BREAK_END => 'Break End',
+                default => $expectedAction,
+            };
+
+            Notification::make()
+                ->title('Invalid Entry Sequence')
+                ->body("Last entry was: {$lastEntryType}. Expected next action: {$expectedActionLabel}")
+                ->danger()
+                ->send();
+
+            $this->halt();
+        }
+
+        // Check for duplicate entries within the same minute
+        $existingEntry = WorkHour::where('employee_id', $employeeId)
+>>>>>>> f143926 (.)
             ->where('timestamp', $timestamp)
             ->where('type', $data['type'])
             ->first();

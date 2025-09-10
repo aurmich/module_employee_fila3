@@ -28,6 +28,7 @@ use Parental\HasParent;
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Modules\User\Models\User|null $user
  * @property-read \Illuminate\Database\Eloquent\Collection<\Modules\Employee\Models\WorkHour> $workHours
+<<<<<<< HEAD
  * @property string|null $name
  * @property string|null $first_name
  * @property string|null $last_name
@@ -123,6 +124,8 @@ use Parental\HasParent;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee withoutPermission($permissions)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee withoutRole($roles, $guard = null)
  * @mixin \Eloquent
+=======
+>>>>>>> f143926 (.)
  */
 class Employee extends User
 {
@@ -170,7 +173,11 @@ class Employee extends User
     /**
      * Get the work hours for this employee.
      *
+<<<<<<< HEAD
      * @return HasMany<WorkHour, $this>
+=======
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\Modules\Employee\Models\WorkHour, \Modules\Employee\Models\Employee>
+>>>>>>> f143926 (.)
      */
     public function workHours(): HasMany
     {
@@ -178,19 +185,38 @@ class Employee extends User
     }
 
     /**
+<<<<<<< HEAD
+=======
+     * Get the department this employee belongs to.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\Modules\Employee\Models\Department, \Modules\Employee\Models\Employee>
+     */
+    public function department(): BelongsTo
+    {
+        // @phpstan-ignore-next-line return.type
+        return $this->belongsTo(Department::class, 'department_id');
+    }
+
+    /**
+>>>>>>> f143926 (.)
      * Get the manager of this employee.
      *
      * @return BelongsTo<Employee, $this>
      */
     public function manager(): BelongsTo
     {
+        // @phpstan-ignore-next-line return.type
         return $this->belongsTo(Employee::class, 'manager_id');
     }
 
     /**
      * Get the subordinates of this employee.
      *
+<<<<<<< HEAD
      * @return HasMany<Employee, $this>
+=======
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<\Modules\Employee\Models\Employee, \Modules\Employee\Models\Employee>
+>>>>>>> f143926 (.)
      */
     public function subordinates(): HasMany
     {

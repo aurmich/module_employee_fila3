@@ -48,6 +48,7 @@ class TeamPresenceWidget extends XotBaseWidget
                         ->afterStateUpdated(fn (mixed $state) => $this->selectedDepartment = is_string($state) ? $state : null),
 
                     Placeholder::make('presence_stats')
+<<<<<<< HEAD
                         ->content(function () use ($presenceData): \Illuminate\Contracts\View\View {
                             // @phpstan-ignore-next-line argument.type
                             return view('employee::widgets.team-presence.stats-display', [
@@ -55,15 +56,34 @@ class TeamPresenceWidget extends XotBaseWidget
                                 'absent' => $presenceData['absent'],
                                 'presentCount' => is_countable($presenceData['present']) ? count($presenceData['present']) : 0,
                                 'absentCount' => is_countable($presenceData['absent']) ? count($presenceData['absent']) : 0,
+=======
+                        ->content(function () use ($presenceData) {
+                            /** @var view-string $view */
+                            $view = 'employee::widgets.team-presence.stats-display';
+                            return view($view, [
+                                'present' => $presenceData['present'],
+                                'absent' => $presenceData['absent'],
+                                'presentCount' => count($presenceData['present']),
+                                'absentCount' => count($presenceData['absent']),
+>>>>>>> f143926 (.)
                             ]);
                         }),
 
                     Placeholder::make('presence_list')
+<<<<<<< HEAD
                         ->content(function () use ($presenceData): \Illuminate\Contracts\View\View {
                             // @phpstan-ignore-next-line argument.type
                             return view('employee::widgets.team-presence.presence-list', [
                                 'present' => is_array($presenceData['present']) ? $presenceData['present'] : [],
                                 'absent' => is_array($presenceData['absent']) ? $presenceData['absent'] : [],
+=======
+                        ->content(function () use ($presenceData) {
+                            /** @var view-string $view */
+                            $view = 'employee::widgets.team-presence.presence-list';
+                            return view($view, [
+                                'present' => $presenceData['present'],
+                                'absent' => $presenceData['absent'],
+>>>>>>> f143926 (.)
                             ]);
                         }),
 
@@ -136,6 +156,59 @@ class TeamPresenceWidget extends XotBaseWidget
             }
         }
 
+<<<<<<< HEAD
+=======
+        // Get present employees (who clocked in today and haven't clocked out)
+        $present = $baseQuery->clone()
+            ->whereHas('workHours', function ($query) use ($today) {
+                $query->where('type', \Modules\Employee\Models\WorkHour::TYPE_CLOCK_IN)
+                    ->whereDate('timestamp', $today)
+                    ->whereNotExists(function ($subQuery) use ($today) {
+                        $subQuery->from('time_entries as te2')
+                            ->whereColumn('te2.employee_id', 'time_entries.employee_id')
+                            ->where('te2.type', \Modules\Employee\Models\WorkHour::TYPE_CLOCK_OUT)
+                            ->whereDate('te2.timestamp', $today)
+                            ->where('te2.timestamp', '>', \DB::raw('time_entries.timestamp'));
+                    });
+            })
+            ->with(['workHours' => function ($query) use ($today) {
+                $query->whereDate('timestamp', $today)
+                    ->where('type', \Modules\Employee\Models\WorkHour::TYPE_CLOCK_IN)
+                    ->latest('timestamp');
+            }])
+            ->get()
+            ->map(function ($employee) {
+                /** @var \Modules\Employee\Models\WorkHour|null $lastEntry */
+                $lastEntry = $employee->workHours->first();
+
+                return [
+                    'name' => $employee->full_name ?? 'N/A',
+                    'avatar' => null, // Could be implemented later with photo_url
+                    'initials' => $this->generateInitials($employee->full_name ?? ''),
+                    'clock_in' => $lastEntry ? $lastEntry->timestamp->format('H:i') : 'N/A',
+                    'status' => $this->determineWorkingStatus($employee),
+                ];
+            })->toArray();
+
+        // Get absent employees (no clock-in today)
+        $absent = $baseQuery->clone()
+            ->whereDoesntHave('workHours', function ($query) use ($today) {
+                $query->where('type', \Modules\Employee\Models\WorkHour::TYPE_CLOCK_IN)
+                    ->whereDate('timestamp', $today);
+            })
+            ->limit(10) // Limit for performance
+            ->get()
+            ->map(function ($employee) {
+                return [
+                    'name' => $employee->full_name ?? 'N/A',
+                    'avatar' => null,
+                    'initials' => $this->generateInitials($employee->full_name ?? ''),
+                    'reason' => $this->getAbsenceReason($employee),
+                    'status' => $this->determineAbsenceStatus($employee),
+                ];
+            })->toArray();
+
+>>>>>>> f143926 (.)
         return [
             'present' => $present,
             'absent' => $absent,
