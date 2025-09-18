@@ -7,7 +7,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
 
 /**
  * Class CreateAttendancesTable.
- * 
+ *
  * Migrazione per la creazione della tabella attendances.
  * Gestisce presenze, timbrature, calcolo ore e geolocalizzazione.
  */

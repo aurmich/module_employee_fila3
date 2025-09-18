@@ -194,6 +194,6 @@ class Attendance extends BaseModel
      */
     public function hasLocation(): bool
     {
-        return ! empty($this->latitude) && ! empty($this->longitude);
+        return !empty($this->latitude) && !empty($this->longitude);
     }
 }
